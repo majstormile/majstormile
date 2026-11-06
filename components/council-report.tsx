@@ -8,7 +8,7 @@ import {instance} from '@/lib/instance';
 import {councilReport, shiftMonth, type CouncilReport} from '@/lib/council-report';
 import type {Ticket} from '@/lib/domain';
 
-const NAVY: [number, number, number] = [21, 42, 64], RED: [number, number, number] = [201, 32, 61], GREY: [number, number, number] = [107, 122, 144], LIGHT: [number, number, number] = [243, 246, 250];
+const NAVY: [number, number, number] = [31, 58, 46], RED: [number, number, number] = [201, 32, 61], GREY: [number, number, number] = [107, 122, 144], LIGHT: [number, number, number] = [243, 246, 250];
 const monthName = (m: string) => new Date(m + '-15T00:00:00Z').toLocaleDateString(locale(), {month: 'long', year: 'numeric', timeZone: 'UTC'});
 const num = (n: number | null, digits = 0) => n === null ? '—' : n.toLocaleString(locale(), {maximumFractionDigits: digits});
 
