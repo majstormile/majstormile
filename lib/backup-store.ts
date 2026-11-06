@@ -3,6 +3,7 @@ import 'server-only';
 import {adminClient, workspaceId} from './store';
 import {BACKUP_BUCKET, backupPrefix, backupName, parseBackupName, retention, makeSnapshot, checkSnapshot, type BackupKind, type BackupFile} from './backup';
 import type {State} from './domain';
+import {driveReady, uploadToDrive} from './drive-backup';
 
 const bucket = () => adminClient().storage.from(BACKUP_BUCKET);
 
@@ -20,6 +21,7 @@ export async function writeBackup(kind: BackupKind, state: State, revision: numb
   const body = JSON.stringify(makeSnapshot(workspaceId, kind, at, revision, state, by));
   const {error} = await bucket().upload(`${backupPrefix(workspaceId)}/${name}`, new Blob([body], {type: 'application/json'}), {contentType: 'application/json', upsert: true});
   if (error) throw new Error('503:The backup could not be stored. Check the private storage bucket.');
+  if (kind === 'daily' && driveReady()) { try { await uploadToDrive(name, body); } catch (e) { console.error('Drive copy failed', e); } }
   try {
     const {remove} = retention(await listBackups());
     if (remove.length) await bucket().remove(remove.map(f => `${backupPrefix(workspaceId)}/${f.name}`));

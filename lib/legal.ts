@@ -72,6 +72,6 @@ export const SUBPROCESSORS: readonly {name: string; role: string; where: string}
   {name: 'Vercel Inc.', role: 'hosting sajta i serverskih funkcija, veb analitika bez kolačića', where: 'serverske funkcije u Frankfurtu na Majni (fra1), isporuka preko svetske mreže; kompanija iz SAD'},
   {name: 'Resend Inc.', role: 'slanje e-pošte (kodovi za prijavu, obaveštenja, poruke podršci)', where: 'EU region ili SAD'},
   {name: 'komoot GmbH (Photon)', role: 'predlozi adresa dok kucate', where: 'Nemačka'},
-  {name: 'Google Ireland Ltd. / Google LLC', role: 'prijava preko Google naloga (samo ako je korisnik izabere)', where: 'EU i SAD'},
+  {name: 'Google Ireland Ltd. / Google LLC', role: 'prijava preko Google naloga (samo ako je korisnik izabere) i vanmrežna kopija dnevne rezervne kopije na Google Disku', where: 'EU i SAD'},
   {name: 'Meta Platforms Ireland Ltd.', role: 'prijava preko Facebook naloga (samo ako je korisnik izabere)', where: 'EU i SAD'},
 ];
