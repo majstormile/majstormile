@@ -375,7 +375,7 @@ No live-site settings were changed as part of this export. There is no automatic
 
 ## Data protection (Germany / EU)
 
-- **Operator details** for the Impressum (`/impressum`, § 5 DDG) and the privacy policy (`/datenschutz`, Art. 13 GDPR) live in `lib/legal.ts`. Empty fields show as highlighted placeholders until the operating company exists. Sub-processors are listed there once and rendered in the privacy policy.
+- **Operator details** for the Serbian legal pages (`/podaci-o-pruzaocu-usluge`, `/politika-privatnosti`, `/uslovi-koriscenja`, `/politika-kolacica`, `/ugovor-o-obradi-podataka`) live in `lib/legal.ts`. Empty fields show as highlighted placeholders until the operating company exists. Sub-processors are listed there once and rendered in the privacy policy.
 - **No location data.** Jobs carry an address only. `lib/strip-metadata.ts` removes EXIF/XMP (GPS, device, time) from every JPEG, PNG and WebP upload before storage; the pixels are unchanged.
 - **Retention.** `lib/privacy.ts` removes tenant name, phone, email and access notes a set number of days after a job is closed (default 90, admins can set 14–730). The nightly `/api/auto-close` job runs the sweep. Job records and photos stay as proof of the work.
 - **Requests from a person.** Settings → Data protection: find a person by email or phone, download their data as JSON (Art. 15/20) and remove their contact details (Art. 17). Team managers can remove the contact on a single job.

@@ -205,6 +205,7 @@ export default function AccessGate({ children }: { children: ReactNode }) {useLa
     <p className="footnote">{tx("Access is provisioned by your workspace administrator. Contact them for a new account or password reset.")}</p>
     <a className="text-button" href="/concept">{tx("Explore the platform")}</a>
     <a className="text-button report-link" href="/report">{tx("Report a defect without an account")}</a>
+    <p className="legal-accept">{tx('By signing in you accept the Terms of Use. Your data is handled as described in the Privacy Policy.')}</p>
     <p className="public-links"><LegalFooterLinks/></p>
   </section></main>;
 }

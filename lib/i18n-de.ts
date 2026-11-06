@@ -1749,4 +1749,5 @@ export const de: Record<string, string> = {
   "Your account has reached the passkey limit. Remove one first.": "Ihr Konto hat die maximale Anzahl an Passkeys erreicht. Entfernen Sie zuerst einen.",
   "The passkey request was cancelled.": "Die Passkey-Anfrage wurde abgebrochen.",
   "The passkey could not be used. Please try again.": "Der Passkey konnte nicht verwendet werden. Bitte erneut versuchen.",
+  "By signing in you accept the Terms of Use. Your data is handled as described in the Privacy Policy.": "Mit der Anmeldung akzeptieren Sie die Nutzungsbedingungen. Ihre Daten werden wie in der Datenschutzerklärung beschrieben verarbeitet.",
 };

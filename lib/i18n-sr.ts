@@ -1750,4 +1750,5 @@ export const sr: Record<string, string> = {
   "Your account has reached the passkey limit. Remove one first.": "Vaš nalog je dostigao ograničenje broja passkey-eva. Prvo uklonite jedan.",
   "The passkey request was cancelled.": "Zahtev za passkey je otkazan.",
   "The passkey could not be used. Please try again.": "Passkey nije mogao biti upotrebljen. Pokušajte ponovo.",
+  "By signing in you accept the Terms of Use. Your data is handled as described in the Privacy Policy.": "Prijavom prihvatate Uslove korišćenja. Sa vašim podacima postupamo kako je opisano u Politici privatnosti.",
 };

@@ -60,3 +60,16 @@
 .passkey-list li span{flex:1;display:grid;gap:2px;min-width:0}
 .passkey-list li small{color:#6b7a90}
 [data-theme=dark] .passkey-list li{background:#1d2026;border-color:#2c3038}
+.legal ol{padding-left:22px;display:grid;gap:6px}
+.legal-intro{margin-bottom:6px}
+.legal-table-wrap{overflow-x:auto}
+.legal-table{width:100%;border-collapse:collapse;font-size:.88rem}
+.legal-table th,.legal-table td{border:1px solid #e3e8ef;padding:8px 10px;text-align:left;vertical-align:top}
+.legal-table th{background:#f6ebcf;color:#1f3a2e}
+.legal-other{margin-top:28px;padding-top:12px;border-top:1px solid #e3e8ef}
+.legal-other ul{padding-left:20px}
+.legal-accept{font-size:.8rem;color:#6b7a90;text-align:center;margin:8px 0 0}
+@media print{.public-head,.public-links,.legal-other{display:none}.legal-page{background:#fff}.public-card{border:0;box-shadow:none}}
+[data-theme=dark] .legal-table th{background:#2a2f26;color:#f6ebcf}
+[data-theme=dark] .legal-table th,[data-theme=dark] .legal-table td,[data-theme=dark] .legal-other{border-color:#2c3038}
+.legal section p{margin:0 0 10px}

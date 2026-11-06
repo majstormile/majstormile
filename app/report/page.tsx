@@ -87,7 +87,7 @@ export default function ReportPage() {
           <label className="hp" aria-hidden="true">Website<input name="website" tabIndex={-1} autoComplete="off"/></label>
           {error && <p className="access-error" role="alert">{error}</p>}
           <button className="primary" disabled={busy}>{tx(busy ? 'Sending…' : 'Send report')}</button>
-          <p className="muted small">{tx('Your report is stored by the property management to organise the repair. It is not an emergency service: for immediate danger, call {0}.', [instance.emergency])} <a href="/datenschutz">{tx('How we handle your data')}</a></p>
+          <p className="muted small">{tx('Your report is stored by the property management to organise the repair. It is not an emergency service: for immediate danger, call {0}.', [instance.emergency])} <a href="/politika-privatnosti">{tx('How we handle your data')}</a></p>
         </form>
       </>}
       <p className="public-links"><a href="/track">{tx('Check a report with your code')}</a> · <LegalFooterLinks/></p>

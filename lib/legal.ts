@@ -1,7 +1,9 @@
-// Who operates MajstorMile. Shown on the provider notice (Impressum page, Law on Electronic Commerce Art. 6)
-// and in the privacy policy (Law on Personal Data Protection, ZZPL, Art. 23 and 24).
-// Fill these in with the real operator's details; empty fields are shown as highlighted placeholders.
-// A Serbian lawyer should review both pages before MajstorMile is offered to paying customers.
+// Who operates MajstorMile, and the shared data for the legal documents (all in Serbian, the binding language).
+// Laws referred to: Zakon o elektronskoj trgovini (provider notice, čl. 6; terms, čl. 12–13),
+// Zakon o zaštiti podataka o ličnosti – ZZPL (privacy policy, čl. 23–24; processor agreement, čl. 45),
+// Zakon o obligacionim odnosima (liability, čl. 265).
+// Fill in the operator once the company exists; empty fields are shown as highlighted placeholders.
+// A Serbian lawyer should review every document before MajstorMile is offered to paying customers.
 export type Operator = {
   /** Business name with legal form, e.g. "Primer d.o.o." or the entrepreneur's registered name. */
   name: string;
@@ -13,7 +15,7 @@ export type Operator = {
   /** Contact email for quick, direct communication (required by Art. 6 of the Law on Electronic Commerce). */
   email: string;
   phone: string;
-  /** Registry entry, e.g. "APR (Serbian Business Registers Agency), registration number 12345678". */
+  /** Registry entry, e.g. "Agencija za privredne registre, matični broj 12345678". */
   register: string;
   /** Tax identification number (PIB). */
   pib: string;
@@ -23,6 +25,8 @@ export type Operator = {
   serbianRepresentative: string;
   /** Data protection officer (lice za zaštitu podataka o ličnosti), if one is appointed. */
   dpo: string;
+  /** Town whose court has jurisdiction over disputes; normally the town of the registered seat. */
+  courtTown: string;
 };
 
 export const operator: Operator = {
@@ -38,25 +42,36 @@ export const operator: Operator = {
   vatId: '',
   serbianRepresentative: '',
   dpo: '',
+  courtTown: '',
 };
+
+/** Version shown on every legal document. Raise it whenever a document changes. */
+export const LEGAL_VERSION = {number: '1.0', date: '6. novembra 2026.'} as const;
+
+/** Every legal document, in the order shown in footers. */
+export const LEGAL_DOCS = [
+  {href: '/uslovi-koriscenja', title: 'Uslovi korišćenja'},
+  {href: '/politika-privatnosti', title: 'Politika privatnosti'},
+  {href: '/politika-kolacica', title: 'Politika kolačića'},
+  {href: '/ugovor-o-obradi-podataka', title: 'Ugovor o obradi podataka'},
+  {href: '/podaci-o-pruzaocu-usluge', title: 'Podaci o pružaocu usluge'},
+] as const;
 
 /** The supervisory authority for personal data in Serbia. */
 export const AUTHORITY = {
   name: 'Poverenik za informacije od javnog značaja i zaštitu podataka o ličnosti',
-  nameEn: 'Commissioner for Information of Public Importance and Personal Data Protection',
   address: 'Bulevar kralja Aleksandra 15, 11120 Beograd',
   email: 'office@poverenik.rs',
   phone: '+381 11 3408 900',
   web: 'https://www.poverenik.rs',
 } as const;
 
-type L3 = {sr: string; en: string; de: string};
-/** Processors and other recipients, listed in the privacy policy. */
-export const SUBPROCESSORS: readonly {name: string; role: L3; where: L3}[] = [
-  {name: 'Supabase Inc.', role: {sr: 'baza podataka, skladište fajlova i prijava', en: 'Database, file storage and sign-in', de: 'Datenbank, Dateispeicher und Anmeldung'}, where: {sr: 'Data centar u Frankfurtu na Majni (AWS eu-central-1); kompanija iz SAD', en: 'Data centre in Frankfurt am Main (AWS eu-central-1); company in the USA', de: 'Rechenzentrum Frankfurt am Main (AWS eu-central-1); Unternehmen in den USA'}},
-  {name: 'Vercel Inc.', role: {sr: 'hosting sajta i serverskih funkcija, veb analitika bez kolačića', en: 'Website and server function hosting, cookie-free web analytics', de: 'Hosting der Website und Serverfunktionen, Webanalyse ohne Cookies'}, where: {sr: 'Serverske funkcije u Frankfurtu na Majni (fra1), isporuka preko svetske mreže; kompanija iz SAD', en: 'Server functions in Frankfurt am Main (fra1), delivery through a global network; company in the USA', de: 'Serverfunktionen in Frankfurt am Main (fra1), Auslieferung über ein weltweites Netz; Unternehmen in den USA'}},
-  {name: 'Google Ireland Ltd. / Google LLC', role: {sr: 'prijava preko Google naloga (samo ako se koristi)', en: 'Sign in with Google (only if used)', de: 'Anmeldung mit Google (nur wenn genutzt)'}, where: {sr: 'EU i SAD', en: 'EU and USA', de: 'EU und USA'}},
-  {name: 'Meta Platforms Ireland Ltd.', role: {sr: 'prijava preko Facebook naloga (samo ako se koristi)', en: 'Sign in with Facebook (only if used)', de: 'Anmeldung mit Facebook (nur wenn genutzt)'}, where: {sr: 'EU i SAD', en: 'EU and USA', de: 'EU und USA'}},
-  {name: 'komoot GmbH (Photon)', role: {sr: 'predlozi adresa dok kucate', en: 'Address suggestions while typing', de: 'Adressvorschläge beim Tippen'}, where: {sr: 'Nemačka', en: 'Germany', de: 'Deutschland'}},
-  {name: 'Resend Inc.', role: {sr: 'slanje obaveštenja e-poštom (samo ako je podešeno)', en: 'Sending notification emails (only if set up)', de: 'Versand von Benachrichtigungs-E-Mails (nur wenn eingerichtet)'}, where: {sr: 'SAD ili EU region', en: 'USA or EU region', de: 'USA bzw. EU-Region'}},
+/** Processors (podobrađivači) that host or transmit data, listed in the privacy policy and the processor agreement. */
+export const SUBPROCESSORS: readonly {name: string; role: string; where: string}[] = [
+  {name: 'Supabase Inc.', role: 'baza podataka, skladište fajlova i prijava', where: 'data centar u Frankfurtu na Majni (AWS eu-central-1); kompanija iz SAD'},
+  {name: 'Vercel Inc.', role: 'hosting sajta i serverskih funkcija, veb analitika bez kolačića', where: 'serverske funkcije u Frankfurtu na Majni (fra1), isporuka preko svetske mreže; kompanija iz SAD'},
+  {name: 'Resend Inc.', role: 'slanje e-pošte (kodovi za prijavu, obaveštenja, poruke podršci)', where: 'EU region ili SAD'},
+  {name: 'komoot GmbH (Photon)', role: 'predlozi adresa dok kucate', where: 'Nemačka'},
+  {name: 'Google Ireland Ltd. / Google LLC', role: 'prijava preko Google naloga (samo ako je korisnik izabere)', where: 'EU i SAD'},
+  {name: 'Meta Platforms Ireland Ltd.', role: 'prijava preko Facebook naloga (samo ako je korisnik izabere)', where: 'EU i SAD'},
 ];
