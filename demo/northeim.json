@@ -1,0 +1,664 @@
+{
+  "name": "Northeim – Altstadt, Nord- und Südstadt",
+  "description": "Mietobjekte in Northeim (Niedersachsen), zwei Teams, Sachbearbeiter, Abnahme, Geschäftsführung und fünf Handwerksbetriebe (Maler, Sanitär und Heizung, Elektro, Schlüsseldienst, Trockenbau und Maurer).",
+  "teams": [
+    "Northeim – Altstadt",
+    "Northeim – Nord & Süd"
+  ],
+  "people": [
+    {
+      "id": "demo-lead",
+      "name": "Sandra Meyer",
+      "role": "Head Analyst",
+      "teams": [
+        "Northeim – Altstadt",
+        "Northeim – Nord & Süd"
+      ],
+      "phone": "+49 5551 9120 100"
+    },
+    {
+      "id": "demo-analyst",
+      "name": "Tobias Krüger",
+      "role": "Analyst",
+      "teams": [
+        "Northeim – Altstadt"
+      ]
+    },
+    {
+      "id": "demo-analyst-2",
+      "name": "Julia Bode",
+      "role": "Analyst",
+      "teams": [
+        "Northeim – Nord & Süd"
+      ]
+    },
+    {
+      "id": "demo-auditor",
+      "name": "Frank Wedekind",
+      "role": "Auditor",
+      "teams": []
+    },
+    {
+      "id": "demo-director",
+      "name": "Heike Lindemann",
+      "role": "Director",
+      "teams": []
+    },
+    {
+      "id": "demo-contractor",
+      "name": "Dirk Schaper",
+      "role": "Contractor",
+      "teams": [],
+      "contractor": "Malerwerkstatt Leinetal (Demo)"
+    },
+    {
+      "id": "demo-contractor-2",
+      "name": "Kerstin Ahlborn",
+      "role": "Contractor",
+      "teams": [],
+      "contractor": "Rhume Sanitär & Heizung (Demo)"
+    },
+    {
+      "id": "demo-contractor-3",
+      "name": "Stefan Fricke",
+      "role": "Contractor",
+      "teams": [],
+      "contractor": "Elektrotechnik Wieter (Demo)"
+    },
+    {
+      "id": "demo-contractor-4",
+      "name": "Ömer Yildiz",
+      "role": "Contractor",
+      "teams": [],
+      "contractor": "Schlüssel-Service Münsterplatz (Demo)"
+    },
+    {
+      "id": "demo-contractor-5",
+      "name": "Marco Hartmann",
+      "role": "Contractor",
+      "teams": [],
+      "contractor": "Bau & Putz Leinetal (Demo)"
+    }
+  ],
+  "contracts": [
+    {
+      "id": "CT-NOM-101",
+      "contractor": "Malerwerkstatt Leinetal (Demo)",
+      "trade": "Painting",
+      "road": "Breite Straße",
+      "additionalRoads": [
+        "Am Münster",
+        "Entenmarkt",
+        "Holzhäuser-Straße",
+        "Rückingsallee"
+      ],
+      "start": "2025-03-01",
+      "end": "2028-02-29",
+      "poc": "Dirk Schaper",
+      "email": "dirk.schaper@example.invalid",
+      "phone": "+49 5551 9120 210",
+      "scope": "Maler- und Tapezierarbeiten in Wohnungen und Treppenhäusern, Altstadt und Nordstadt",
+      "addressCountry": "DEU",
+      "notes": "Rahmenvertrag 2025-M-03 (Demo)"
+    },
+    {
+      "id": "CT-NOM-102",
+      "contractor": "Rhume Sanitär & Heizung (Demo)",
+      "trade": "Plumbing",
+      "road": "Mühlenstraße",
+      "additionalRoads": [
+        "Hagenstraße",
+        "Wieterstraße",
+        "Göttinger Straße",
+        "Friedrich-Ebert-Wall"
+      ],
+      "start": "2025-03-01",
+      "end": "2028-02-29",
+      "poc": "Kerstin Ahlborn",
+      "email": "kerstin.ahlborn@example.invalid",
+      "phone": "+49 5551 9120 220",
+      "scope": "Sanitär- und Rohrleitungsarbeiten, Störungsdienst innerhalb von 24 Stunden",
+      "addressCountry": "DEU",
+      "notes": "Rahmenvertrag 2025-S-07 (Demo)"
+    },
+    {
+      "id": "CT-NOM-103",
+      "contractor": "Rhume Sanitär & Heizung (Demo)",
+      "trade": "Heating",
+      "road": "Rückingsallee",
+      "additionalRoads": [
+        "Scharnhorstplatz",
+        "Am Mönchsgraben",
+        "Sudheimer Straße"
+      ],
+      "start": "2025-03-01",
+      "end": "2028-02-29",
+      "poc": "Kerstin Ahlborn",
+      "email": "kerstin.ahlborn@example.invalid",
+      "phone": "+49 5551 9120 220",
+      "scope": "Wartung und Störungsbeseitigung an Heizungsanlagen und Thermen",
+      "addressCountry": "DEU",
+      "notes": "Wartungsvertrag 2025-H-02 (Demo)"
+    },
+    {
+      "id": "CT-NOM-104",
+      "contractor": "Elektrotechnik Wieter (Demo)",
+      "trade": "Electrical",
+      "road": "Wieterstraße",
+      "additionalRoads": [
+        "Bahnhofstraße",
+        "Teichstraße",
+        "Wallstraße",
+        "Breite Straße"
+      ],
+      "start": "2025-03-01",
+      "end": "2028-02-29",
+      "poc": "Stefan Fricke",
+      "email": "stefan.fricke@example.invalid",
+      "phone": "+49 5551 9120 230",
+      "scope": "Elektroinstallation, Störungsbeseitigung und Prüfung nach DGUV V3",
+      "addressCountry": "DEU",
+      "notes": "Rahmenvertrag 2025-E-04 (Demo)"
+    },
+    {
+      "id": "CT-NOM-105",
+      "contractor": "Schlüssel-Service Münsterplatz (Demo)",
+      "trade": "Locksmith",
+      "road": "Am Münster",
+      "additionalRoads": [
+        "Kirchplatz",
+        "Entenmarkt",
+        "Breite Straße",
+        "Scharnhorstplatz"
+      ],
+      "start": "2025-03-01",
+      "end": "2028-02-29",
+      "poc": "Ömer Yildiz",
+      "email": "oemer.yildiz@example.invalid",
+      "phone": "+49 5551 9120 240",
+      "scope": "Türöffnung, Zylindertausch und Schließanlagen, Notdienst rund um die Uhr",
+      "addressCountry": "DEU",
+      "notes": "Rahmenvertrag 2025-K-01 (Demo)"
+    },
+    {
+      "id": "CT-NOM-106",
+      "contractor": "Bau & Putz Leinetal (Demo)",
+      "trade": "Drywall",
+      "road": "Breite Straße",
+      "additionalRoads": [],
+      "start": "2025-03-01",
+      "end": "2028-02-29",
+      "poc": "Marco Hartmann",
+      "email": "marco.hartmann@example.invalid",
+      "phone": "+49 5551 9120 260",
+      "scope": "Trockenbau, Putz- und Maurerarbeiten in den verwalteten Wohnungen; Festpreise laut Leistungsverzeichnis",
+      "addressCountry": "DEU",
+      "notes": "Rahmenvertrag 2025-B-06 (Demo)"
+    },
+    {
+      "id": "CT-NOM-107",
+      "contractor": "Bau & Putz Leinetal (Demo)",
+      "trade": "Masonry",
+      "road": "Am Münster",
+      "additionalRoads": [],
+      "start": "2025-03-01",
+      "end": "2028-02-29",
+      "poc": "Marco Hartmann",
+      "email": "marco.hartmann@example.invalid",
+      "phone": "+49 5551 9120 260",
+      "scope": "Trockenbau, Putz- und Maurerarbeiten in den verwalteten Wohnungen; Festpreise laut Leistungsverzeichnis",
+      "addressCountry": "DEU",
+      "notes": "Rahmenvertrag 2025-B-07 (Demo)"
+    }
+  ],
+  "notes": {
+    "Detected": "Meldung eingegangen.",
+    "Team assigned": "An das zuständige Objektteam weitergeleitet.",
+    "Analyst assigned": "Sachbearbeiter/in zugewiesen.",
+    "Investigating": "Ortstermin vereinbart; Schaden und Zugang werden geprüft.",
+    "Confirmed": "Schaden vor Ort bestätigt.",
+    "Notice prepared": "Beauftragung nach Rahmenvertrag vorbereitet.",
+    "Acknowledged": "Handwerksbetrieb hat den Auftrag bestätigt.",
+    "Repair in progress": "Handwerker ist vor Ort.",
+    "Awaiting verification": "Arbeiten abgeschlossen; Abnahme steht aus.",
+    "Verified closed": "Nachher-Foto bestätigt die Ausführung; Abnahme erfolgt.",
+    "Reopened": "Mangel ist erneut aufgetreten.",
+    "On hold": "Warten auf Zustimmung der Eigentümergemeinschaft.",
+    "Rejected": "Kein Mangel festgestellt.",
+    "Duplicate": "Gleiche Meldung wie im Hauptauftrag."
+  },
+  "tickets": [
+    {
+      "id": "NOM-DEMO-001",
+      "title": "Wasserschaden: Decke im Bad tropft",
+      "trade": "Plumbing",
+      "road": "Mühlenstraße",
+      "address": "Mühlenstraße 10, 37154 Northeim",
+      "severity": "Urgent",
+      "team": "Northeim – Altstadt",
+      "source": "Resident report",
+      "observations": 2,
+      "daysAgo": 1,
+      "path": [],
+      "unit": "2. OG links",
+      "access": "Mieterin ist zu Hause; Hausmeister hat Generalschlüssel",
+      "contactName": "Anna Becker",
+      "contactPhone": "05551 900 101"
+    },
+    {
+      "id": "NOM-DEMO-002",
+      "title": "Steckdosen in der Küche ohne Strom",
+      "trade": "Electrical",
+      "road": "Wieterstraße",
+      "address": "Wieterstraße 10, 37154 Northeim",
+      "severity": "Standard",
+      "team": "Northeim – Altstadt",
+      "source": "Resident report",
+      "observations": 1,
+      "daysAgo": 2,
+      "path": [
+        "Team assigned"
+      ],
+      "unit": "EG rechts",
+      "access": "Schlüssel beim Hausmeister, Herr Lange",
+      "contactName": "Murat Demir",
+      "contactPhone": "05551 900 102"
+    },
+    {
+      "id": "NOM-DEMO-003",
+      "title": "Ausgesperrt: Schlüssel abgebrochen",
+      "trade": "Locksmith",
+      "road": "Kirchplatz",
+      "address": "Kirchplatz 1, 37154 Northeim",
+      "severity": "Urgent",
+      "team": "Northeim – Altstadt",
+      "analyst": "demo-analyst",
+      "source": "Resident report",
+      "observations": 1,
+      "daysAgo": 1,
+      "path": [
+        "Team assigned",
+        "Analyst assigned"
+      ],
+      "unit": "Wohnung 4, 1. OG",
+      "access": "Mieter wartet vor der Tür",
+      "contactName": "Lukas Hoffmann",
+      "contactPhone": "0151 2390 0103"
+    },
+    {
+      "id": "NOM-DEMO-004",
+      "title": "Schimmel an der Außenwand im Schlafzimmer",
+      "trade": "Painting",
+      "road": "Am Münster",
+      "address": "Am Münster 15, 37154 Northeim",
+      "severity": "Standard",
+      "team": "Northeim – Altstadt",
+      "analyst": "demo-analyst",
+      "source": "Resident report",
+      "observations": 3,
+      "daysAgo": 6,
+      "path": [
+        "Team assigned",
+        "Analyst assigned",
+        "Investigating"
+      ],
+      "unit": "3. OG, Wohnung 9",
+      "access": "Werktags ab 16 Uhr",
+      "contactName": "Petra Schulz",
+      "contactPhone": "05551 900 104"
+    },
+    {
+      "id": "NOM-DEMO-005",
+      "title": "Heizkörper im Wohnzimmer bleibt kalt",
+      "trade": "Heating",
+      "road": "Rückingsallee",
+      "address": "Rückingsallee 12, 37154 Northeim",
+      "severity": "Standard",
+      "team": "Northeim – Nord & Süd",
+      "analyst": "demo-analyst-2",
+      "source": "Resident report",
+      "observations": 2,
+      "daysAgo": 7,
+      "contractId": "CT-NOM-103",
+      "path": [
+        "Team assigned",
+        "Analyst assigned",
+        "Investigating",
+        "Confirmed"
+      ],
+      "unit": "1. OG links",
+      "access": "Mieter ist tagsüber zu Hause",
+      "contactName": "Helga Wagner",
+      "contactPhone": "05551 900 105"
+    },
+    {
+      "id": "NOM-DEMO-006",
+      "title": "Sicherung fliegt bei Waschmaschine heraus",
+      "trade": "Electrical",
+      "road": "Bahnhofstraße",
+      "address": "Bahnhofstraße 1, 37154 Northeim",
+      "severity": "Urgent",
+      "team": "Northeim – Nord & Süd",
+      "analyst": "demo-analyst-2",
+      "source": "Field inspection",
+      "observations": 2,
+      "daysAgo": 9,
+      "contractId": "CT-NOM-104",
+      "path": [
+        "Team assigned",
+        "Analyst assigned",
+        "Investigating",
+        "Confirmed",
+        "Notice prepared"
+      ],
+      "unit": "Souterrain",
+      "access": "Waschkeller über Hofeingang, Schlüssel beim Hausmeister",
+      "contactName": "Jan Richter",
+      "contactPhone": "05551 900 106"
+    },
+    {
+      "id": "NOM-DEMO-007",
+      "title": "Neuanstrich nach Auszug (2-Zimmer-Wohnung)",
+      "trade": "Painting",
+      "road": "Breite Straße",
+      "address": "Breite Straße 30, 37154 Northeim",
+      "severity": "Standard",
+      "team": "Northeim – Altstadt",
+      "analyst": "demo-analyst",
+      "source": "Staff report",
+      "observations": 1,
+      "daysAgo": 12,
+      "contractId": "CT-NOM-101",
+      "path": [
+        "Team assigned",
+        "Analyst assigned",
+        "Investigating",
+        "Confirmed",
+        "Notice prepared",
+        "Acknowledged"
+      ],
+      "unit": "2. OG rechts (leerstehend)",
+      "access": "Schlüssel im Büro der Hausverwaltung abholen",
+      "contactName": "Hausverwaltung Northeim",
+      "contactPhone": "05551 900 100"
+    },
+    {
+      "id": "NOM-DEMO-008",
+      "title": "Undichter Siphon unter dem Waschbecken",
+      "trade": "Plumbing",
+      "road": "Hagenstraße",
+      "address": "Hagenstraße 14, 37154 Northeim",
+      "severity": "Urgent",
+      "team": "Northeim – Altstadt",
+      "analyst": "demo-analyst",
+      "source": "Resident report",
+      "observations": 2,
+      "daysAgo": 10,
+      "contractId": "CT-NOM-102",
+      "path": [
+        "Team assigned",
+        "Analyst assigned",
+        "Investigating",
+        "Confirmed",
+        "Notice prepared",
+        "Acknowledged",
+        "Repair in progress"
+      ],
+      "unit": "EG, Wohnung 1",
+      "access": "Mieterin vormittags erreichbar",
+      "contactName": "Sabine Koch",
+      "contactPhone": "05551 900 108",
+      "workStage": "Waiting for parts"
+    },
+    {
+      "id": "NOM-DEMO-009",
+      "title": "Schließanlage Hauseingang: Zylinder getauscht",
+      "trade": "Locksmith",
+      "road": "Entenmarkt",
+      "address": "Entenmarkt 3, 37154 Northeim",
+      "severity": "Standard",
+      "team": "Northeim – Altstadt",
+      "analyst": "demo-analyst",
+      "source": "Staff report",
+      "observations": 1,
+      "daysAgo": 18,
+      "contractId": "CT-NOM-105",
+      "path": [
+        "Team assigned",
+        "Analyst assigned",
+        "Investigating",
+        "Confirmed",
+        "Notice prepared",
+        "Acknowledged",
+        "Repair in progress",
+        "Awaiting verification"
+      ],
+      "unit": "Hauseingang",
+      "access": "Neue Schlüssel an alle Mietparteien verteilen",
+      "contactName": "Hausmeister Lange",
+      "contactPhone": "05551 900 109"
+    },
+    {
+      "id": "NOM-DEMO-010",
+      "title": "Treppenhaus streichen",
+      "trade": "Painting",
+      "road": "Holzhäuser-Straße",
+      "address": "Holzhäuser-Straße 5, 37154 Northeim",
+      "severity": "Low",
+      "team": "Northeim – Altstadt",
+      "analyst": "demo-analyst",
+      "source": "Manual report",
+      "observations": 1,
+      "daysAgo": 33,
+      "contractId": "CT-NOM-101",
+      "path": [
+        "Team assigned",
+        "Analyst assigned",
+        "Investigating",
+        "Confirmed",
+        "Repair in progress",
+        "Awaiting verification",
+        "Verified closed"
+      ],
+      "unit": "Treppenhaus",
+      "access": "Haustür mit Schließanlagenschlüssel",
+      "contactName": "Hausmeister Lange",
+      "contactPhone": "05551 900 109"
+    },
+    {
+      "id": "NOM-DEMO-011",
+      "title": "Toilettenspülung läuft dauernd",
+      "trade": "Plumbing",
+      "road": "Göttinger Straße",
+      "address": "Göttinger Straße 20, 37154 Northeim",
+      "severity": "Urgent",
+      "team": "Northeim – Nord & Süd",
+      "analyst": "demo-analyst-2",
+      "source": "Resident report",
+      "observations": 3,
+      "daysAgo": 38,
+      "contractId": "CT-NOM-102",
+      "reopened": 1,
+      "path": [
+        "Team assigned",
+        "Analyst assigned",
+        "Investigating",
+        "Confirmed",
+        "Notice prepared",
+        "Acknowledged",
+        "Repair in progress",
+        "Awaiting verification",
+        "Verified closed",
+        "Reopened"
+      ],
+      "unit": "1. OG rechts",
+      "access": "Mieter nach Absprache",
+      "contactName": "Thomas Neumann",
+      "contactPhone": "05551 900 111"
+    },
+    {
+      "id": "NOM-DEMO-012",
+      "title": "Fassadenanstrich Hofseite",
+      "trade": "Painting",
+      "road": "Teichstraße",
+      "address": "Teichstraße 5, 37154 Northeim",
+      "severity": "Low",
+      "team": "Northeim – Altstadt",
+      "analyst": "demo-analyst",
+      "source": "Staff report",
+      "observations": 1,
+      "daysAgo": 15,
+      "holdFrom": "Investigating",
+      "path": [
+        "Team assigned",
+        "Analyst assigned",
+        "Investigating",
+        "On hold"
+      ],
+      "unit": "Hofseite",
+      "access": "Zugang über Hoftor, Gerüst nötig",
+      "contactName": "Hausverwaltung Northeim",
+      "contactPhone": "05551 900 100"
+    },
+    {
+      "id": "NOM-DEMO-013",
+      "title": "Flackerndes Licht im Keller",
+      "trade": "Electrical",
+      "road": "Wallstraße",
+      "address": "Wallstraße 8, 37154 Northeim",
+      "severity": "Low",
+      "team": "Northeim – Altstadt",
+      "analyst": "demo-analyst",
+      "source": "Resident report",
+      "observations": 1,
+      "daysAgo": 5,
+      "path": [
+        "Team assigned",
+        "Analyst assigned",
+        "Investigating",
+        "Rejected"
+      ],
+      "unit": "Keller",
+      "access": "Kellerschlüssel beim Hausmeister",
+      "contactName": "Hausmeister Lange",
+      "contactPhone": "05551 900 109"
+    },
+    {
+      "id": "NOM-DEMO-014",
+      "title": "Wasser tropft aus der Decke (Doppelmeldung)",
+      "trade": "Plumbing",
+      "road": "Mühlenstraße",
+      "address": "Mühlenstraße 10, 37154 Northeim",
+      "severity": "Urgent",
+      "team": "Northeim – Altstadt",
+      "analyst": "demo-analyst",
+      "source": "Resident report",
+      "observations": 1,
+      "daysAgo": 1,
+      "duplicateOf": "NOM-DEMO-001",
+      "path": [
+        "Team assigned",
+        "Analyst assigned",
+        "Investigating",
+        "Duplicate"
+      ],
+      "unit": "2. OG links",
+      "access": "Mieterin ist zu Hause",
+      "contactName": "Anna Becker",
+      "contactPhone": "05551 900 101"
+    },
+    {
+      "id": "NOM-DEMO-015",
+      "title": "Therme meldet Störung, kein Warmwasser",
+      "trade": "Heating",
+      "road": "Scharnhorstplatz",
+      "address": "Scharnhorstplatz 2, 37154 Northeim",
+      "severity": "Urgent",
+      "team": "Northeim – Nord & Süd",
+      "analyst": "demo-analyst-2",
+      "source": "Resident report",
+      "observations": 2,
+      "daysAgo": 3,
+      "contractId": "CT-NOM-103",
+      "path": [
+        "Team assigned",
+        "Analyst assigned",
+        "Investigating",
+        "Confirmed"
+      ],
+      "unit": "DG, Wohnung 12",
+      "access": "Mieter nach 17 Uhr erreichbar",
+      "contactName": "Kemal Aydın",
+      "contactPhone": "05551 900 115"
+    },
+    {
+      "id": "NOM-DEMO-016",
+      "title": "Fenster schließt nicht richtig",
+      "trade": "Carpentry",
+      "road": "Friedrich-Ebert-Wall",
+      "address": "Friedrich-Ebert-Wall 6, 37154 Northeim",
+      "severity": "Standard",
+      "team": "Northeim – Nord & Süd",
+      "analyst": "demo-analyst-2",
+      "source": "Resident report",
+      "observations": 1,
+      "daysAgo": 4,
+      "path": [
+        "Team assigned",
+        "Analyst assigned",
+        "Investigating"
+      ],
+      "unit": "1. OG, Wohnung 3",
+      "access": "Werktags 8–12 Uhr",
+      "contactName": "Monika Braun",
+      "contactPhone": "05551 900 116"
+    },
+    {
+      "id": "NOM-DEMO-017",
+      "title": "Riss in der Wohnzimmerwand, Putz bröckelt",
+      "trade": "Drywall",
+      "road": "Breite Straße",
+      "address": "Breite Straße 12, 37154 Northeim",
+      "unit": "1. OG rechts",
+      "access": "Mieter ab 15 Uhr zu Hause",
+      "contactName": "Erik Vogt",
+      "contactPhone": "05551 900 117",
+      "offer": "open",
+      "severity": "Standard",
+      "team": "Northeim – Altstadt",
+      "analyst": "demo-analyst",
+      "source": "Resident report",
+      "observations": 1,
+      "daysAgo": 3,
+      "path": [
+        "Team assigned",
+        "Analyst assigned",
+        "Investigating",
+        "Confirmed",
+        "Notice prepared"
+      ]
+    },
+    {
+      "id": "NOM-DEMO-018",
+      "title": "Feuchtes Mauerwerk im Keller, Fugen ausgewaschen",
+      "trade": "Masonry",
+      "road": "Am Münster",
+      "address": "Am Münster 3, 37154 Northeim",
+      "unit": "Keller",
+      "access": "Kellerschlüssel beim Hausmeister",
+      "contactName": "Hausmeister Lange",
+      "contactPhone": "05551 900 109",
+      "severity": "Low",
+      "team": "Northeim – Altstadt",
+      "analyst": "demo-analyst",
+      "source": "Staff report",
+      "observations": 1,
+      "daysAgo": 6,
+      "path": [
+        "Team assigned",
+        "Analyst assigned",
+        "Investigating"
+      ]
+    }
+  ]
+}

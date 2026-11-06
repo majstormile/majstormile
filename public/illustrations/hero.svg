@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="t">
+  <title id="t">Illustration: a painter finishes a wall in an apartment while the job is tracked on a phone</title>
+  <defs>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#efe8dc"/><stop offset="1" stop-color="#e6ddcd"/></linearGradient>
+    <linearGradient id="fresh" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d9ecf2"/><stop offset="1" stop-color="#c7e1ea"/></linearGradient>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9fd0ea"/><stop offset="1" stop-color="#d7eef8"/></linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c79a6b"/><stop offset="1" stop-color="#b08559"/></linearGradient>
+    <filter id="sh" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#152a40" flood-opacity=".22"/></filter>
+  </defs>
+  <!-- room -->
+  <rect width="1200" height="900" fill="url(#wall)"/>
+  <rect x="0" y="0" width="560" height="700" fill="url(#fresh)"/>
+  <path d="M560 0 C575 120 548 230 566 350 C580 460 552 560 566 700 L560 700 L560 0Z" fill="#d1e6ee"/>
+  <!-- old wall marks on unpainted side -->
+  <path d="M820 150 l18 40 -12 30 22 46 -8 34" fill="none" stroke="#b9a88f" stroke-width="5" stroke-linecap="round"/>
+  <ellipse cx="1000" cy="110" rx="90" ry="34" fill="#d8c7a9" opacity=".7"/>
+  <!-- window -->
+  <g transform="translate(120 120)">
+    <rect width="300" height="330" rx="10" fill="#ffffff"/>
+    <rect x="18" y="18" width="264" height="294" rx="4" fill="url(#sky)"/>
+    <circle cx="210" cy="90" r="34" fill="#fff6c8"/>
+    <path d="M18 250 q60 -50 120 -10 q70 -45 144 0 v72 h-264z" fill="#7fb79a"/>
+    <rect x="146" y="18" width="8" height="294" fill="#ffffff"/>
+    <rect x="18" y="160" width="264" height="8" fill="#ffffff"/>
+    <rect x="-14" y="330" width="328" height="20" rx="6" fill="#ffffff"/>
+  </g>
+  <!-- plant -->
+  <g transform="translate(905 500)">
+    <path d="M60 0 C20 -70 0 -120 30 -170 C50 -110 60 -60 60 0Z" fill="#3f8f6b"/>
+    <path d="M70 0 C90 -80 130 -120 160 -130 C140 -70 110 -30 70 0Z" fill="#57a57f"/>
+    <path d="M65 0 C40 -60 -10 -80 -40 -80 C-20 -40 20 -10 65 0Z" fill="#4c9a74"/>
+    <path d="M20 0 h90 l-12 110 h-66z" fill="#152a40"/>
+  </g>
+  <!-- floor -->
+  <rect x="0" y="700" width="1200" height="200" fill="url(#floor)"/>
+  <g stroke="#a77b4f" stroke-width="3" opacity=".6"><line x1="0" y1="760" x2="1200" y2="760"/><line x1="0" y1="830" x2="1200" y2="830"/><line x1="250" y1="700" x2="230" y2="760"/><line x1="640" y1="760" x2="620" y2="830"/><line x1="980" y1="700" x2="960" y2="760"/><line x1="420" y1="830" x2="400" y2="900"/></g>
+  <rect x="0" y="690" width="1200" height="14" fill="#f7f3ec"/>
+  <!-- drop cloth and paint tray -->
+  <path d="M300 860 L330 735 L760 735 L800 860Z" fill="#f4f1ea" opacity=".95"/>
+  <g transform="translate(420 760)">
+    <path d="M0 40 L30 0 H170 L190 40Z" fill="#9aa6b6"/>
+    <path d="M30 6 H165 L180 32 H18Z" fill="#7cc0d8"/>
+  </g>
+  <g transform="translate(650 690)">
+    <rect x="0" y="20" width="90" height="100" rx="8" fill="#e9a825"/>
+    <ellipse cx="45" cy="20" rx="45" ry="12" fill="#c98d14"/>
+    <ellipse cx="45" cy="20" rx="36" ry="8" fill="#7cc0d8"/>
+    <rect x="10" y="50" width="70" height="34" rx="4" fill="#fff" opacity=".85"/>
+  </g>
+  <!-- ladder -->
+  <g stroke="#6d4b2b" stroke-width="16" stroke-linecap="round">
+    <line x1="640" y1="300" x2="560" y2="800"/><line x1="740" y1="300" x2="800" y2="800"/>
+  </g>
+  <g stroke="#8a6238" stroke-width="12" stroke-linecap="round">
+    <line x1="625" y1="400" x2="755" y2="400"/><line x1="610" y1="500" x2="770" y2="500"/><line x1="594" y1="600" x2="784" y2="600"/><line x1="578" y1="700" x2="798" y2="700"/>
+  </g>
+  <rect x="620" y="282" width="140" height="26" rx="6" fill="#8a6238"/>
+  <!-- painter -->
+  <g>
+    <!-- legs -->
+    <path d="M655 470 L640 600 L668 604 L690 480Z" fill="#152a40"/>
+    <path d="M700 470 L708 600 L736 598 L728 470Z" fill="#1f3b5a"/>
+    <path d="M628 598 h48 v22 h-58z" fill="#2b2b2b"/>
+    <path d="M700 596 h46 l8 22 h-56z" fill="#2b2b2b"/>
+    <!-- overalls body -->
+    <path d="M640 300 C640 270 660 255 690 255 C722 255 742 272 742 302 L736 480 L648 480Z" fill="#152a40"/>
+    <rect x="660" y="300" width="64" height="70" rx="8" fill="#1f3b5a"/>
+    <!-- shirt -->
+    <path d="M650 268 C668 252 714 252 734 268 L742 302 L640 302Z" fill="#e9a825"/>
+    <!-- arm to roller -->
+    <path d="M650 290 C610 280 580 250 570 210" fill="none" stroke="#e9a825" stroke-width="30" stroke-linecap="round"/>
+    <circle cx="566" cy="202" r="17" fill="#c98a64"/>
+    <!-- roller -->
+    <line x1="566" y1="202" x2="545" y2="130" stroke="#3a3a3a" stroke-width="8" stroke-linecap="round"/>
+    <rect x="512" y="70" width="40" height="110" rx="14" fill="#7cc0d8" transform="rotate(-8 532 125)"/>
+    <!-- other arm -->
+    <path d="M735 290 C760 330 760 370 745 400" fill="none" stroke="#e9a825" stroke-width="28" stroke-linecap="round"/>
+    <circle cx="742" cy="408" r="15" fill="#c98a64"/>
+    <!-- head -->
+    <rect x="680" y="226" width="22" height="30" rx="8" fill="#c98a64"/>
+    <circle cx="692" cy="200" r="40" fill="#d79c75"/>
+    <path d="M652 196 C652 160 676 146 696 146 C722 146 736 164 734 186 C716 176 690 172 652 196Z" fill="#3b2a20"/>
+    <path d="M648 186 C650 150 690 132 724 150 C742 160 744 176 742 184 C716 170 680 168 648 186Z" fill="#ffffff"/>
+    <rect x="644" y="180" width="102" height="12" rx="6" fill="#e9a825"/>
+    <circle cx="707" cy="206" r="4" fill="#2b2b2b"/>
+    <path d="M700 226 q10 6 20 -2" fill="none" stroke="#7a4a35" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  <!-- phone with job card -->
+  <g filter="url(#sh)" transform="translate(880 210) rotate(4)">
+    <rect width="250" height="430" rx="34" fill="#152a40"/>
+    <rect x="14" y="16" width="222" height="398" rx="24" fill="#ffffff"/>
+    <rect x="95" y="26" width="60" height="10" rx="5" fill="#152a40"/>
+    <text x="34" y="78" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#7b8798" letter-spacing="1.5">AUFTRAG</text>
+    <text x="34" y="106" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#152a40">Wand streichen</text>
+    <text x="34" y="130" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#4b596d">Breite Str. 30 · 2. OG</text>
+    <g font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#27364c">
+      <circle cx="46" cy="172" r="12" fill="#167342"/><path d="M40 172 l5 5 9 -10" stroke="#fff" stroke-width="3" fill="none"/>
+      <text x="68" y="177">Angenommen</text>
+      <circle cx="46" cy="214" r="12" fill="#167342"/><path d="M40 214 l5 5 9 -10" stroke="#fff" stroke-width="3" fill="none"/>
+      <text x="68" y="219">Termin: Do 9:00</text>
+      <circle cx="46" cy="256" r="12" fill="#086e99"/><circle cx="46" cy="256" r="5" fill="#fff"/>
+      <text x="68" y="261" font-weight="700">In Arbeit</text>
+      <circle cx="46" cy="298" r="12" fill="#dfe5ec"/>
+      <text x="68" y="303" fill="#7b8798">Abnahme</text>
+    </g>
+    <rect x="34" y="330" width="182" height="54" rx="12" fill="#c9203d"/>
+    <text x="125" y="363" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#ffffff">Fortschritt melden</text>
+  </g>
+</svg>
