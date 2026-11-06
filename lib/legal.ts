@@ -31,7 +31,7 @@ export const operator: Operator = {
   postcodeCity: '',
   country: 'Srbija',
   representedBy: '',
-  email: '',
+  email: 'info@majstormile.com',
   phone: '',
   register: '',
   pib: '',
