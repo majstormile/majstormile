@@ -13,15 +13,15 @@ export const metadata: Metadata = {
   title: meta.title,
   description: meta.description,
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
+    icon: [{ url: "/favicon.ico", sizes: "any" }, { url: "/favicon.png", type: "image/png" }],
+    shortcut: "/favicon.ico",
     apple: `/icons/${instance.id}-apple.png`,
   },
   appleWebApp: { capable: true, title: instance.brand, statusBarStyle: "default" },
   formatDetection: { telephone: false },
 };
 
-export const viewport: Viewport = { themeColor: "#152a40", viewportFit: "cover", width: "device-width", initialScale: 1 };
+export const viewport: Viewport = { themeColor: "#1f3a2e", viewportFit: "cover", width: "device-width", initialScale: 1 };
 
 export default function RootLayout({
   children,

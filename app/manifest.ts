@@ -14,12 +14,12 @@ export default function manifest(): MetadataRoute.Manifest {
     display: 'standalone',
     orientation: 'any',
     background_color: '#ffffff',
-    theme_color: '#152a40',
+    theme_color: '#1f3a2e',
     lang: instance.defaultLang,
     icons: [
       {src: `/icons/${instance.id}-192.png`, sizes: '192x192', type: 'image/png', purpose: 'any'},
       {src: `/icons/${instance.id}-512.png`, sizes: '512x512', type: 'image/png', purpose: 'any'},
-      {src: `/icons/${instance.id}-512.png`, sizes: '512x512', type: 'image/png', purpose: 'maskable'},
+      {src: `/icons/${instance.id}-maskable-512.png`, sizes: '512x512', type: 'image/png', purpose: 'maskable'},
     ],
     shortcuts: [
       {name: ({sr: 'Prijavi kvar', de: 'Schaden melden', en: 'Report a defect'} as Record<string, string>)[instance.defaultLang], url: '/report', icons: [{src: `/icons/${instance.id}-192.png`, sizes: '192x192'}]},

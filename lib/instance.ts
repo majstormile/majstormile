@@ -38,7 +38,7 @@ export type Instance = {
 
 export const INSTANCES: Record<InstanceId, Instance> = {
   rs: {
-    id: 'rs', brand: 'MajstorMile', logo: '/logo.svg', slogan: 'Property operations workspace',
+    id: 'rs', brand: 'MajstorMile', logo: '/logo.png', slogan: 'Property operations workspace',
     languages: ['sr', 'en', 'de'], defaultLang: 'sr', locales: {sr: 'sr-Latn-RS', en: 'en-GB', de: 'de-DE'},
     currency: 'RSD', country: 'SRB', geocodeCountry: 'rs', bbox: [18.81, 42.23, 23.01, 46.19], mapCenter: {lat: 43.8556, lng: 19.8425},
     examples: {address: 'Dimitrija Tucovića 30, 31000 Užice', street: 'Dimitrija Tucovića'},

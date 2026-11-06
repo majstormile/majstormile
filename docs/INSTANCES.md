@@ -4,7 +4,7 @@ Everything that differs between markets lives in `lib/instance.ts`. MajstorMile 
 
 | Setting | Serbia (`rs`) |
 |---|---|
-| Brand and logo | MajstorMile, `/logo.svg` |
+| Brand and logo | MajstorMile, `/logo.png` (icons in `public/icons/rs-*.png`) |
 | Languages (default first) | Serbian (Latin), English, German |
 | Dates, currency | sr-Latn-RS, RSD |
 | Address search | Serbia only (Photon/OpenStreetMap) |
