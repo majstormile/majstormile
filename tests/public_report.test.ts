@@ -7,7 +7,7 @@ import {applyResidentReport, publicStatus, makePublicCode, normalizeCode} from '
 const now = '2026-10-14T10:00:00.000Z';
 function world() {
   const s = seed('owner', 'owner@example.test');
-  loadDemoPack(s, 'northeim', s.members.filter(m => m.id === 'owner'), now, 'System');
+  loadDemoPack(s, 'uzice', s.members.filter(m => m.id === 'owner'), now, 'System');
   return normalizeState(s);
 }
 const code = makePublicCode(n => new Uint8Array(n).map((_, i) => i * 7));
@@ -57,7 +57,7 @@ test('a report for the same building, apartment and trade is added to the open j
 
 test('another apartment or another trade in the same building is a separate job', () => {
   const s = world();
-  const open = s.tickets.find(t => t.id === 'NOM-DEMO-001')!;
+  const open = s.tickets.find(t => t.id === 'UZ-DEMO-001')!;
   assert.equal(applyResidentReport(s, {address: open.address!, unit: 'Dachgeschoss', trade: open.trade, description: 'Also dripping', dangerous: false}, now, {ticketId: 'PL-2026-U2', code}).merged, false);
   assert.equal(applyResidentReport(s, {address: open.address!, unit: open.unit, trade: 'Electrical', description: 'Socket dead', dangerous: false}, now, {ticketId: 'PL-2026-T2', code}).merged, false);
 });
@@ -78,13 +78,13 @@ test('public status shows steps and dates but no internal notes', () => {
 
 test('once a contractor accepts, the tenant sees the firm and the appointment', () => {
   const s = world();
-  const t = s.tickets.find(x => x.id === 'NOM-DEMO-007')!;
+  const t = s.tickets.find(x => x.id === 'UZ-DEMO-007')!;
   t.publicCode = code;
   const p = publicStatus(s, code)!;
-  assert.equal(p.contractor, 'Malerwerkstatt Leinetal (Demo)');
+  assert.equal(p.contractor, 'Moleraj Đetinja (Demo)');
   assert.ok(p.appointment);
   assert.equal(p.workStage, 'Appointment scheduled');
-  const offered = s.tickets.find(x => x.id === 'NOM-DEMO-017')!;
+  const offered = s.tickets.find(x => x.id === 'UZ-DEMO-017')!;
   offered.publicCode = 'ZZZZZ-22222';
   assert.equal(publicStatus(s, 'ZZZZZ-22222')!.contractor, undefined);
 });

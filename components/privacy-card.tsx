@@ -16,7 +16,7 @@ export default function PrivacyCard({data, mutate, busy}: {data: State; mutate: 
 
   function download() {
     const blob = new Blob([JSON.stringify(personalDataExport(data, query, new Date().toISOString()), null, 2)], {type: 'application/json'});
-    const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'Baunavi_Datenauskunft.json'; a.click(); URL.revokeObjectURL(a.href);
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'MajstorMile_Datenauskunft.json'; a.click(); URL.revokeObjectURL(a.href);
   }
 
   return <div className="privacy-card" style={{marginTop: 22}}>
@@ -37,7 +37,7 @@ export default function PrivacyCard({data, mutate, busy}: {data: State; mutate: 
           ? <button type="button" className="secondary" disabled={busy || !withContact.length} onClick={() => setConfirming(true)}>{tx('Remove their contact details')}</button>
           : <button type="button" className="primary" disabled={busy} onClick={async () => { if (await mutate({action: 'erasePerson', query})) { setConfirming(false); setQuery(''); } }}>{tx('Confirm: remove from {0} job(s)', [String(withContact.length)])}</button>}
       </div>
-      <p className="footnote">{tx('Answer access and erasure requests within one month. Your property management is responsible for the data; Baunavi processes it on your behalf.')}</p>
+      <p className="footnote">{tx('Answer access and erasure requests within one month. Your property management is responsible for the data; MajstorMile processes it on your behalf.')}</p>
     </div>
   </div>;
 }

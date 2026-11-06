@@ -8,7 +8,7 @@ import {addObservation} from './observe.ts';
 export const MAX_DESCRIPTION = 1000;
 
 export type ResidentReport = {
-  /** Street, house number, postcode and town, e.g. "Mühlenstraße 10, 37154 Northeim". */
+  /** Street, house number, postcode and town, e.g. "Petra Ćelovića 10, 31000 Užice". */
   address: string;
   /** Apartment or floor, e.g. "2. OG links, Whg. 5". */
   unit?: string;

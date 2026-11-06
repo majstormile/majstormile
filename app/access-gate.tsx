@@ -116,7 +116,7 @@ export default function AccessGate({ children }: { children: ReactNode }) {useLa
 
   if (session && !mustChange) return <div key={session.user.id}>{children}</div>;
   return <main className="access-page"><div className="access-lang"><LangSwitch/></div><section className="access-card">
-    <img src={instance.logo} width="270" height="91" alt={tx("Baunavi")} />
+    <img src={instance.logo} width="270" height="91" alt={tx("MajstorMile")} />
     <p className="eyebrow">{tx("ROAD OPERATIONS")}</p>
     {session && mustChange ? <>
       <h1>{tx("Choose a new password")}</h1>

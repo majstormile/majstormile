@@ -13,11 +13,11 @@ const oneLine=(x:string)=>x.replace(/[\r\n]+/g,' ').trim();
 // Only information that is meant for the contractor. Internal notes and history are never included.
 export function buildNotice(t:Ticket,c:Contract):{subject:string,text:string}{
  return {
-  subject:oneLine(`Baunavi work order: ${t.title} – ${t.address||t.road} (${t.id})`).slice(0,200),
+  subject:oneLine(`MajstorMile work order: ${t.title} – ${t.address||t.road} (${t.id})`).slice(0,200),
   text:[
    `Hello ${oneLine(c.poc||'')||'contract contact'},`,
    '',
-   'Baunavi work order',
+   'MajstorMile work order',
    '',
    `Ticket: ${t.id}`,
    `Trade: ${t.trade||'Other'}`,
@@ -30,7 +30,7 @@ export function buildNotice(t:Ticket,c:Contract):{subject:string,text:string}{
    `Contract: ${c.id}`,
    `Scope: ${oneLine(c.scope||'')||'See the contract'}`,
    `Reported: ${t.created}`,
-   `Evidence: ${(t.evidence||[]).length} file(s) are held in Baunavi.`,
+   `Evidence: ${(t.evidence||[]).length} file(s) are held in MajstorMile.`,
    '',
    'Please confirm that you will take on this job under the contract above and propose an appointment with the on-site contact. This order does not decide who pays for defects that fall under a warranty.',
    '',
@@ -88,7 +88,7 @@ export async function runOutbox(s:State,now:string,io:OutboxIO):Promise<{sent:nu
  let sent=0,failed=0;
  for(const i of claimed){
   let r:MailResult;
-  try{r=await io.send({to:i.to,subject:i.subject,text:i.text+(io.appUrl?`\n\nOpen Baunavi: ${io.appUrl}`:''),replyTo:i.replyTo})}
+  try{r=await io.send({to:i.to,subject:i.subject,text:i.text+(io.appUrl?`\n\nOpen MajstorMile: ${io.appUrl}`:''),replyTo:i.replyTo})}
   catch(e){r={ok:false,reason:'unavailable',detail:(e as Error).message}}
   const t=s.tickets.find(x=>x.id===i.ticket);
   if(r.ok){

@@ -6,7 +6,7 @@ test('reloading the demo replaces only the fictional people; real members keep t
  const s=normalizeState(seed(owner,'owner@example.test'));const admin=s.members[0];
  applyAction(s,admin,admin,{action:'member',name:'Added Person',email:'added@example.test',role:'Analyst',teams:[s.teams[0]],contractor:'',active:true,authUserId:crypto.randomUUID()},now,owner);
  assert.ok(s.members.some(x=>x.email==='added@example.test'));
- applyAction(s,admin,admin,{action:'loadDemo',pack:'northeim'},now,owner);
+ applyAction(s,admin,admin,{action:'loadDemo',pack:'uzice'},now,owner);
  assert.ok(s.members.some(x=>x.email==='added@example.test'),'a real member added by the admin stays');
  assert.ok(s.members.some(x=>x.id===admin.id));
  assert.equal(s.members.some(x=>x.id==='demo-reviewer'),false,'old demo people are gone');

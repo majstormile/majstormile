@@ -8,7 +8,7 @@ import {purgeExpiredContacts, findPersonInJobs, personalDataExport, contactDays,
 const now = '2026-11-04T10:00:00.000Z';
 function world() {
   const s = seed('owner', 'owner@example.test');
-  loadDemoPack(s, 'northeim', s.members.filter(m => m.id === 'owner'), now, 'System');
+  loadDemoPack(s, 'uzice', s.members.filter(m => m.id === 'owner'), now, 'System');
   const n = normalizeState(s);
   return {s: n, admin: n.members.find(m => m.role === 'Admin')!, lead: n.members.find(m => m.id === 'demo-lead')!, analyst: n.members.find(m => m.id === 'demo-analyst')!};
 }
@@ -44,28 +44,28 @@ test('admins set the retention period within limits', () => {
 
 test('a person is found by email or by any spelling of their phone number', () => {
   const {s} = world();
-  const t = s.tickets.find(x => x.id === 'NOM-DEMO-001')!; // Anna Becker, 05551 900 101
-  t.reporterEmail = 'anna.becker@example.de';
-  assert.ok(findPersonInJobs(s, '+49 5551 900101').some(x => x.id === t.id));
-  assert.ok(findPersonInJobs(s, '05551/900-101').some(x => x.id === t.id));
-  assert.ok(findPersonInJobs(s, 'Anna.Becker@example.de').some(x => x.id === t.id));
+  const t = s.tickets.find(x => x.id === 'UZ-DEMO-001')!; // Ana Nikolić, 031 555 0101
+  t.reporterEmail = 'ana.nikolic@example.rs';
+  assert.ok(findPersonInJobs(s, '+381 31 555 0101').some(x => x.id === t.id));
+  assert.ok(findPersonInJobs(s, '031/555-0101').some(x => x.id === t.id));
+  assert.ok(findPersonInJobs(s, 'Ana.Nikolic@example.rs').some(x => x.id === t.id));
   assert.equal(findPersonInJobs(s, '123').length, 0, 'too short to search');
-  const out = personalDataExport(s, '05551 900 101', now);
-  assert.ok(out.jobs.length >= 2, 'Anna reported two jobs in the demo');
-  assert.equal(out.jobs[0].contactName, 'Anna Becker');
+  const out = personalDataExport(s, '031 555 0101', now);
+  assert.ok(out.jobs.length >= 2, 'Ana reported two jobs in the demo');
+  assert.equal(out.jobs[0].contactName, 'Ana Nikolić');
 });
 
 test('an erasure request removes contact details from every job of that person', () => {
   const {s, admin, analyst} = world();
-  assert.throws(() => act(s, analyst, {action: 'erasePerson', query: '05551 900 101'}), /not permitted/);
-  act(s, admin, {action: 'erasePerson', query: '05551 900 101'});
-  assert.equal(findPersonInJobs(s, '05551 900 101').length, 0);
-  assert.throws(() => act(s, admin, {action: 'erasePerson', query: '05551 900 101'}), /No contact details/);
+  assert.throws(() => act(s, analyst, {action: 'erasePerson', query: '031 555 0101'}), /not permitted/);
+  act(s, admin, {action: 'erasePerson', query: '031 555 0101'});
+  assert.equal(findPersonInJobs(s, '031 555 0101').length, 0);
+  assert.throws(() => act(s, admin, {action: 'erasePerson', query: '031 555 0101'}), /No contact details/);
 });
 
 test('a team manager can erase the contact on one job; a case manager cannot', () => {
   const {s, lead, analyst} = world();
-  const t = s.tickets.find(x => x.id === 'NOM-DEMO-003')!;
+  const t = s.tickets.find(x => x.id === 'UZ-DEMO-003')!;
   t.analyst = analyst.id;
   assert.throws(() => act(s, analyst, {action: 'erasePersonalData', id: t.id}), /not permitted/);
   act(s, lead, {action: 'erasePersonalData', id: t.id});

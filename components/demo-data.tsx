@@ -5,7 +5,7 @@ import {tx, useLang} from '@/lib/i18n';
 import {instance} from '@/lib/instance';
 
 const PACKS = [
-  {id: 'northeim', label: 'Germany: Northeim', count: 16},
+  {id: 'uzice', label: 'Serbia: Užice', count: 18},
 ] as const;
 
 /** Admin card: load or reset a demo pack. Real sign-in accounts are kept. */

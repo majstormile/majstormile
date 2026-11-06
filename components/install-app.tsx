@@ -1,6 +1,6 @@
 'use client';
 // "Get the app" for phones, without an app store.
-// Android (Chrome, Edge, Samsung Internet): the browser installs Baunavi as a real app (a WebAPK) from this site,
+// Android (Chrome, Edge, Samsung Internet): the browser installs MajstorMile as a real app (a WebAPK) from this site,
 // with its own icon in the app drawer. iPhone and iPad: Safari adds it to the home screen; it then opens full screen.
 import {useEffect, useState} from 'react';
 import {Download, Share, PlusSquare, Smartphone, CheckCircle2} from 'lucide-react';
@@ -68,12 +68,12 @@ export default function InstallApp({compact = false}: {compact?: boolean}) {
     if (choice?.outcome === 'accepted') setInstalled(true);
   }
 
-  if (installed) return <div className="install-panel installed"><CheckCircle2 size={20}/><p>{tx('Baunavi is installed on this device. Open it from your home screen.')}</p></div>;
+  if (installed) return <div className="install-panel installed"><CheckCircle2 size={20}/><p>{tx('MajstorMile is installed on this device. Open it from your home screen.')}</p></div>;
 
   const android = <article className={'install-card' + (platform === 'android' ? ' mine' : '')} id="android">
     <h3>{tx('Android')}</h3>
     {ready
-      ? <><p>{tx('Install Baunavi directly from this page. It appears in your app drawer like any other app.')}</p>
+      ? <><p>{tx('Install MajstorMile directly from this page. It appears in your app drawer like any other app.')}</p>
         <button className="primary" onClick={install}><Download size={18}/>{tx('Install the Android app')}</button></>
       : <ol>
         <li>{tx('Open {0} in Chrome on your Android phone.', [host])}</li>
@@ -90,7 +90,7 @@ export default function InstallApp({compact = false}: {compact?: boolean}) {
       <li><span className="inline-icon"><Share size={16}/></span>{tx('Tap the Share button.')}</li>
       <li><span className="inline-icon"><PlusSquare size={16}/></span>{tx('Choose "Add to Home Screen", then "Add".')}</li>
     </ol>
-    <p className="footnote">{tx('Apple only allows apps outside the App Store on the home screen this way. Baunavi then opens full screen like an app.')}</p>
+    <p className="footnote">{tx('Apple only allows apps outside the App Store on the home screen this way. MajstorMile then opens full screen like an app.')}</p>
   </article>;
 
   return <div className={'install-panel' + (compact ? ' compact' : '')}>

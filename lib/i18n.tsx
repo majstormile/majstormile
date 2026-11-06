@@ -1,9 +1,10 @@
 'use client';
 // Interface language. English is the source text; each deployment offers the languages in its instance profile
-// (Serbia: Serbian Latin and English; Canada: English and French) and starts in the profile's default.
+// (Serbia: Serbian Latin, English and German) and starts in the profile's default.
 // Text is keyed by its English wording, so stored values (statuses, roles, actions) stay English in the database
 // and are translated only when shown. Keys with {0}, {1}… are templates and also match dynamic server messages.
 import React, {createContext, useContext, useEffect, useState} from 'react';
+import {sr} from './i18n-sr';
 import {de} from './i18n-de';
 import {en} from './i18n-en';
 import {instance, type Lang} from './instance';
@@ -11,8 +12,8 @@ export type {Lang} from './instance';
 
 export const LANGS: Lang[] = instance.languages;
 // English is the source text; a small dictionary rewords the road-repair wording it inherited for property management.
-const DICTS: Partial<Record<Lang, Record<string, string>>> = {de, en};
-const STORAGE_KEY = 'baunavi-lang';
+const DICTS: Partial<Record<Lang, Record<string, string>>> = {sr, de, en};
+const STORAGE_KEY = 'majstormile-lang';
 let current: Lang = instance.defaultLang;
 const dict = () => DICTS[current];
 
@@ -74,7 +75,7 @@ export function t<T>(key: T, vars?: unknown[]): T {
 }
 
 const LangContext = createContext<{lang: Lang; setLang: (l: Lang) => void}>({lang: instance.defaultLang, setLang: () => {}});
-const HTML_LANG: Record<Lang, string> = {de: 'de', en: 'en'};
+const HTML_LANG: Record<Lang, string> = {sr: 'sr-Latn', de: 'de', en: 'en'};
 
 export function LangProvider({children}: {children: React.ReactNode}) {
   const [lang, setState] = useState<Lang>(instance.defaultLang);
@@ -94,14 +95,16 @@ export function useLang() { return useContext(LangContext); }
 
 export function Flag({lang, size = 20}: {lang: Lang; size?: number}) {
   const w = size, h = Math.round(size * 2 / 3);
+  // Serbian flag: red, blue and white stripes.
+  if (lang === 'sr') return <svg width={w} height={h} viewBox="0 0 3 2" aria-hidden="true" style={{borderRadius: 2, boxShadow: '0 0 0 1px #0002', flexShrink: 0}}><rect width="3" height="0.667" fill="#c6363c"/><rect y="0.667" width="3" height="0.667" fill="#0c4076"/><rect y="1.333" width="3" height="0.667" fill="#fff"/></svg>;
   // German flag: black, red and gold stripes.
   if (lang === 'de') return <svg width={w} height={h} viewBox="0 0 5 3" aria-hidden="true" style={{borderRadius: 2, boxShadow: '0 0 0 1px #0002', flexShrink: 0}}><rect width="5" height="1" fill="#000"/><rect y="1" width="5" height="1" fill="#dd0000"/><rect y="2" width="5" height="1" fill="#ffce00"/></svg>;
   return <svg width={w} height={h} viewBox="0 0 60 40" aria-hidden="true" style={{borderRadius: 2, boxShadow: '0 0 0 1px #0002', flexShrink: 0}}><clipPath id="hl-uk"><rect width="60" height="40"/></clipPath><g clipPath="url(#hl-uk)"><rect width="60" height="40" fill="#012169"/><path d="M0,0 60,40M60,0 0,40" stroke="#fff" strokeWidth="8"/><path d="M0,0 60,40M60,0 0,40" stroke="#C8102E" strokeWidth="3"/><path d="M30,0V40M0,20H60" stroke="#fff" strokeWidth="12"/><path d="M30,0V40M0,20H60" stroke="#C8102E" strokeWidth="7"/></g></svg>;
 }
 
-const NAMES: Record<Lang, string> = {de: 'Deutsch', en: 'English'};
-const CODES: Record<Lang, string> = {de: 'DE', en: 'EN'};
-const LABEL: Record<Lang, string> = {de: 'Sprache', en: 'Language'};
+const NAMES: Record<Lang, string> = {sr: 'Srpski', de: 'Deutsch', en: 'English'};
+const CODES: Record<Lang, string> = {sr: 'SR', de: 'DE', en: 'EN'};
+const LABEL: Record<Lang, string> = {sr: 'Jezik', de: 'Sprache', en: 'Language'};
 
 /** Language dropdown: the current flag with an arrow, and the flags stacked directly beneath it. Opens on hover (desktop) or tap. */
 export function LangSwitch() {
@@ -118,7 +121,7 @@ export function LangSwitch() {
     return () => { window.removeEventListener('click', close); window.removeEventListener('keydown', key); };
   }, [open]);
   useEffect(() => cancelClose, []);
-  // Two languages: show both side by side so the switch is obvious (DE | EN).
+  // Two languages: show both side by side so the switch is obvious; three or more use the dropdown.
   if (LANGS.length === 2) return <div className="lang-toggle" role="group" aria-label={LABEL[lang]}>
     {LANGS.map(l => <button key={l} type="button" className={l === lang ? 'active' : ''} aria-pressed={l === lang} title={NAMES[l]} onClick={() => setLang(l)}><Flag lang={l} size={18}/><span>{CODES[l]}</span></button>)}
   </div>;

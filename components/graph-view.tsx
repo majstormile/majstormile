@@ -212,8 +212,8 @@ export default function GraphView({data, onOpenTicket}: {data: Pick<State, 'tick
           {matches.length > 0 && <><h4>{tx('Search results ({0})', [matches.length])}</h4><ul className="graph-links">{matches.slice(0, 12).map(n => <li key={n.id}><button type="button" onClick={() => setSelected(n.id)}><i style={{background: nodeColor(n)}}/><span><small>{tx(TYPE_SINGULAR[n.type])}</small>{n.label}</span></button></li>)}</ul></>}
         </>}
         <div className="graph-export">
-          <button type="button" className="secondary" onClick={() => download('Baunavi_graph.cypher', toCypher(graph), 'text/plain')}><Download size={15}/>{tx('Export for Neo4j')}</button>
-          <button type="button" className="text-button" onClick={() => download('Baunavi_graph.json', JSON.stringify(graph, null, 1), 'application/json')}>{tx('Export JSON')}</button>
+          <button type="button" className="secondary" onClick={() => download('MajstorMile_graph.cypher', toCypher(graph), 'text/plain')}><Download size={15}/>{tx('Export for Neo4j')}</button>
+          <button type="button" className="text-button" onClick={() => download('MajstorMile_graph.json', JSON.stringify(graph, null, 1), 'application/json')}>{tx('Export JSON')}</button>
         </div>
       </aside>
     </div>

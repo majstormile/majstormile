@@ -31,7 +31,7 @@ test('a report marked urgent raises it at once', () => {
 
 test('the observe action adds to an open ticket and refuses closed ones', () => {
   const s = normalizeState(seed('owner', 'owner@example.test'));
-  loadDemoPack(s, 'northeim', s.members.filter(m => m.id === 'owner'), now, 'System');
+  loadDemoPack(s, 'uzice', s.members.filter(m => m.id === 'owner'), now, 'System');
   s.members.forEach(m => { if (m.id === 'owner') m.teams = [...s.teams]; });
   const owner = s.members.find(m => m.id === 'owner')!;
   const open = s.tickets.find(t => t.status === 'Investigating')!;

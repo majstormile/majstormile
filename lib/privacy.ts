@@ -51,7 +51,7 @@ export function purgeExpiredContacts(s: State, now: string): number {
 }
 
 const norm = (x: string) => x.trim().toLowerCase();
-const digits = (x: string) => x.replace(/[^0-9]/g, '').replace(/^0049|^49/, '0');
+const digits = (x: string) => x.replace(/[^0-9]/g, '').replace(/^(0049|49|00381|381)/, '0');
 
 /** Jobs that mention a person, found by email or phone number (any spelling of the number). */
 export function findPersonInJobs(s: State, query: string): Ticket[] {
@@ -64,13 +64,13 @@ export function findPersonInJobs(s: State, query: string): Ticket[] {
     (phone && phone.length >= 6 && !!t.contactPhone && digits(t.contactPhone) === phone));
 }
 
-/** What Baunavi holds about a person, as a portable JSON document (Art. 15 and Art. 20). */
+/** What MajstorMile holds about a person, as a portable JSON document (Art. 15 and Art. 20). */
 export function personalDataExport(s: State, query: string, now: string) {
   const jobs = findPersonInJobs(s, query);
   return {
     generatedAt: now,
     request: query.trim(),
-    controller: 'The property management that uses Baunavi for these jobs',
+    controller: 'The property management that uses MajstorMile for these jobs',
     jobs: jobs.map(t => ({
       job: t.id, trade: t.trade, issue: t.title, address: t.address || t.road, apartment: t.unit,
       contactName: t.contactName, contactPhone: t.contactPhone, email: t.reporterEmail, access: t.access,

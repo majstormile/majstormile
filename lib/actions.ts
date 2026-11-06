@@ -30,7 +30,7 @@ export function applyAction(s:State,m:Member,actual:Member,body:Record<string,un
   const chosenTeam=v.team||m.teams?.[0]||s.teams[0]||'';
   if(v.team&&(!s.teams.includes(v.team)||(m.role!=='Admin'&&!(m.teams||[]).includes(v.team))))throw new AppError('Choose one of your own teams.',403);
   if(v.observedAt){const seen=Date.parse(v.observedAt);if(seen>Date.parse(now)+5*60_000)throw new AppError('The observation time cannot be in the future.');if(seen<Date.parse(now)-365*86_400_000)throw new AppError('The observation time is more than a year old.')}
-  const id=`HW-${now.slice(0,4)}-${crypto.randomUUID().slice(0,8).toUpperCase()}`;
+  const id=`MM-${now.slice(0,4)}-${crypto.randomUUID().slice(0,8).toUpperCase()}`;
   const road=(v.road||streetOf(v.address)||v.address).slice(0,150);
   const t:Ticket={...dropEmpty(v),road,id,trade:v.trade||'Other',severity:['Urgent','Standard','Low'].includes(String(body.severity))?String(body.severity):'Standard',status:'Detected',team:chosenTeam,analyst:m.role==='Analyst'?m.id:'',contractor:'',warranty:'Needs review',source:v.source||'Manual report',confidence:0,created:now,updated:now,due:new Date(Date.parse(now)+86400000).toISOString(),reopened:0,observations:1,evidence:[],history:[{at:now,actor,action:'Detected',note:v.note,visibility:'internal'}]};s.tickets.unshift(t);event='Created '+id;
  }else if(action==='contract'){
@@ -93,7 +93,7 @@ export function applyAction(s:State,m:Member,actual:Member,body:Record<string,un
   // Replaces the demo content. Only a real administrator, not a role preview, can do it. Every real (non-demo)
   // member keeps their membership and sign-in; only the fictional demo people are replaced.
   if(actual.role!=='Admin'||m.id!==actual.id)throw new AppError('Only an administrator can load demo data. Return to your own identity first.',403);
-  const pack=z.enum(['northeim']).parse(body.pack);
+  const pack=z.enum(['uzice']).parse(body.pack);
   const keep=s.members.filter(x=>!x.demo);
   try{loadDemoPack(s,pack,keep,now,actual.name)}catch(e){throw new AppError((e as Error).message)}
   return;

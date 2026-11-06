@@ -72,7 +72,7 @@ export async function POST(req: Request) {
 
     const nowIso = new Date().toISOString();
     const code = makePublicCode(n => randomBytes(n));
-    const ticketId = `HW-${nowIso.slice(0, 4)}-${randomUUID().slice(0, 8).toUpperCase()}`;
+    const ticketId = `MM-${nowIso.slice(0, 4)}-${randomUUID().slice(0, 8).toUpperCase()}`;
 
     // Save with compare-and-swap; retry if staff changed the workspace at the same moment.
     for (let attempt = 0; attempt < 4; attempt++) {

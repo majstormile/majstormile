@@ -35,7 +35,7 @@ export function makeSnapshot(workspace: string, kind: BackupKind, at: string, re
 /** Check a downloaded file before it may replace the live workspace. */
 export function checkSnapshot(x: unknown, workspace: string): Snapshot {
   const s = x as Snapshot;
-  if (!s || s.format !== 'baunavi-backup' || s.version !== 1) throw new Error('This file is not a Baunavi backup.');
+  if (!s || s.format !== 'baunavi-backup' || s.version !== 1) throw new Error('This file is not a MajstorMile backup.');
   if (s.workspace !== workspace) throw new Error('This backup belongs to another workspace.');
   const d = s.data as State;
   if (!d || !Array.isArray(d.tickets) || !Array.isArray(d.members) || !Array.isArray(d.teams) || !Array.isArray(d.contracts)) throw new Error('The backup is incomplete.');

@@ -1,6 +1,6 @@
 # Contract import schema
 
-Contractor firms in Baunavi are defined by their contracts, so contractors are imported as contracts: one row (or XML element, or JSON object) per contract. This file is generated from `lib/contract-schema.ts` by `scripts/build-import-schema.mjs`; the import screen and the server use the same rules.
+Contractor firms in MajstorMile are defined by their contracts, so contractors are imported as contracts: one row (or XML element, or JSON object) per contract. This file is generated from `lib/contract-schema.ts` by `scripts/build-import-schema.mjs`; the import screen and the server use the same rules.
 
 - Formats: Excel (XLSX, XLS), CSV (UTF-8), XML. Templates: Contracts → Import contracts → Import schema and guidelines, or Help and FAQ.
 - Machine-readable schema: [`/schemas/contract-import.schema.json`](../public/schemas/contract-import.schema.json) (JSON Schema 2020-12).

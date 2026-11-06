@@ -1,4 +1,4 @@
-// Baunavi service worker: open the app without signal and keep the last workspace that was loaded.
+// MajstorMile service worker: open the app without signal and keep the last workspace that was loaded.
 // Changes made offline are queued in the page (IndexedDB) and sent when the connection returns.
 const VERSION = 'hw-v2';
 const SHELL = VERSION + '-shell';
@@ -27,7 +27,7 @@ async function networkFirst(request, cacheName, key) {
     return response;
   } catch (err) {
     const hit = await cache.match(key || request, {ignoreSearch: false});
-    if (hit) { const h = new Headers(hit.headers); h.set('X-Baunavi-Offline', '1'); return new Response(await hit.blob(), {status: 200, headers: h}); }
+    if (hit) { const h = new Headers(hit.headers); h.set('X-MajstorMile-Offline', '1'); return new Response(await hit.blob(), {status: 200, headers: h}); }
     throw err;
   }
 }

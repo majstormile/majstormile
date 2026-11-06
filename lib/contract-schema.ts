@@ -2,6 +2,7 @@
 // and the server (final validation), so both apply exactly the same rules.
 // Messages are English source text; the interface translates them.
 import {TRADES} from './domain.ts';
+import {sr} from './i18n-sr.ts';
 import {de} from './i18n-de.ts';
 
 export type FieldType = 'text' | 'date' | 'email' | 'phone' | 'list' | 'number' | 'country' | 'trade';
@@ -25,25 +26,25 @@ export const MAX_IMPORT_ROWS = 200;
 export const COUNTRIES = ['DEU', 'EU', 'SRB', 'USA', 'CAN'] as const;
 
 export const CONTRACT_SCHEMA: SchemaField[] = [
-  {key: 'contractor', label: 'Contractor firm', required: true, type: 'text', max: 120, example: 'Malerbetrieb Muster GmbH', format: 'Text, up to 120 characters', help: 'Registered name of the firm. Use the same spelling every time so its contracts group together.', aliases: ['contractor', 'company', 'firm', 'vendor', 'izvodjac', 'izvođač', 'firma', 'preduzece', 'preduzeće']},
-  {key: 'road', label: 'Street covered', required: true, type: 'text', max: 120, example: 'Breite Straße', format: 'Text, up to 120 characters', help: 'Main street the contract covers, spelled as in the job addresses.', aliases: ['road', 'street', 'location', 'put', 'ulica', 'deonica', 'lokacija']},
+  {key: 'contractor', label: 'Contractor firm', required: true, type: 'text', max: 120, example: 'Moler Plus d.o.o.', format: 'Text, up to 120 characters', help: 'Registered name of the firm. Use the same spelling every time so its contracts group together.', aliases: ['contractor', 'company', 'firm', 'vendor', 'izvodjac', 'izvođač', 'firma', 'preduzece', 'preduzeće']},
+  {key: 'road', label: 'Street covered', required: true, type: 'text', max: 120, example: 'Dimitrija Tucovića', format: 'Text, up to 120 characters', help: 'Main street the contract covers, spelled as in the job addresses.', aliases: ['road', 'street', 'location', 'put', 'ulica', 'deonica', 'lokacija']},
   {key: 'start', label: 'Warranty begins', required: true, type: 'date', example: '2026-03-01', format: 'YYYY-MM-DD or DD.MM.YYYY', help: 'First day of the warranty period.', aliases: ['start', 'begin', 'from', 'warrantystart', 'pocetak', 'početak', 'pocetakgarancije', 'od', 'datumod']},
   {key: 'end', label: 'Warranty ends', required: true, type: 'date', example: '2028-03-01', format: 'YYYY-MM-DD or DD.MM.YYYY, not before the start', help: 'Last day of the warranty period.', aliases: ['end', 'expiry', 'expires', 'until', 'to', 'warrantyend', 'kraj', 'krajgarancije', 'istek', 'do', 'datumdo']},
-  {key: 'poc', label: 'Point of contact', required: true, type: 'text', max: 120, example: 'Anna Muster', format: 'Text, up to 120 characters', help: 'Person at the firm who receives new jobs.', aliases: ['poc', 'contact', 'contactperson', 'kontakt', 'kontaktosoba', 'odgovornolice', 'odgovorno lice']},
-  {key: 'email', label: 'Contact email', required: true, type: 'email', max: 250, example: 'auftrag@malerbetrieb-muster.example', format: 'A valid email address', help: 'Where new jobs are sent. Check it carefully.', aliases: ['email', 'mail', 'contactemail', 'eposta', 'e-pošta', 'imejl']},
-  {key: 'phone', label: 'Phone number', required: false, type: 'phone', max: 40, example: '+49 5551 123456', format: 'Digits, spaces, +, -, ( ), up to 40 characters', help: 'Phone for urgent coordination.', aliases: ['phone', 'tel', 'telephone', 'mobile', 'telefon', 'mobilni', 'broj']},
-  {key: 'scope', label: 'Work scope', required: false, type: 'text', max: 2000, example: 'Maler- und Tapezierarbeiten in allen Wohnungen', format: 'Text, up to 2,000 characters', help: 'What the warranty covers on that road, such as a section, lanes or chainage.', aliases: ['scope', 'workscope', 'description', 'obim', 'obimradova', 'opis', 'opisradova']},
-  {key: 'additionalRoads', label: 'Additional streets', required: false, type: 'list', max: 1000, example: 'Mühlenstraße; Am Münster', format: 'Street names separated by ; or new lines', help: 'Other streets covered by the same contract.', aliases: ['additionalroads', 'otherroads', 'additionalstreets', 'dodatneulice', 'ostaleulice']},
-  {key: 'address', label: 'Firm address', required: false, type: 'text', max: 300, example: 'Hauptstraße 1, 37154 Northeim', format: 'Text, up to 300 characters', help: 'Postal address of the firm.', aliases: ['address', 'firmaddress', 'adresa', 'adresafirme', 'sediste', 'sedište']},
-  {key: 'addressCountry', label: 'Country or region', required: false, type: 'country', example: 'DEU', format: 'DEU, EU, SRB, USA or CAN', help: 'Country of the firm address. Leave empty if unknown.', aliases: ['country', 'region', 'addresscountry', 'drzava', 'država', 'zemlja']},
-  {key: 'notes', label: 'Notes', required: false, type: 'text', max: 4000, example: 'Rahmenvertrag 2026-01', format: 'Text, up to 4,000 characters', help: 'Internal notes, such as the contract number.', aliases: ['notes', 'note', 'comments', 'napomena', 'napomene', 'beleske', 'beleške']},
+  {key: 'poc', label: 'Point of contact', required: true, type: 'text', max: 120, example: 'Ana Nikolić', format: 'Text, up to 120 characters', help: 'Person at the firm who receives new jobs.', aliases: ['poc', 'contact', 'contactperson', 'kontakt', 'kontaktosoba', 'odgovornolice', 'odgovorno lice']},
+  {key: 'email', label: 'Contact email', required: true, type: 'email', max: 250, example: 'nalog@moler-plus.example', format: 'A valid email address', help: 'Where new jobs are sent. Check it carefully.', aliases: ['email', 'mail', 'contactemail', 'eposta', 'e-pošta', 'imejl']},
+  {key: 'phone', label: 'Phone number', required: false, type: 'phone', max: 40, example: '+381 31 555 0123', format: 'Digits, spaces, +, -, ( ), up to 40 characters', help: 'Phone for urgent coordination.', aliases: ['phone', 'tel', 'telephone', 'mobile', 'telefon', 'mobilni', 'broj']},
+  {key: 'scope', label: 'Work scope', required: false, type: 'text', max: 2000, example: 'Molerski radovi u svim stanovima', format: 'Text, up to 2,000 characters', help: 'What the warranty covers on that road, such as a section, lanes or chainage.', aliases: ['scope', 'workscope', 'description', 'obim', 'obimradova', 'opis', 'opisradova']},
+  {key: 'additionalRoads', label: 'Additional streets', required: false, type: 'list', max: 1000, example: 'Petra Ćelovića; Trg Partizana', format: 'Street names separated by ; or new lines', help: 'Other streets covered by the same contract.', aliases: ['additionalroads', 'otherroads', 'additionalstreets', 'dodatneulice', 'ostaleulice']},
+  {key: 'address', label: 'Firm address', required: false, type: 'text', max: 300, example: 'Trg Svetog Save 1, 31000 Užice', format: 'Text, up to 300 characters', help: 'Postal address of the firm.', aliases: ['address', 'firmaddress', 'adresa', 'adresafirme', 'sediste', 'sedište']},
+  {key: 'addressCountry', label: 'Country or region', required: false, type: 'country', example: 'SRB', format: 'DEU, EU, SRB, USA or CAN', help: 'Country of the firm address. Leave empty if unknown.', aliases: ['country', 'region', 'addresscountry', 'drzava', 'država', 'zemlja']},
+  {key: 'notes', label: 'Notes', required: false, type: 'text', max: 4000, example: 'Okvirni ugovor 2026-01', format: 'Text, up to 4,000 characters', help: 'Internal notes, such as the contract number.', aliases: ['notes', 'note', 'comments', 'napomena', 'napomene', 'beleske', 'beleške']},
   {key: 'trade', label: 'Trade', required: false, type: 'trade', example: 'Painting', format: 'One trade, in English or German (Painting or Maler)', help: 'The trade this contract covers. Leave empty if the firm takes every trade.', aliases: ['trade', 'gewerk', 'branche', 'fachrichtung']},
 ];
 
-/** A trade from its English key or German name ("Sanitär" or "Plumbing"). */
+/** A trade from its English key, German or Serbian name ("Sanitär", "Plumbing"). */
 export function tradeOf(text: string): string | undefined {
   const k = fold(text);
-  return TRADES.find(t => fold(t) === k || fold(de[t] || '') === k);
+  return TRADES.find(t => fold(t) === k || fold(de[t] || '') === k || fold(sr[t] || '') === k);
 }
 
 const fold = (s: string) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/đ/g, 'dj').replace(/[^a-z0-9]/g, '');

@@ -20,8 +20,8 @@
 
 - Single sign-on: Microsoft (Entra ID), Google and optional SAML buttons on the sign-in page.
 - Admins can add SSO users without a password; the membership links on the first SSO sign-in with the same email (`lib/sso.ts`), with domain and provider allowlists.
-- SSO users have no password reset in Baunavi; the Users list shows their SSO status.
-- `EVIDENCE_BUCKET` setting; renamed to Baunavi.
+- SSO users have no password reset in MajstorMile; the Users list shows their SSO status.
+- `EVIDENCE_BUCKET` setting; renamed to MajstorMile.
 
 ## 1.0.0 — 2026-11-03
 

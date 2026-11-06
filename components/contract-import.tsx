@@ -9,7 +9,7 @@ import {CONTRACT_SCHEMA, MAX_IMPORT_ROWS, autoMapColumns, checkRow, contractKey,
 type Existing = {contractor: string; road: string; start: string; end: string};
 const EXAMPLES: Record<string, string>[] = [
   Object.fromEntries(CONTRACT_SCHEMA.map(f => [f.key, f.example])),
-  {contractor: 'Sanitär Beispiel KG', road: 'Mühlenstraße', start: '15.04.2026', end: '14.04.2029', poc: 'Jonas Beispiel', email: 'jonas@sanitaer-beispiel.example', phone: '', scope: '', additionalRoads: '', address: '', addressCountry: '', notes: '', trade: 'Sanitär'},
+  {contractor: 'Vodoinstalater Primer d.o.o.', road: 'Petra Ćelovića', start: '15.04.2026', end: '14.04.2029', poc: 'Marko Petrović', email: 'marko@vodoinstalater-primer.example', phone: '', scope: '', additionalRoads: '', address: '', addressCountry: '', notes: '', trade: 'Plumbing'},
 ];
 
 function save(name: string, content: string, type: string) {
@@ -23,12 +23,12 @@ export function downloadTemplate(kind: 'csv' | 'xlsx' | 'xml') {
   const keys = CONTRACT_SCHEMA.map(f => f.key);
   if (kind === 'csv') {
     // BOM so Excel opens č, ć, š, ž and đ correctly.
-    save('Baunavi_contracts_template.csv', '﻿' + [keys.join(','), ...EXAMPLES.map(r => keys.map(k => csvCell(r[k] || '')).join(','))].join('\r\n') + '\r\n', 'text/csv;charset=utf-8');
+    save('MajstorMile_contracts_template.csv', '﻿' + [keys.join(','), ...EXAMPLES.map(r => keys.map(k => csvCell(r[k] || '')).join(','))].join('\r\n') + '\r\n', 'text/csv;charset=utf-8');
     return;
   }
   if (kind === 'xml') {
     const body = EXAMPLES.map(r => '  <contract>\n' + keys.filter(k => r[k]).map(k => `    <${k}>${xmlEsc(r[k])}</${k}>`).join('\n') + '\n  </contract>').join('\n');
-    save('Baunavi_contracts_template.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<contracts>\n${body}\n</contracts>\n`, 'application/xml');
+    save('MajstorMile_contracts_template.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<contracts>\n${body}\n</contracts>\n`, 'application/xml');
     return;
   }
   const wb = XLSX.utils.book_new();
@@ -44,7 +44,7 @@ export function downloadTemplate(kind: 'csv' | 'xlsx' | 'xml') {
   ]);
   guide['!cols'] = [{wch: 16}, {wch: 24}, {wch: 10}, {wch: 36}, {wch: 34}, {wch: 70}];
   XLSX.utils.book_append_sheet(wb, guide, tx('Guidelines').slice(0, 31));
-  XLSX.writeFile(wb, 'Baunavi_contracts_template.xlsx');
+  XLSX.writeFile(wb, 'MajstorMile_contracts_template.xlsx');
 }
 
 export const IMPORT_RULES = [

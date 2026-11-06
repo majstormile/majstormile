@@ -1,12 +1,12 @@
-// English interface text for Baunavi. The source text is English but was written for road repairs (PaveLedger);
+// English interface text for MajstorMile. The source text is English but was written for road repairs (PaveLedger);
 // these entries reword it for property management and trades. Keys not listed here are shown as written.
 // Stored values (statuses, roles) stay unchanged; only the displayed text differs.
 export const en: Record<string, string> = {
   "Tickets, repair responsibility, and the next action in one place.": "Jobs, trade responsibility and the next step in one place.",
   "Tickets, repair responsibility, and the next action in one place": "Jobs, trade responsibility and the next step in one place",
   "(road not mapped)": "(property not mapped)",
-  "123 King Street East, Waterloo, ON": "Breite Straße 30, Northeim",
-  "123 King Street East, Waterloo, ON N2J 1P5": "Breite Straße 30, 37154 Northeim",
+  "123 King Street East, Waterloo, ON": "Dimitrija Tucovića 30, Užice",
+  "123 King Street East, Waterloo, ON N2J 1P5": "Dimitrija Tucovića 30, 31000 Užice",
   "A Vehicle account is for a camera-equipped vehicle. It reports defects with GPS, the street is looked up automatically, and nearby duplicates are merged into one ticket.": "A Vehicle account is for automated reporting, for example a caretaker's inspection device. It reports defects with GPS, the street is looked up automatically, and nearby duplicates of the same trade are merged into one job.",
   "A clearer road to resolution.": "A clearer path to getting it fixed.",
   "A pilot workspace for tracking road defects such as potholes from first report to verified repair, with an activity record for every ticket.": "A workspace for tracking defects in apartments and buildings from the first report to the signed-off repair, with an activity record for every job.",
@@ -31,10 +31,10 @@ export const en: Record<string, string> = {
   "Automated dashcam": "Automated inspection",
   "Automated dashcam detection.": "Automated inspection report.",
   "Automated pothole detection": "Automated defect report",
-  "BAUNAVI / ROAD INTELLIGENCE": "BAUNAVI / PROPERTY OPERATIONS",
-  "Baunavi is designed to connect fleet observations with the teams and contracts responsible for acting on them. It can complement an existing municipal asset or work-order system.": "Baunavi connects defect reports from tenants and staff with the teams and trade firms responsible for fixing them. It can complement existing property management software.",
-  "Baunavi · Canadian-inspired working brand · September 2026": "Baunavi · working brand · 2026",
-  "Baunavi · Road intelligence and repair accountability · v{0}": "Baunavi · Jobs and trade accountability · v{0}",
+  "MAJSTORMILE / ROAD INTELLIGENCE": "MAJSTORMILE / PROPERTY OPERATIONS",
+  "MajstorMile is designed to connect fleet observations with the teams and contracts responsible for acting on them. It can complement an existing municipal asset or work-order system.": "MajstorMile connects defect reports from tenants and staff with the teams and trade firms responsible for fixing them. It can complement existing property management software.",
+  "MajstorMile · Canadian-inspired working brand · September 2026": "MajstorMile · working brand · 2026",
+  "MajstorMile · Road intelligence and repair accountability · v{0}": "MajstorMile · Jobs and trade accountability · v{0}",
   "Capture metadata is entered manually in this pilot. It is not authenticated GPS or a vehicle capture attestation.": "Photo details are entered manually. They are not authenticated GPS or a device attestation.",
   "Changes affect the next authorized request. Reassign open cases before suspending an analyst.": "Changes affect the next authorized request. Reassign open jobs before suspending a case manager.",
   "Choose a contract covering this road": "Choose a contract covering this property",
@@ -58,7 +58,7 @@ export const en: Record<string, string> = {
   "Head Analyst": "Team manager",
   "Hidden from the main dashboard. Visible to Admin, Head Analyst, and Director.": "Hidden from the main dashboard. Visible to Admin, Team manager and Director.",
   "I independently reviewed the selected clear repeat image; it shows the same location and lane repaired.": "I independently reviewed the selected sign-off photo; it shows the same spot repaired.",
-  "In Baunavi a contractor firm is defined by its contracts: each contract names the firm, the road it covers, the warranty period and the person who receives repair notices. Import one row per contract. Rows with the same firm name are grouped under one contractor.": "In Baunavi a contractor firm is defined by its contracts: each contract names the firm, the property it covers, the warranty period and the person who receives job orders. Import one row per contract. Rows with the same firm name are grouped under one contractor.",
+  "In MajstorMile a contractor firm is defined by its contracts: each contract names the firm, the road it covers, the warranty period and the person who receives repair notices. Import one row per contract. Rows with the same firm name are grouped under one contractor.": "In MajstorMile a contractor firm is defined by its contracts: each contract names the firm, the property it covers, the warranty period and the person who receives job orders. Import one row per contract. Rows with the same firm name are grouped under one contractor.",
   "Lane": "Area",
   "Lane 1": "Area 1",
   "Lane marking or sign damage": "Damaged signage or markings",
@@ -144,7 +144,7 @@ export const en: Record<string, string> = {
   "applies to road": "applies to property",
   "auditor": "inspector",
   "contract for this road": "contract for this property",
-  "e.g. Oak Avenue\nMaple Street": "e.g. Breite Straße\nAm Münster",
+  "e.g. Oak Avenue\nMaple Street": "e.g. Dimitrija Tucovića\nPetra Ćelovića",
   "head analyst": "team manager",
   "on road": "at property",
   "ticket on this road": "job at this property",

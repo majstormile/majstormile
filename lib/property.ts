@@ -1,10 +1,15 @@
 // Jobs are located by their postal address, not by GPS: street and house number, then apartment or floor.
-// These helpers compare addresses the way people write them ("Mühlenstr. 10" = "Mühlenstraße 10, 37154 Northeim").
+// These helpers compare addresses the way people write them ("Petra Ćelovića 10" = "Petra Ćelovića 10, 31000 Užice").
 
-/** Street spelling that ignores case, ß/ss, "Str."/"Straße"/"Strasse", hyphens and spaces. */
+// Serbian Cyrillic to Latin, so "Петра Ћеловића 10" and "Petra Ćelovića 10" are the same building.
+const CYRILLIC: Record<string, string> = {а: 'a', б: 'b', в: 'v', г: 'g', д: 'd', ђ: 'dj', е: 'e', ж: 'z', з: 'z', и: 'i', ј: 'j', к: 'k', л: 'l', љ: 'lj', м: 'm', н: 'n', њ: 'nj', о: 'o', п: 'p', р: 'r', с: 's', т: 't', ћ: 'c', у: 'u', ф: 'f', х: 'h', ц: 'c', ч: 'c', џ: 'dz', ш: 's'};
+
+/** Street spelling that ignores case, diacritics (č, ć, š, ž, đ), Cyrillic vs. Latin, ß/ss, "Str."/"Straße"/"Strasse", hyphens and spaces. */
 export function normStreet(s: string): string {
   return (s || '').toLowerCase()
-    .replace(/ß/g, 'ss').replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue')
+    .replace(/[а-яђјљњћџ]/g, c => CYRILLIC[c] ?? c)
+    .replace(/ß/g, 'ss').replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/đ/g, 'dj')
+    .normalize('NFD').replace(/[̀-ͯ]/g, '')
     .replace(/str(asse|\.|\b)/g, 'str')
     .replace(/[^a-z0-9]/g, '');
 }

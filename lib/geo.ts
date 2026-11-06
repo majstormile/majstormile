@@ -1,10 +1,10 @@
 import 'server-only';
 
-const UA=`Baunavi/1 (${process.env.SUPPORT_EMAIL||process.env.OWNER_EMAIL||'contact unset'})`;
+const UA=`MajstorMile/1 (${process.env.SUPPORT_EMAIL||process.env.OWNER_EMAIL||'contact unset'})`;
 const EU='at,be,bg,hr,cy,cz,dk,ee,fi,fr,de,gr,hu,ie,it,lv,lt,lu,mt,nl,pl,pt,ro,sk,si,es,se';
 export const COUNTRY_CODES:Record<string,string>={USA:'us',CAN:'ca',SRB:'rs',EU:EU,Europe:EU};
 
-// Address suggestions only. Typed text goes to Photon (komoot GmbH, Germany); nothing is stored there by Baunavi.
+// Address suggestions only. Typed text goes to Photon (komoot GmbH, Germany); nothing is stored there by MajstorMile.
 // No other geocoding service is used, and jobs never store coordinates.
 
 // Address type-ahead limited to one country, from Photon (OpenStreetMap data, built for search-as-you-type).

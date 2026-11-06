@@ -4,6 +4,7 @@ import {readFileSync, readdirSync, statSync} from 'node:fs';
 import {join} from 'node:path';
 import {de} from '../lib/i18n-de.ts';
 import {en} from '../lib/i18n-en.ts';
+import {sr} from '../lib/i18n-sr.ts';
 import {TRADES} from '../lib/domain.ts';
 
 // Every literal tx("...") in the interface, read from the source files.
@@ -42,4 +43,20 @@ test('translations keep their placeholders', () => {
     const ph = (s: string) => (s.match(/\{\d+\}/g) || []).sort().join();
     assert.equal(ph(v), ph(k), k);
   }
+});
+
+test('every interface text has a Serbian translation', () => {
+  const missing = [...literals].filter(k => !(k in sr));
+  assert.deepEqual(missing, []);
+});
+
+test('every trade has a Serbian name', () => {
+  for (const t of TRADES) assert.ok(sr[t], t);
+});
+
+test('Serbian translations keep their placeholders and are not left in English', () => {
+  const ph = (s: string) => (s.match(/\{\d+\}/g) || []).sort().join();
+  for (const [k, v] of Object.entries(sr)) assert.equal(ph(v), ph(k), k);
+  const same = Object.entries(sr).filter(([k, v]) => k === v && /[a-z]{4,} [a-z]{3,} [a-z]{3,}/i.test(k));
+  assert.deepEqual(same.map(([k]) => k), []);
 });

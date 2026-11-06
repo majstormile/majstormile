@@ -72,8 +72,8 @@ const props = (o: Record<string, unknown>) => '{' + Object.entries(o).map(([k, v
 
 /** Cypher MERGE statements for loading this graph into Neo4j. */
 export function toCypher(g: Graph): string {
-  const lines = ['// Baunavi connections graph. Run in Neo4j Browser or cypher-shell.', 'CREATE CONSTRAINT pl_node IF NOT EXISTS FOR (n:Baunavi) REQUIRE n.key IS UNIQUE;'];
-  for (const n of g.nodes) lines.push(`MERGE (n:Baunavi:${n.type} {key: ${cy(n.id)}}) SET n += ${props({name: n.label, ...n.props})};`);
-  for (const e of g.edges) lines.push(`MATCH (a:Baunavi {key: ${cy(e.source)}}), (b:Baunavi {key: ${cy(e.target)}}) MERGE (a)-[:${e.type}]->(b);`);
+  const lines = ['// MajstorMile connections graph. Run in Neo4j Browser or cypher-shell.', 'CREATE CONSTRAINT pl_node IF NOT EXISTS FOR (n:MajstorMile) REQUIRE n.key IS UNIQUE;'];
+  for (const n of g.nodes) lines.push(`MERGE (n:MajstorMile:${n.type} {key: ${cy(n.id)}}) SET n += ${props({name: n.label, ...n.props})};`);
+  for (const e of g.edges) lines.push(`MATCH (a:MajstorMile {key: ${cy(e.source)}}), (b:MajstorMile {key: ${cy(e.target)}}) MERGE (a)-[:${e.type}]->(b);`);
   return lines.join('\n') + '\n';
 }

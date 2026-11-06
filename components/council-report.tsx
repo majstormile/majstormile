@@ -40,7 +40,7 @@ export async function downloadCouncilReport(r: CouncilReport, opts: {workspace: 
   doc.setFont(font, 'normal'); doc.setFontSize(11);
   doc.text(monthName(r.month) + ' · ' + opts.workspace, tx0, 25);
   doc.setFontSize(8.5); doc.setTextColor(185, 199, 216);
-  doc.text(tx('Prepared {0} from the Baunavi workspace record', [generated]), tx0, 31);
+  doc.text(tx('Prepared {0} from the MajstorMile workspace record', [generated]), tx0, 31);
 
   // Key figures
   const delta = (a: number, b: number) => a === b ? tx('same as last month') : (a > b ? '+' : '') + num(a - b) + ' ' + tx('vs last month');
@@ -114,7 +114,7 @@ export async function downloadCouncilReport(r: CouncilReport, opts: {workspace: 
     doc.text(instance.brand + ' · ' + monthName(r.month), M, 290);
     doc.text(tx('Page {0} of {1}', [String(p), String(pages)]), W - M, 290, {align: 'right'});
   }
-  doc.save(`Baunavi_Council_Report_${r.month}.pdf`);
+  doc.save(`MajstorMile_Council_Report_${r.month}.pdf`);
 }
 
 export default function CouncilReportPanel({tickets, workspace, logo}: {tickets: Ticket[]; workspace: string; logo?: string}) {

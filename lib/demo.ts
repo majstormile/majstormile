@@ -1,13 +1,13 @@
 // Demo packs: complete sample worlds (teams, people, contracts, tickets) that an admin can load or reset.
 // Packs live in demo/*.json with dates relative to today, so a freshly loaded demo always looks current.
-import northeim from '../demo/northeim.json' with {type: 'json'};
+import uzice from '../demo/uzice.json' with {type: 'json'};
 import {isTrade, transitions, type State, type Member, type Ticket, type Status, type Role, type Evidence} from './domain.ts';
 
 export type PackTicket = {id: string; title: string; trade?: string; road: string; address: string; unit?: string; access?: string; contactName?: string; contactPhone?: string;
   /** Released to every firm for the trade instead of the contract's firm. */ offer?: 'open'; workStage?: string; severity: string; team: string; analyst?: string; source: string; confidence?: number; observations: number; daysAgo: number; contractId?: string; reopened?: number; holdFrom?: string; duplicateOf?: string; path: string[]};
-export type DemoPack = {name: string; description: string; teams: string[]; people: {id: string; name: string; role: string; teams: string[]; contractor?: string; vehicleTag?: string; phone?: string}[]; contracts: (State['contracts'][number])[]; notes: Record<string, string>; tickets: PackTicket[]};
+export type DemoPack = {name: string; description: string; /** Currency conversion for the illustrative job costs (base amounts are in euros). */ costUnit?: {rate: number; step: number}; teams: string[]; people: {id: string; name: string; role: string; teams: string[]; contractor?: string; vehicleTag?: string; phone?: string}[]; contracts: (State['contracts'][number])[]; notes: Record<string, string>; tickets: PackTicket[]};
 
-export const DEMO_PACKS: Record<'northeim', DemoPack> = {northeim: northeim as DemoPack};
+export const DEMO_PACKS: Record<'uzice', DemoPack> = {uzice: uzice as DemoPack};
 export type PackId = keyof typeof DEMO_PACKS;
 
 const DAY = 86400000;
@@ -82,7 +82,7 @@ export function loadDemoPack(s: State, packId: PackId, keep: Member[], nowISO: s
       if (st === 'Notice prepared') releasedAt = when;
       if (st === 'Acknowledged') {
         acceptedAt = when;
-        // A visit during working hours (8 to 14 o'clock German time), the next days after accepting.
+        // A visit during working hours (8 to 14 o'clock local time), the next days after accepting.
         const visit = new Date(Date.parse(when) + (status === 'Acknowledged' ? 3 : 1) * DAY); visit.setUTCHours(7 + (n % 4) * 2, 0, 0, 0);
         appointment = iso(visit.getTime());
         history.push({at: iso(Date.parse(when) + 60_000), actor: actorFor(st), action: 'Appointment scheduled', note: `Visit on ${appointment}.`, visibility: 'shared'});
@@ -100,8 +100,8 @@ export function loadDemoPack(s: State, packId: PackId, keep: Member[], nowISO: s
       quality: 'clear', visibility: 'shared', demoUrl: `/demo/${kind}-${pair}.jpg`,
     });
     // Illustrative repair costs in the pack's currency, once a contractor has been notified.
-    // Illustrative job costs in euros.
-    const unit = {rate: 1, step: 10};
+    // Illustrative job costs: base amounts in euros, converted to the pack's currency (Serbia: dinars).
+    const unit = p.costUnit || {rate: 1, step: 10};
     const base = ({Urgent: 450, Standard: 300, Low: 180} as Record<string, number>)[pt.severity] || 300;
     const round = (v: number) => Math.round(v * unit.rate / unit.step) * unit.step;
     const noticed = pt.path.some(st => ['Notice prepared', 'Acknowledged', 'Repair in progress'].includes(st));

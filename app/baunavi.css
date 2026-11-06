@@ -1,4 +1,4 @@
-/* Baunavi additions: contractor job panel, product page, app install and installed-app layout.
+/* MajstorMile additions: contractor job panel, product page, app install and installed-app layout.
    Kept in its own file so builds always pick it up. */
 /* Contractor job panel: offer, progress reports and timeline */
 .job-panel{border:1px solid #dce5ef;border-radius:8px;padding:16px;margin:0 0 18px;background:#fff;display:grid;gap:12px}

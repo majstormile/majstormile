@@ -1,8 +1,8 @@
-// One codebase, one profile per market. The deployment chooses it with NEXT_PUBLIC_INSTANCE.
-// Today there is a single profile (Germany). Austria and Switzerland can be added as further entries
+// One codebase, one profile per market. The Serbian profile (rs) is the default.
+// Today there is a single profile (Serbia). Further markets can be added as more entries
 // with their own currency, address search area, demo pack and wording.
-export type Lang = 'de' | 'en';
-export type InstanceId = 'de';
+export type Lang = 'sr' | 'de' | 'en';
+export type InstanceId = 'rs';
 
 export type Instance = {
   id: InstanceId;
@@ -17,18 +17,17 @@ export type Instance = {
   locales: Record<Lang, string | undefined>;
   currency: string;
   /** Country used as the default in address forms. */
-  country: 'DEU';
+  country: 'SRB';
   /** ISO code used to limit address search to this country. */
-  geocodeCountry: 'de';
+  geocodeCountry: 'rs';
   /** Bounding box for address search: west, south, east, north. */
   bbox: [number, number, number, number];
   /** Where address suggestions are biased to (the demo town). Jobs themselves carry no coordinates. */
   mapCenter: {lat: number; lng: number};
-  /** Zoom of the map before a location is chosen. */
   /** Examples shown in address and coordinate fields. */
   examples: {address: string; street: string};
   /** Demo pack loaded by default. */
-  demoPack: 'northeim';
+  demoPack: 'uzice';
   /** Pricing wording on the concept page. */
   market: {name: string; pricing: 'eur'};
   /** Emergency number shown on the public report form. */
@@ -38,18 +37,19 @@ export type Instance = {
 };
 
 export const INSTANCES: Record<InstanceId, Instance> = {
-  de: {
-    id: 'de', brand: 'Baunavi', logo: '/logo.svg', slogan: 'Property operations workspace',
-    languages: ['de', 'en'], defaultLang: 'de', locales: {de: 'de-DE', en: 'en-GB'},
-    currency: 'EUR', country: 'DEU', geocodeCountry: 'de', bbox: [5.87, 47.27, 15.04, 55.06], mapCenter: {lat: 51.7062, lng: 10.0010},
-    examples: {address: 'Breite Straße 30, 37154 Northeim', street: 'Breite Straße'},
-    demoPack: 'northeim', emergency: '112', market: {name: 'German', pricing: 'eur'},
+  rs: {
+    id: 'rs', brand: 'MajstorMile', logo: '/logo.svg', slogan: 'Property operations workspace',
+    languages: ['sr', 'en', 'de'], defaultLang: 'sr', locales: {sr: 'sr-Latn-RS', en: 'en-GB', de: 'de-DE'},
+    currency: 'RSD', country: 'SRB', geocodeCountry: 'rs', bbox: [18.81, 42.23, 23.01, 46.19], mapCenter: {lat: 43.8556, lng: 19.8425},
+    examples: {address: 'Dimitrija Tucovića 30, 31000 Užice', street: 'Dimitrija Tucovića'},
+    demoPack: 'uzice', emergency: '112', market: {name: 'Serbian', pricing: 'eur'},
     meta: {
-      de: {title: 'Baunavi | Aufträge für Maler, Sanitär, Elektro und Schlüsseldienst', description: 'Schadensmeldungen, Handwerkeraufträge und Abnahmen für Hausverwaltungen und Vermieter. Private Demonstration.'},
-      en: {title: 'Baunavi | Jobs for painters, plumbers, electricians and locksmiths', description: 'Defect reports, trade jobs and sign-off for property managers and landlords. Private demonstration.'},
+      sr: {title: 'MajstorMile | Nalozi za majstore: moleri, vodoinstalateri, električari i ključari', description: 'Prijave kvarova, nalozi za izvođače i primopredaja radova za upravnike zgrada i stanodavce. Privatna demonstracija.'},
+      en: {title: 'MajstorMile | Jobs for painters, plumbers, electricians and locksmiths', description: 'Defect reports, trade jobs and sign-off for property managers and landlords. Private demonstration.'},
+      de: {title: 'MajstorMile | Aufträge für Maler, Sanitär, Elektro und Schlüsseldienst', description: 'Schadensmeldungen, Handwerkeraufträge und Abnahmen für Hausverwaltungen und Vermieter. Private Demonstration.'},
     },
   },
 };
 
 /** The profile for this deployment. */
-export const instance: Instance = INSTANCES.de;
+export const instance: Instance = INSTANCES.rs;

@@ -1,4 +1,4 @@
-# Validation record — Baunavi v2.0
+# Validation record — MajstorMile v2.0
 
 Export date: 25 September 2026. Target platform: Next.js on Vercel, Node.js 22.x, Supabase Auth/PostgreSQL/private Storage.
 

@@ -1,10 +1,10 @@
-> Note: this guide was inherited from PaveLedger. In Baunavi, "road" means the property or street address, "lane" means the area inside it (room or unit), "contractor" means the trade firm, and every ticket and contract carries a trade. The workflow, roles, security model and limits are unchanged.
+> Note: this guide was inherited from PaveLedger. In MajstorMile, "road" means the property or street address, "lane" means the area inside it (room or unit), "contractor" means the trade firm, and every ticket and contract carries a trade. The workflow, roles, security model and limits are unchanged.
 
-# Baunavi deployment and operations guide
+# MajstorMile deployment and operations guide
 
 Vercel export • Version 2.0 • 25 September 2026
 
-This package reconstructs the accessible Baunavi project files and supplies an operational pilot for one municipal workspace. Deploy the baunavi-vercel folder. The original business documents and source snapshot are preserved separately.
+This package reconstructs the accessible MajstorMile project files and supplies an operational pilot for one municipal workspace. Deploy the baunavi-vercel folder. The original business documents and source snapshot are preserved separately.
 
 ## What is ready
 
@@ -357,7 +357,7 @@ Vendor documentation checked on 25 September 2026. Settings and plan entitlement
 
 ## Recovered project material
 
-Thirteen accessible Baunavi file artifacts and the saved site source were identified. Original documents include the business plan, government brochure, fleet/contractor brochure and engineering design in Word/PDF; financial workbook; logo; overview image; complete-package ZIP; and earlier damaged Vercel ZIP. The complete-package ZIP also supplied historical domain research and its original start guide.
+Thirteen accessible MajstorMile file artifacts and the saved site source were identified. Original documents include the business plan, government brochure, fleet/contractor brochure and engineering design in Word/PDF; financial workbook; logo; overview image; complete-package ZIP; and earlier damaged Vercel ZIP. The complete-package ZIP also supplied historical domain research and its original start guide.
 
 The saved site source was archived unchanged at commit b45dacf818f1f636f300e9f160440ad5b79b37ad. The new deployable project builds on the recovered Vercel conversion, restores missing source assets, and adds the access, evidence and investigation controls described here. Originals are historical references; this guide and current source describe version 2.0 behaviour.
 

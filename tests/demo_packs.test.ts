@@ -5,7 +5,7 @@ import {applyAction} from '../lib/actions.ts';
 import {ticketFlow} from '../lib/workflow.ts';
 const now='2026-10-14T10:00:00.000Z';
 const fresh=()=>{const s=normalizeState(seed('owner','owner@example.test'));s.members.push({id:'real-1',name:'Real Analyst',email:'real@x.test',role:'Analyst',teams:['Central roads'],contractor:'',active:true,demo:false});return s};
-for(const id of ['northeim'] as const){
+for(const id of ['uzice'] as const){
  test(id+' pack follows the workflow and references only its own people, teams and contracts',()=>assert.deepEqual(checkPack(DEMO_PACKS[id]),[]));
  test(id+' pack loads with real accounts kept and demo people replaced',()=>{
   const s=fresh();loadDemoPack(s,id,s.members.filter(m=>!m.demo),now,'Owner');const ns=normalizeState(s);
@@ -19,7 +19,7 @@ for(const id of ['northeim'] as const){
 }
 test('only a real administrator can load a demo pack',()=>{
  const s=normalizeState(seed('owner','owner@example.test'));const admin=s.members[0];const analyst=s.members.find(m=>m.id==='demo-analyst')!;
- assert.throws(()=>applyAction(s,analyst,analyst,{action:'loadDemo',pack:'northeim'},now,'owner'),/administrator/);
- assert.throws(()=>applyAction(s,analyst,admin,{action:'loadDemo',pack:'northeim'},now,'owner'),/administrator/);
- applyAction(s,admin,admin,{action:'loadDemo',pack:'northeim'},now,'owner');assert.ok(s.tickets.every(t=>t.id.startsWith('NOM-DEMO')));
+ assert.throws(()=>applyAction(s,analyst,analyst,{action:'loadDemo',pack:'uzice'},now,'owner'),/administrator/);
+ assert.throws(()=>applyAction(s,analyst,admin,{action:'loadDemo',pack:'uzice'},now,'owner'),/administrator/);
+ applyAction(s,admin,admin,{action:'loadDemo',pack:'uzice'},now,'owner');assert.ok(s.tickets.every(t=>t.id.startsWith('UZ-DEMO')));
  assert.throws(()=>applyAction(s,admin,admin,{action:'loadDemo',pack:'mars'},now,'owner'))});

@@ -87,7 +87,7 @@ export function overdueDigests(alerts: Alert[], tr: (key: string, args?: string[
   for (const a of alerts) if (a.recipient.email && !a.recipient.email.endsWith('.invalid')) by.set(a.recipient.email, [...(by.get(a.recipient.email) || []), a]);
   return [...by].map(([to, list]) => ({
     to,
-    subject: tr('Baunavi: {0} ticket(s) need attention', [String(list.length)]),
+    subject: tr('MajstorMile: {0} ticket(s) need attention', [String(list.length)]),
     text: [
       tr('Hello {0},', [list[0].recipient.name]), '',
       tr('These tickets are past their deadline:'), '',

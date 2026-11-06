@@ -7,7 +7,7 @@ import SwRegister from "@/components/sw-register";
 import WebAnalytics from "@/components/web-analytics";
 
 const meta = instance.meta[instance.defaultLang] || instance.meta.en!;
-const HTML_LANG = { de: "de", en: "en" } as const;
+const HTML_LANG = { sr: "sr-Latn", de: "de", en: "en" } as const;
 
 export const metadata: Metadata = {
   title: meta.title,
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     shortcut: "/favicon.svg",
     apple: `/icons/${instance.id}-apple.png`,
   },
-  appleWebApp: { capable: true, title: "Baunavi", statusBarStyle: "default" },
+  appleWebApp: { capable: true, title: instance.brand, statusBarStyle: "default" },
   formatDetection: { telephone: false },
 };
 

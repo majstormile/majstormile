@@ -8,7 +8,7 @@ type MailEnv={RESEND_API_KEY?:string,MAIL_FROM?:string};
 type Fetcher=(url:string,init:{method:string,headers:Record<string,string>,body:string,signal?:AbortSignal})=>Promise<{ok:boolean,status:number,text():Promise<string>}>;
 
 // Resend's testing sender. It can only deliver to the address the Resend account was created with.
-export const TEST_SENDER='Baunavi <onboarding@resend.dev>';
+export const TEST_SENDER='MajstorMile <onboarding@resend.dev>';
 
 export async function sendMail(msg:MailMessage,env:MailEnv=process.env as MailEnv,doFetch:Fetcher=fetch as unknown as Fetcher):Promise<MailResult>{
  const key=env.RESEND_API_KEY?.trim();
@@ -33,7 +33,7 @@ const oneLine=(s:string)=>s.replace(/[\r\n]+/g,' ').trim();
 export function supportMessage(member:Member,form:{name:string,email:string,message:string},to:string):MailMessage{
  return {
   to,
-  subject:'Baunavi support: '+oneLine(form.name).slice(0,80),
+  subject:'MajstorMile support: '+oneLine(form.name).slice(0,80),
   text:form.message.trim()+'\n\n---\nFrom: '+oneLine(form.name)+' <'+oneLine(form.email)+'>\nSigned in as: '+oneLine(member.name)+' ('+member.role+', '+oneLine(member.email)+')',
   replyTo:oneLine(form.email),
  };

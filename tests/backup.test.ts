@@ -26,6 +26,6 @@ test('snapshots are checked before restore', () => {
   const snap = makeSnapshot('ws', 'manual', '2026-10-14T00:00:00.000Z', 3, seed('o', 'o@x'));
   assert.equal(checkSnapshot(JSON.parse(JSON.stringify(snap)), 'ws').revision, 3);
   assert.throws(() => checkSnapshot(snap, 'other'), /another workspace/);
-  assert.throws(() => checkSnapshot({format: 'x'}, 'ws'), /not a Baunavi backup/);
+  assert.throws(() => checkSnapshot({format: 'x'}, 'ws'), /not a MajstorMile backup/);
   assert.throws(() => checkSnapshot({...snap, data: {tickets: []}}, 'ws'), /incomplete/);
 });

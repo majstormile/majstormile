@@ -38,7 +38,7 @@ export default function ReportPage() {
 
   return <main className="public-page">
     <header className="public-head">
-      <a href="/concept"><img src={instance.logo} alt={tx('Baunavi')}/></a>
+      <a href="/concept"><img src={instance.logo} alt={tx('MajstorMile')}/></a>
       <LangSwitch/>
     </header>
     <section className="public-card">

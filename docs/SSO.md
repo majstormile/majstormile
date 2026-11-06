@@ -1,6 +1,6 @@
 # Single sign-on (SSO)
 
-Baunavi supports three kinds of company sign-in, all through Supabase Auth:
+MajstorMile supports three kinds of company sign-in, all through Supabase Auth:
 
 | Button on the sign-in page | Supabase provider | Typical client | Supabase plan |
 |---|---|---|---|
@@ -14,7 +14,7 @@ Email and password sign-in keeps working alongside SSO.
 
 1. An administrator opens Users and Roles → Add user and picks **Firmenkonto (SSO …), ohne Passwort**. The membership (role, teams) is created with the person's company email and no password.
 2. The person clicks "Mit Microsoft anmelden" (or Google/SAML) and signs in with exactly that email.
-3. On the first sign-in, Baunavi links the membership to that account (`lib/sso.ts`). The Activity log records "SSO-Anmeldung verknüpft für …". The Users list shows "SSO · wartet auf erste Anmeldung" until then.
+3. On the first sign-in, MajstorMile links the membership to that account (`lib/sso.ts`). The Activity log records "SSO-Anmeldung verknüpft für …". The Users list shows "SSO · wartet auf erste Anmeldung" until then.
 
 Safeguards: only members an admin marked as SSO can be linked, and only while still unlinked. They must be active, real (not demo) members. Email/password sign-ins never link. One account can only ever hold one membership. Someone who signs in through SSO without a matching membership gets the usual "no active membership" message and sees nothing.
 
@@ -34,13 +34,13 @@ Redeploy after changing `NEXT_PUBLIC_*` variables, because they are built into t
 ## Set up Microsoft (Entra ID)
 
 1. Azure portal → Microsoft Entra ID → App registrations → **New registration**.
-   - Name: `Baunavi`
-   - Supported account types: "Accounts in any organizational directory (multitenant)" so each client firm can sign in with its own Microsoft 365. Choose single tenant if Baunavi serves only one company.
+   - Name: `MajstorMile`
+   - Supported account types: "Accounts in any organizational directory (multitenant)" so each client firm can sign in with its own Microsoft 365. Choose single tenant if MajstorMile serves only one company.
    - Redirect URI (Web): `https://<your-project-ref>.supabase.co/auth/v1/callback`
 2. Certificates & secrets → New client secret. Copy the **Value** (not the ID). Note its expiry date in your calendar.
 3. Token configuration → Add optional claim → ID token → add `email` and `xms_edov` (marks whether the email is verified).
 4. Supabase → Authentication → Sign In / Providers → **Azure** → enable. Paste the Application (client) ID and the secret. Azure Tenant URL: leave empty for multitenant, or `https://login.microsoftonline.com/<tenant-id>` for one company.
-5. Supabase → Authentication → URL Configuration: set Site URL to your Baunavi address (for example `https://baunavi.vercel.app`) and add it under Redirect URLs, along with `http://localhost:3000` for local testing.
+5. Supabase → Authentication → URL Configuration: set Site URL to your MajstorMile address (for example `https://baunavi.vercel.app`) and add it under Redirect URLs, along with `http://localhost:3000` for local testing.
 6. In Vercel set `NEXT_PUBLIC_SSO_PROVIDERS=azure` (or `azure,google`) and `SSO_ALLOWED_DOMAINS`, then redeploy.
 
 ## Set up Google
@@ -54,10 +54,10 @@ Redeploy after changing `NEXT_PUBLIC_*` variables, because they are built into t
 
 1. Supabase → Authentication → SSO → enable SAML 2.0, then add a connection using the client's IdP metadata URL and their email domain(s). The Supabase CLI also works: `supabase sso add --type saml --metadata-url … --domains client.de`.
 2. Give the client's IT the Supabase SAML metadata (ACS URL and Entity ID shown in the dashboard).
-3. Set `NEXT_PUBLIC_SSO_SAML=true` and redeploy. People enter their work email, and Baunavi forwards them to their company login.
+3. Set `NEXT_PUBLIC_SSO_SAML=true` and redeploy. People enter their work email, and MajstorMile forwards them to their company login.
 
 ## Security notes
 
 - Always set `SSO_ALLOWED_DOMAINS` in production. Without it, any Microsoft or Google account with a matching email can link a waiting SSO membership.
-- SSO members cannot have their password reset in Baunavi; their company controls the account. To remove access, suspend or delete the membership. Disabling the person in Microsoft or Google also stops new sign-ins.
+- SSO members cannot have their password reset in MajstorMile; their company controls the account. To remove access, suspend or delete the membership. Disabling the person in Microsoft or Google also stops new sign-ins.
 - Keep public sign-up disabled in Supabase except for the SSO providers. A self-created account still has no membership and cannot see any data.

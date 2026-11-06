@@ -1,5 +1,5 @@
 'use client';
-// Public product page: what Baunavi does, the subscriptions, the phone app and the pilot.
+// Public product page: what MajstorMile does, the subscriptions, the phone app and the pilot.
 import {tx, useLang, LangSwitch, locale} from '@/lib/i18n';
 import {instance} from '@/lib/instance';
 import {Smartphone, Hammer, ClipboardCheck, ArrowUpRight} from 'lucide-react';
@@ -19,7 +19,7 @@ export default function Concept() {
   useLang();
   return <main className="marketing">
     <nav className="marketing-nav">
-      <a href="/"><img src={instance.logo} alt="Baunavi"/></a>
+      <a href="/"><img src={instance.logo} alt="MajstorMile"/></a>
       <div>
         <a href="#platform">{tx('Platform')}</a>
         <a href="#plans">{tx('Subscriptions')}</a>
@@ -52,7 +52,7 @@ export default function Concept() {
     <section className="marketing-section" id="platform">
       <p className="eyebrow">{tx('ONE CONNECTED REPAIR PROCESS')}</p>
       <h2>{tx('See the defect. Follow the responsibility.')}</h2>
-      <p>{tx('Baunavi connects tenant reports with your teams and the contractors who do the work, from the first photo to the sign-off.')}</p>
+      <p>{tx('MajstorMile connects tenant reports with your teams and the contractors who do the work, from the first photo to the sign-off.')}</p>
       <div className="feature-grid">
         <article><Smartphone/><h3>{tx('Reported in a minute')}</h3><p>{tx('Tenants and caretakers report from any phone: address, apartment, photos and how to get in. No app or account needed.')}</p></article>
         <article><Hammer/><h3>{tx('Released to your trades')}</h3><p>{tx('Release a job to one firm or to every firm with a contract for the trade. Prices follow the contract, so the first to accept takes the job.')}</p></article>
@@ -81,13 +81,13 @@ export default function Concept() {
           <a className="secondary" href="#pilot">{tx('Start with a pilot')}</a>
         </article>)}
       </div>
-      <p className="concept-note" style={{marginTop: 20}}>{tx('An apartment unit is any apartment, office or shop you manage. A contractor is a firm with a contract in Baunavi; each firm can have several users.')}</p>
+      <p className="concept-note" style={{marginTop: 20}}>{tx('An apartment unit is any apartment, office or shop you manage. A contractor is a firm with a contract in MajstorMile; each firm can have several users.')}</p>
     </section>
 
     <section className="marketing-section" id="app">
-      <p className="eyebrow">{tx('THE BAUNAVI APP')}</p>
+      <p className="eyebrow">{tx('THE MAJSTORMILE APP')}</p>
       <h2>{tx('On every phone, without an app store.')}</h2>
-      <p>{tx('Staff and contractors install Baunavi straight from this website. It opens full screen, keeps working with a weak signal and sends what was entered offline once the connection is back.')}</p>
+      <p>{tx('Staff and contractors install MajstorMile straight from this website. It opens full screen, keeps working with a weak signal and sends what was entered offline once the connection is back.')}</p>
       <InstallApp/>
     </section>
 

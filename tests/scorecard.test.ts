@@ -43,7 +43,7 @@ test('rejected and duplicate tickets do not count', () => {
 });
 
 test('demo packs produce a scorecard for each firm with work', () => {
-  for (const pack of ['northeim'] as const) {
+  for (const pack of ['uzice'] as const) {
     const st = seed('o', 'o@x'); loadDemoPack(st, pack, [], '2026-10-14T10:00:00.000Z', 'S');
     const cards = contractorScorecards(st.tickets, '2026-10-14T10:00:00.000Z');
     assert.ok(cards.length >= 2, pack);

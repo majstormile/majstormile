@@ -21,7 +21,7 @@ test('totals estimated, actual, recovered and net cost', () => {
 test('cost action validates and records history', () => {
   const now = '2026-10-14T10:00:00.000Z';
   const st = normalizeState(seed('owner', 'owner@example.test'));
-  loadDemoPack(st, 'northeim', st.members.filter(m => m.id === 'owner'), now, 'System');
+  loadDemoPack(st, 'uzice', st.members.filter(m => m.id === 'owner'), now, 'System');
   const owner = st.members.find(m => m.id === 'owner')!;
   const tk = st.tickets[0];
   applyAction(st, owner, owner, {action: 'cost', id: tk.id, estimate: '30000', actual: 32000, recovered: ''}, now, 'owner');
@@ -31,7 +31,7 @@ test('cost action validates and records history', () => {
 });
 
 test('demo packs include costs on repaired tickets', () => {
-  const st = seed('o', 'o@x'); loadDemoPack(st, 'northeim', [], '2026-10-14T10:00:00.000Z', 'S');
+  const st = seed('o', 'o@x'); loadDemoPack(st, 'uzice', [], '2026-10-14T10:00:00.000Z', 'S');
   const s = costSummary(st.tickets);
   assert.ok(s.tickets >= 3);
   assert.ok(s.recovered > 0);

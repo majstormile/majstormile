@@ -9,15 +9,15 @@ export default function AppPage() {
   useLang();
   return <main className="public-page">
     <header className="public-head">
-      <a href="/concept"><img src={instance.logo} alt={tx('Baunavi')}/></a>
+      <a href="/concept"><img src={instance.logo} alt={tx('MajstorMile')}/></a>
       <LangSwitch/>
     </header>
     <section className="public-card">
-      <p className="eyebrow">{tx('THE BAUNAVI APP')}</p>
-      <h1>{tx('Install Baunavi on your phone')}</h1>
+      <p className="eyebrow">{tx('THE MAJSTORMILE APP')}</p>
+      <h1>{tx('Install MajstorMile on your phone')}</h1>
       <p className="muted">{tx('No app store needed. The app opens full screen, works with a weak signal and updates itself.')}</p>
       <InstallApp compact/>
-      <p className="public-links"><a href="/">{tx('Open Baunavi in the browser')}</a> · <a href="/report">{tx('Report a defect')}</a> · <LegalFooterLinks/></p>
+      <p className="public-links"><a href="/">{tx('Open MajstorMile in the browser')}</a> · <a href="/report">{tx('Report a defect')}</a> · <LegalFooterLinks/></p>
     </section>
   </main>;
 }

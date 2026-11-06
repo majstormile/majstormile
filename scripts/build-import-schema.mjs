@@ -17,7 +17,7 @@ const prop = f => {
 const schema = {
   $schema: 'https://json-schema.org/draft/2020-12/schema',
   $id: 'https://baunavi.vercel.app/schemas/contract-import.schema.json',
-  title: 'Baunavi contract import',
+  title: 'MajstorMile contract import',
   description: `One object per contractor contract. Up to ${MAX_IMPORT_ROWS} rows per import. The same field names are used as CSV/Excel headers and XML element names. Rows matching an existing contract on firm, road, start and end are skipped as duplicates.`,
   type: 'array', maxItems: MAX_IMPORT_ROWS,
   items: {type: 'object', additionalProperties: true, required: CONTRACT_SCHEMA.filter(f => f.required).map(f => f.key),
@@ -27,7 +27,7 @@ const schema = {
 fs.writeFileSync('public/schemas/contract-import.schema.json', JSON.stringify(schema, null, 2) + '\n');
 const md = `# Contract import schema
 
-Contractor firms in Baunavi are defined by their contracts, so contractors are imported as contracts: one row (or XML element, or JSON object) per contract. This file is generated from \`lib/contract-schema.ts\` by \`scripts/build-import-schema.mjs\`; the import screen and the server use the same rules.
+Contractor firms in MajstorMile are defined by their contracts, so contractors are imported as contracts: one row (or XML element, or JSON object) per contract. This file is generated from \`lib/contract-schema.ts\` by \`scripts/build-import-schema.mjs\`; the import screen and the server use the same rules.
 
 - Formats: Excel (XLSX, XLS), CSV (UTF-8), XML. Templates: Contracts → Import contracts → Import schema and guidelines, or Help and FAQ.
 - Machine-readable schema: [\`/schemas/contract-import.schema.json\`](../public/schemas/contract-import.schema.json) (JSON Schema 2020-12).

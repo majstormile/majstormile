@@ -1,4 +1,4 @@
-# Baunavi architecture diagrams
+# MajstorMile architecture diagrams
 
 ## Implemented request boundary
 

@@ -1,6 +1,6 @@
 // Removes hidden metadata from uploaded photos before they are stored (GDPR Art. 5(1)(c), data minimisation).
 // Phone cameras write EXIF data into every picture: GPS position, time, device model and serial numbers.
-// Baunavi locates jobs by address only, so none of that is kept. The visible picture is left untouched:
+// MajstorMile locates jobs by address only, so none of that is kept. The visible picture is left untouched:
 // only metadata segments and chunks are dropped; image data is copied byte for byte.
 
 /** JPEG: drop APP1 (EXIF, XMP), APP13 (IPTC/Photoshop) and COM segments. Keeps APP0 (JFIF) and APP2 (ICC colour profile). */

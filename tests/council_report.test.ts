@@ -36,7 +36,7 @@ test('counts opened, closed, open at month end and time to close', () => {
 
 test('demo pack gives a non-empty report for the current month', () => {
   const now = new Date().toISOString();
-  const s = seed('o', 'o@x'); loadDemoPack(s, 'northeim', [], now, 'S');
+  const s = seed('o', 'o@x'); loadDemoPack(s, 'uzice', [], now, 'S');
   const r = councilReport(s.tickets, now.slice(0, 7), now);
   assert.ok(r.opened + r.openAtEnd > 0);
   assert.ok(r.byTeam.length >= 2);
