@@ -1716,7 +1716,7 @@ export const de: Record<string, string> = {
   "Download their data (JSON)": "Daten der Person herunterladen (JSON)",
   "Remove their contact details": "Kontaktdaten der Person löschen",
   "Confirm: remove from {0} job(s)": "Bestätigen: aus {0} Auftrag/Aufträgen löschen",
-  "Answer access and erasure requests within one month. Your property management is responsible for the data; MajstorMile processes it on your behalf.": "Beantworten Sie Auskunfts- und Löschanfragen innerhalb eines Monats. Verantwortlich für die Daten ist Ihre Hausverwaltung; MajstorMile verarbeitet sie in Ihrem Auftrag.",
+  "Answer access and erasure requests without delay and within 30 days (extendable by up to 60 days if you tell the person within the first 30). Your property manager is responsible for the data; MajstorMile processes it on your behalf.": "Beantworten Sie Auskunfts- und Löschanfragen unverzüglich und innerhalb von 30 Tagen (um höchstens 60 Tage verlängerbar, wenn Sie die Person in den ersten 30 Tagen informieren). Ihre Verwaltung ist für die Daten verantwortlich; MajstorMile verarbeitet sie in Ihrem Auftrag.",
   "This job holds no contact details.": "Dieser Auftrag enthält keine Kontaktdaten.",
   "No contact details found for this email or phone number.": "Für diese E-Mail-Adresse oder Telefonnummer wurden keine Kontaktdaten gefunden.",
   "Personal data removed": "Personenbezogene Daten gelöscht",

@@ -1716,7 +1716,7 @@ export const sr: Record<string, string> = {
   "Download their data (JSON)": "Preuzmi njihove podatke (JSON)",
   "Remove their contact details": "Ukloni njihove kontakt podatke",
   "Confirm: remove from {0} job(s)": "Potvrdite: ukloni sa {0} posla",
-  "Answer access and erasure requests within one month. Your property management is responsible for the data; MajstorMile processes it on your behalf.": "Na zahteve za pristup i brisanje odgovorite u roku od mesec dana. Vaša uprava objekata odgovorna je za podatke; MajstorMile ih obrađuje u vaše ime.",
+  "Answer access and erasure requests without delay and within 30 days (extendable by up to 60 days if you tell the person within the first 30). Your property manager is responsible for the data; MajstorMile processes it on your behalf.": "Na zahteve za pristup i brisanje odgovorite bez odlaganja, a najkasnije u roku od 30 dana (rok se može produžiti za najviše 60 dana ako osobu obavestite u prvih 30). Vaš upravnik objekta odgovoran je za podatke; MajstorMile ih obrađuje u vaše ime.",
   "This job holds no contact details.": "Ovaj posao ne sadrži kontakt podatke.",
   "No contact details found for this email or phone number.": "Nisu pronađeni kontakt podaci za ovu e-poštu ili broj telefona.",
   "Personal data removed": "Lični podaci uklonjeni",

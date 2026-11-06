@@ -1,6 +1,6 @@
 'use client';
 // Admin settings for data protection: how long tenant contact details are kept, and requests from a person
-// to see (GDPR Art. 15) or erase (Art. 17) their data.
+// to see (ZZPL Art. 26) or erase (Art. 30) their data.
 import {useState} from 'react';
 import {tx, useLang} from '@/lib/i18n';
 import {contactDays, findPersonInJobs, personalDataExport, MIN_CONTACT_DAYS, MAX_CONTACT_DAYS} from '@/lib/privacy';
@@ -37,7 +37,7 @@ export default function PrivacyCard({data, mutate, busy}: {data: State; mutate: 
           ? <button type="button" className="secondary" disabled={busy || !withContact.length} onClick={() => setConfirming(true)}>{tx('Remove their contact details')}</button>
           : <button type="button" className="primary" disabled={busy} onClick={async () => { if (await mutate({action: 'erasePerson', query})) { setConfirming(false); setQuery(''); } }}>{tx('Confirm: remove from {0} job(s)', [String(withContact.length)])}</button>}
       </div>
-      <p className="footnote">{tx('Answer access and erasure requests within one month. Your property management is responsible for the data; MajstorMile processes it on your behalf.')}</p>
+      <p className="footnote">{tx('Answer access and erasure requests without delay and within 30 days (extendable by up to 60 days if you tell the person within the first 30). Your property manager is responsible for the data; MajstorMile processes it on your behalf.')}</p>
     </div>
   </div>;
 }

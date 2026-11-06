@@ -1,4 +1,4 @@
-// Removes hidden metadata from uploaded photos before they are stored (GDPR Art. 5(1)(c), data minimisation).
+// Removes hidden metadata from uploaded photos before they are stored (ZZPL data minimisation principle).
 // Phone cameras write EXIF data into every picture: GPS position, time, device model and serial numbers.
 // MajstorMile locates jobs by address only, so none of that is kept. The visible picture is left untouched:
 // only metadata segments and chunks are dropped; image data is copied byte for byte.

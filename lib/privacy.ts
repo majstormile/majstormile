@@ -1,7 +1,7 @@
 // Personal data of tenants and on-site contacts: how long it is kept, and how it is erased or exported on request.
 //
-// GDPR Art. 5(1)(e) (storage limitation), Art. 15 (access) and Art. 17 (erasure).
-// A closed job is kept as a record of the work (warranty claims under BGB §634a run 2 years, 5 years for work on a
+// Serbian Law on Personal Data Protection (ZZPL): storage limitation, Art. 26 (access) and Art. 30 (erasure).
+// A closed job is kept as a record of the work (warranty periods depend on the contract and the law; they can be long for work on a
 // building), but the tenant's name, phone, email and access details are only needed to arrange the visit.
 // They are removed automatically a set number of days after the job is closed, and earlier on request.
 import type {State, Ticket} from './domain.ts';
@@ -64,7 +64,7 @@ export function findPersonInJobs(s: State, query: string): Ticket[] {
     (phone && phone.length >= 6 && !!t.contactPhone && digits(t.contactPhone) === phone));
 }
 
-/** What MajstorMile holds about a person, as a portable JSON document (Art. 15 and Art. 20). */
+/** What MajstorMile holds about a person, as a portable JSON document (ZZPL Art. 26 and Art. 36). */
 export function personalDataExport(s: State, query: string, now: string) {
   const jobs = findPersonInJobs(s, query);
   return {
