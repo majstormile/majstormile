@@ -37,6 +37,7 @@ import {enqueue,isOffline} from '@/lib/offline-queue';
 import SyncStatus from '@/components/sync-status';
 import dynamic from 'next/dynamic';
 import {LegalFooterLinks} from '@/components/legal-page';
+import PasskeysCard from '@/components/passkeys-card';
 // Sign out from any screen: clears this device's session markers, then returns to the start page.
 const logOut=async()=>{try{localStorage.removeItem('majstormile-login-at');sessionStorage.clear()}catch{}const {error}=await browserClient().auth.signOut();if(error){toast.error(tx('Could not sign out. Please retry.'));return}window.location.href='/'};
 const GraphView=dynamic(()=>import('@/components/graph-view'),{ssr:false,loading:()=><p className="muted">{tx('Loading graph…')}</p>});
@@ -243,6 +244,7 @@ return <div className="settings-page">
 <label>{tx("Confirm new password")}<input name="password2" type="password" minLength={8} autoComplete="new-password" required/></label>
 <button className="secondary" disabled={busy}>{tx("Update password")}</button>
 </form></section>
+<PasskeysCard/>
 <section className="settings-card"><div className="section-head"><div><h2>{tx("Change email")}</h2><p>{tx("Current: {0}. Changing this sends a confirmation link to the new address.", [tx(v.email)])}</p></div></div>
 <form className="form" onSubmit={async e=>{e.preventDefault();const form=e.currentTarget;const newEmail=String(new FormData(form).get('newEmail')||'').trim();if(!newEmail)return;const {error}=await browserClient().auth.updateUser({email:newEmail});if(error)toast.error(tx(error.message));else{toast.success(tx('Confirmation email sent. Your email updates once confirmed.'));form.reset()}}}>
 <label>{tx("New email")}<input name="newEmail" type="email" required/></label>

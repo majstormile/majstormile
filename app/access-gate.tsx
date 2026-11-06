@@ -4,16 +4,20 @@ import {instance} from '@/lib/instance';
 import { useEffect, useState, type FormEvent, type ReactNode } from 'react';
 import type { Session } from '@supabase/supabase-js';
 import { browserClient } from '@/lib/supabase-browser';
+import { KeyRound } from 'lucide-react';
 import {LegalFooterLinks} from '@/components/legal-page';
+import {passkeysSupported, passkeyErrorText} from '@/components/passkeys-card';
 
 const MIN_PASSWORD = 8;
 // Single sign-on buttons shown on the sign-in page. Each provider must also be enabled in Supabase (see docs/SSO.md).
 // Default: offer Microsoft and Google. A button only appears once that provider is enabled in Supabase (checked below).
-const SSO_PROVIDERS = (process.env.NEXT_PUBLIC_SSO_PROVIDERS ?? 'azure,google').split(',').map(x => x.trim().toLowerCase()).filter((x): x is 'azure' | 'google' => x === 'azure' || x === 'google');
+type Provider = 'azure' | 'google' | 'facebook';
+const SSO_PROVIDERS = (process.env.NEXT_PUBLIC_SSO_PROVIDERS ?? 'google,facebook,azure').split(',').map(x => x.trim().toLowerCase()).filter((x): x is Provider => x === 'azure' || x === 'google' || x === 'facebook');
 const SSO_SAML = process.env.NEXT_PUBLIC_SSO_SAML === 'true';
-const SSO_LABEL: Record<'azure' | 'google', string> = {azure: 'Sign in with Microsoft', google: 'Sign in with Google'};
+const SSO_LABEL: Record<Provider, string> = {azure: 'Sign in with Microsoft', google: 'Sign in with Google', facebook: 'Sign in with Facebook'};
 
-function ProviderIcon({provider}: {provider: 'azure' | 'google'}) {
+function ProviderIcon({provider}: {provider: Provider}) {
+  if (provider === 'facebook') return <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#1877F2"/><path fill="#fff" d="M13.4 19.5v-6h2l.3-2.4h-2.3V9.6c0-.7.2-1.2 1.2-1.2h1.2V6.3c-.2 0-1-.1-1.8-.1-1.8 0-3 1.1-3 3.1v1.8H9v2.4h2v6h2.4z"/></svg>;
   if (provider === 'azure') return <svg width="18" height="18" viewBox="0 0 21 21" aria-hidden="true"><rect x="1" y="1" width="9" height="9" fill="#f25022"/><rect x="11" y="1" width="9" height="9" fill="#7fba00"/><rect x="1" y="11" width="9" height="9" fill="#00a4ef"/><rect x="11" y="11" width="9" height="9" fill="#ffb900"/></svg>;
   return <svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.6 5.4 2.6 13.2l7.9 6.1C12.4 13.6 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.4c-.5 2.9-2.2 5.3-4.6 6.9l7.4 5.8c4.3-4 6.9-9.9 6.9-17.2z"/><path fill="#FBBC05" d="M10.5 28.7c-.5-1.4-.8-3-.8-4.7s.3-3.2.8-4.7l-7.9-6.1C1 16.5 0 20.1 0 24s1 7.5 2.6 10.8l7.9-6.1z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.4-5.8c-2.1 1.4-4.8 2.3-8.5 2.3-6.3 0-11.6-4.1-13.5-9.7l-7.9 6.1C6.6 42.6 14.6 48 24 48z"/></svg>;
 }
@@ -27,7 +31,12 @@ export default function AccessGate({ children }: { children: ReactNode }) {useLa
   const [recovery, setRecovery] = useState(false);
   const [forgot, setForgot] = useState(false);
   // Only offer the SSO buttons whose provider is switched on in Supabase, so a half-configured provider never shows a broken button.
-  const [enabledSso, setEnabledSso] = useState<('azure' | 'google')[]>([]);
+  const [enabledSso, setEnabledSso] = useState<Provider[]>([]);
+  // Email code sign-in: 'password' shows the password form, 'code' asks for the email and then the one-time code.
+  const [mode, setMode] = useState<'password' | 'code'>('password');
+  const [codeEmail, setCodeEmail] = useState('');
+  const [canPasskey, setCanPasskey] = useState(false);
+  useEffect(() => { setCanPasskey(passkeysSupported()); }, []);
   useEffect(() => {
     const url = process.env.NEXT_PUBLIC_SUPABASE_URL, key = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
     if (!url || !key || !SSO_PROVIDERS.length) return;
@@ -70,7 +79,39 @@ export default function AccessGate({ children }: { children: ReactNode }) {useLa
     finally { setBusy(false); }
   }
 
-  async function signInWithProvider(provider: 'azure' | 'google') {
+  async function sendCode(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault(); setError(''); setNotice(''); setBusy(true);
+    const email = String(new FormData(e.currentTarget).get('email')).trim();
+    try {
+      // Only existing accounts get a code; the reply is the same either way so it does not reveal who has an account.
+      const { error } = await browserClient().auth.signInWithOtp({ email, options: { shouldCreateUser: false } });
+      if (error && (error.status === 429 || /rate|seconds/i.test(error.message))) { setError('Please wait a minute before requesting another code.'); return; }
+      setCodeEmail(email);
+      setNotice('If an account exists for that email, a sign-in code is on its way.');
+    } catch { setError('Sign-in is unavailable. Check your connection and try again.'); }
+    finally { setBusy(false); }
+  }
+
+  async function verifyCode(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault(); setError(''); setNotice(''); setBusy(true);
+    const token = String(new FormData(e.currentTarget).get('code')).replace(/\s+/g, '');
+    try {
+      const { error } = await browserClient().auth.verifyOtp({ email: codeEmail, token, type: 'email' });
+      if (error) setError('The code is wrong or has expired. Request a new one.');
+    } catch { setError('Sign-in is unavailable. Check your connection and try again.'); }
+    finally { setBusy(false); }
+  }
+
+  async function signInWithPasskey() {
+    setError(''); setNotice(''); setBusy(true);
+    try {
+      const { error } = await browserClient().auth.signInWithPasskey();
+      if (error) setError(passkeyErrorText(error));
+    } catch (e) { setError(passkeyErrorText(e)); }
+    finally { setBusy(false); }
+  }
+
+  async function signInWithProvider(provider: Provider) {
     setError(''); setNotice(''); setBusy(true);
     try {
       // Microsoft needs the email scope so Supabase receives the address used to link the membership.
@@ -134,20 +175,30 @@ export default function AccessGate({ children }: { children: ReactNode }) {useLa
       {loading ? <p role="status">{tx("Checking your session…")}</p> : forgot ? <form className="form" onSubmit={requestReset}>
         <label>{tx("Email")}<input name="email" type="email" autoComplete="username" required /></label>
         <button className="primary" disabled={busy}>{tx(busy ? 'Sending…' : 'Send reset link')}</button>
-      </form> : <form className="form" onSubmit={signIn}>
+      </form> : mode === 'code' ? (codeEmail ? <form className="form" onSubmit={verifyCode}>
+        <p className="muted">{tx('Enter the code we sent to {0}.', [codeEmail])}</p>
+        <label>{tx('Code from the email')}<input name="code" inputMode="numeric" autoComplete="one-time-code" pattern="[0-9 ]{6,12}" required /></label>
+        <button className="primary" disabled={busy}>{tx(busy ? 'Signing in…' : 'Sign in')}</button>
+        <button className="text-button" type="button" onClick={() => { setCodeEmail(''); setError(''); setNotice(''); }}>{tx('Use a different email')}</button>
+      </form> : <form className="form" onSubmit={sendCode}>
         <label>{tx("Email")}<input name="email" type="email" autoComplete="username" required /></label>
+        <button className="primary" disabled={busy}>{tx(busy ? 'Sending…' : 'Send code')}</button>
+      </form>) : <form className="form" onSubmit={signIn}>
+        <label>{tx("Email")}<input name="email" type="email" autoComplete="username webauthn" required /></label>
         <label>{tx("Password")}<input name="password" type="password" autoComplete="current-password" required /></label>
         <button className="primary" disabled={busy}>{tx(busy ? 'Signing in…' : 'Sign in')}</button>
       </form>}
-      {!loading && !forgot && (enabledSso.length > 0 || SSO_SAML) && <div className="sso-block">
+      {!loading && !forgot && <button className="text-button" type="button" onClick={() => { setMode(mode === 'code' ? 'password' : 'code'); setCodeEmail(''); setError(''); setNotice(''); }}>{tx(mode === 'code' ? 'Sign in with a password' : 'Sign in with an email code')}</button>}
+      {!loading && !forgot && (enabledSso.length > 0 || SSO_SAML || canPasskey) && <div className="sso-block">
         <p className="sso-divider"><span>{tx('or')}</span></p>
+        {canPasskey && <button type="button" className="secondary sso-button" disabled={busy} onClick={signInWithPasskey}><KeyRound size={18}/>{tx('Sign in with a passkey')}</button>}
         {enabledSso.map(p => <button key={p} type="button" className="secondary sso-button" disabled={busy} onClick={() => signInWithProvider(p)}><ProviderIcon provider={p}/>{tx(SSO_LABEL[p])}</button>)}
         {SSO_SAML && <form className="form sso-saml" onSubmit={signInWithSaml}>
           <label>{tx('Company sign-in (SAML)')}<input name="email" type="email" autoComplete="username" required placeholder={tx('name@company.de')} /></label>
           <button className="secondary" disabled={busy}>{tx('Continue with company sign-in')}</button>
         </form>}
       </div>}
-      {!loading && <button className="text-button" type="button" onClick={() => { setForgot(!forgot); setError(''); setNotice(''); }}>{tx(forgot ? 'Back to sign in' : 'Forgot your password?')}</button>}
+      {!loading && (forgot || mode === 'password') && <button className="text-button" type="button" onClick={() => { setForgot(!forgot); setError(''); setNotice(''); }}>{tx(forgot ? 'Back to sign in' : 'Forgot your password?')}</button>}
     </>}
     {notice && <p role="status" className="muted">{tx(notice)}</p>}
     {error && <p role="alert" className="access-error">{tx(error)}</p>}

@@ -54,3 +54,9 @@
 .legal-missing{background:#fff3c4;color:#6b4e00;border-radius:4px;padding:0 4px;font-weight:600}
 .legal-links{display:inline-flex;gap:14px;flex-wrap:wrap}.legal-links a{color:inherit}
 [data-theme=dark] .legal-missing{background:#4a3b0c;color:#ffe08a}
+.passkey-list{list-style:none;margin:0 0 14px;padding:0;display:grid;gap:8px}
+.passkey-list li{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid #e3e8ef;border-radius:8px;background:#fff}
+.passkey-list li>svg{color:#5b7a2e;flex:none}
+.passkey-list li span{flex:1;display:grid;gap:2px;min-width:0}
+.passkey-list li small{color:#6b7a90}
+[data-theme=dark] .passkey-list li{background:#1d2026;border-color:#2c3038}

@@ -37,7 +37,7 @@ export default function Datenschutz() {
     ]},
     {h: '4. Nalozi upravnika objekata i izvođača', p: [
       'Za korisnički nalog obrađujemo ime, e-poštu, ulogu, pripadnost timu odnosno firmi i evidenciju radnji u radnom prostoru (izvršenje ugovora; za evidenciju legitimni interes: sledljivost i bezbednost). Pristup dobijaju samo osobe koje je odobrio administrator.',
-      'Pri prijavi preko Google naloga od Google-a dobijamo vaše ime i e-poštu, a Google saznaje da se prijavljujete u MajstorMile.',
+      'Pri prijavi preko Google ili Facebook naloga od tog servisa dobijamo vaše ime i e-poštu, a servis saznaje da se prijavljujete u MajstorMile. Pri prijavi kodom iz e-pošte šaljemo jednokratni kod na vašu adresu. Ako koristite passkey, na našoj strani se čuva samo javni ključ; otisak prsta ili lice nikada ne napuštaju vaš uređaj.',
     ]},
     {h: '5. Hosting, serverski zapisi i veb analitika', p: [
       'Kada otvorite sajt, naš hosting provajder obrađuje tehnički neophodne podatke (IP adresa, vreme, stranica, pregledač) radi isporuke i zaštite sajta (legitimni interes). Da bismo sprečili zloupotrebu obrasca za prijavu, kratko čuvamo skraćenu, nepovratnu heš vrednost IP adrese.',
@@ -53,6 +53,7 @@ export default function Datenschutz() {
     {h: '8. Vaša prava', p: [
       'Imate pravo na pristup i kopiju podataka (član 26 ZZPL), ispravku i dopunu (član 29), brisanje (član 30), ograničenje obrade (član 31), prenosivost podataka (član 36) i prigovor na obradu zasnovanu na legitimnom interesu (član 37). Obratite se svom upravniku objekta ili nama. Na zahtev odgovaramo bez odlaganja, a najkasnije u roku od 30 dana od prijema zahteva; taj rok se može produžiti za još najviše 60 dana, o čemu vas obaveštavamo u prvih 30 dana (član 21).',
       <>Možete podneti pritužbu nadzornom organu: {authority}</>,
+      <span id="brisanje-podataka">Brisanje podataka: da biste obrisali svoj nalog i podatke, uključujući podatke dobijene preko prijave sa Google ili Facebook nalogom, pošaljite zahtev na <Fill value={o.email} label="e-pošta"/> sa e-poštom kojom se prijavljujete. Brisanje potvrđujemo u roku od 30 dana. Vezu sa aplikacijom možete ukloniti i sami u podešavanjima svog Google ili Facebook naloga.</span>,
       'Ne vršimo automatizovano donošenje odluka niti profilisanje.',
     ]},
     {h: '9. Stanje', p: ['Novembar 2026. Ovu politiku menjamo kada se promeni MajstorMile ili zakon. Verzija na srpskom jeziku je merodavna.']},
@@ -78,7 +79,7 @@ export default function Datenschutz() {
     ]},
     {h: '4. Konten von Verwaltungen und Handwerksbetrieben', p: [
       'Für ein Benutzerkonto verarbeiten wir Name, E-Mail-Adresse, Rolle, Team- bzw. Betriebszugehörigkeit sowie ein Protokoll der Aktionen im Arbeitsbereich (Vertragserfüllung; für das Protokoll berechtigtes Interesse: Nachvollziehbarkeit und Sicherheit). Zugang erhält nur, wer von einem Administrator freigeschaltet wurde.',
-      'Bei der Anmeldung mit Google erhalten wir von Google Ihren Namen und Ihre E-Mail-Adresse. Google erfährt dabei, dass Sie sich bei MajstorMile anmelden.',
+      'Bei der Anmeldung mit Google oder Facebook erhalten wir von diesem Dienst Ihren Namen und Ihre E-Mail-Adresse; der Dienst erfährt dabei, dass Sie sich bei MajstorMile anmelden. Bei der Anmeldung mit E-Mail-Code senden wir einen Einmalcode an Ihre Adresse. Bei einem Passkey speichern wir nur einen öffentlichen Schlüssel; Fingerabdruck oder Gesicht verlassen nie Ihr Gerät.',
     ]},
     {h: '5. Hosting, Server-Protokolle und Webanalyse', p: [
       'Beim Aufruf der Website verarbeitet unser Hoster technisch notwendige Daten (IP-Adresse, Zeitpunkt, aufgerufene Seite, Browser) zur Auslieferung und Absicherung (berechtigtes Interesse). Um Missbrauch des Meldeformulars zu verhindern, speichern wir kurzzeitig einen gekürzten, nicht umkehrbaren Hashwert der IP-Adresse.',
@@ -94,6 +95,7 @@ export default function Datenschutz() {
     {h: '8. Ihre Rechte', p: [
       'Sie haben das Recht auf Auskunft und Kopie (Art. 26 ZZPL), Berichtigung und Ergänzung (Art. 29), Löschung (Art. 30), Einschränkung der Verarbeitung (Art. 31), Datenübertragbarkeit (Art. 36) und Widerspruch gegen Verarbeitungen auf Grundlage berechtigter Interessen (Art. 37). Wenden Sie sich an Ihre Verwaltung oder an uns. Wir antworten unverzüglich, spätestens innerhalb von 30 Tagen nach Eingang; diese Frist kann um höchstens weitere 60 Tage verlängert werden, worüber wir Sie innerhalb der ersten 30 Tage informieren (Art. 21).',
       <>Sie können sich bei der Aufsichtsbehörde beschweren: {authority}</>,
+      <span id="brisanje-podataka">Löschung: Um Ihr Konto und Ihre Daten zu löschen, auch Daten aus der Anmeldung mit Google oder Facebook, senden Sie eine Anfrage an <Fill value={o.email} label="E-Mail"/> mit der E-Mail-Adresse, mit der Sie sich anmelden. Wir bestätigen die Löschung innerhalb von 30 Tagen. Die Verbindung zur App können Sie auch selbst in den Einstellungen Ihres Google- oder Facebook-Kontos entfernen.</span>,
       'Eine automatisierte Entscheidungsfindung einschließlich Profiling findet nicht statt.',
     ]},
     {h: '9. Stand', p: ['November 2026. Wir passen diese Erklärung an, wenn sich MajstorMile oder die Rechtslage ändert. Maßgeblich ist die serbische Fassung.']},
@@ -119,7 +121,7 @@ export default function Datenschutz() {
     ]},
     {h: '4. Accounts of property managers and contractors', p: [
       'For a user account we process name, email, role, team or firm and a log of actions in the workspace (performance of the contract; for the log, legitimate interest: traceability and security). Only people approved by an administrator get access.',
-      'With Sign in with Google, Google sends us your name and email, and Google learns that you sign in to MajstorMile.',
+      'With Sign in with Google or Facebook, that service sends us your name and email and learns that you sign in to MajstorMile. With an email code we send a one-time code to your address. With a passkey we store only a public key; your fingerprint or face never leaves your device.',
     ]},
     {h: '5. Hosting, server logs and web analytics', p: [
       'When you open the website our host processes technically necessary data (IP address, time, page, browser) to deliver and secure it (legitimate interest). To prevent abuse of the reporting form we briefly keep a shortened, irreversible hash of the IP address.',
@@ -135,6 +137,7 @@ export default function Datenschutz() {
     {h: '8. Your rights', p: [
       'You have the right of access and a copy (Art. 26 ZZPL), rectification and completion (Art. 29), erasure (Art. 30), restriction (Art. 31), data portability (Art. 36) and to object to processing based on legitimate interests (Art. 37). Contact your property manager or us. We answer without delay and within 30 days of receiving the request at the latest; the period can be extended by up to 60 more days, and we tell you within the first 30 days (Art. 21).',
       <>You may complain to the supervisory authority: {authority}</>,
+      <span id="brisanje-podataka">Data deletion: to delete your account and data, including data received through Sign in with Google or Facebook, send a request to <Fill value={o.email} label="email"/> from the email you sign in with. We confirm the deletion within 30 days. You can also remove the app's access yourself in your Google or Facebook account settings.</span>,
       'There is no automated decision-making or profiling.',
     ]},
     {h: '9. Version', p: ['November 2026. We update this policy when MajstorMile or the law changes. The Serbian version is binding.']},
