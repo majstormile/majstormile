@@ -6,7 +6,7 @@ import {canSee,closed,type Evidence} from '@/lib/domain';
 import {AppError} from '@/lib/actions';
 import {stripImageMetadata} from '@/lib/strip-metadata';
 export const runtime='nodejs';export const dynamic='force-dynamic';
-const bucket=(process.env.EVIDENCE_BUCKET?.trim()||'baunavi-evidence');
+const bucket=(process.env.EVIDENCE_BUCKET?.trim()||'majstormile-evidence');
 const key=(ticket:string,id:string)=>`${workspaceId}/${ticket}/${id}`;
 export async function GET(req:Request){try{const c=await context(req),url=new URL(req.url),t=c.state.tickets.find(t=>t.id===url.searchParams.get('ticket'));if(!t||!canSee(t,c.member))throw new AppError('Case unavailable.',403);const e=t.evidence?.find(e=>e.id===url.searchParams.get('id'));if(!e||c.member.role==='Contractor'&&e.visibility!=='shared')throw new AppError('Evidence unavailable.',403);if(e.demoUrl)return Response.json({url:e.demoUrl},{headers:{'Cache-Control':'private, no-store'}});const {data,error}=await adminClient().storage.from(bucket).createSignedUrl(key(t.id,e.id),60);if(error||!data)throw new AppError('Evidence could not be retrieved.',503);return Response.json({url:data.signedUrl},{headers:{'Cache-Control':'private, no-store'}})}catch(e){return failure(e)}}
 export async function POST(req:Request){try{

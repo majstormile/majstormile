@@ -16,7 +16,7 @@ const prop = f => {
 };
 const schema = {
   $schema: 'https://json-schema.org/draft/2020-12/schema',
-  $id: 'https://baunavi.vercel.app/schemas/contract-import.schema.json',
+  $id: 'https://www.majstormile.com/schemas/contract-import.schema.json',
   title: 'MajstorMile contract import',
   description: `One object per contractor contract. Up to ${MAX_IMPORT_ROWS} rows per import. The same field names are used as CSV/Excel headers and XML element names. Rows matching an existing contract on firm, road, start and end are skipped as duplicates.`,
   type: 'array', maxItems: MAX_IMPORT_ROWS,

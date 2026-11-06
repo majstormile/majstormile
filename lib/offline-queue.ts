@@ -7,7 +7,7 @@ export type QueuedEvidence = {kind: 'evidence'; ticket: string; fields: Record<s
 export type QueuedCreate = {kind: 'create'; fields: Record<string, unknown>; files: {blob: Blob; name: string}[]; quality: string; label: string};
 export type QueueItem = (QueuedAction | QueuedEvidence | QueuedCreate) & {id?: number; at: string; persona?: string; error?: string};
 
-const DB = 'baunavi-offline', STORE = 'queue';
+const DB = 'majstormile-offline', STORE = 'queue';
 let dbp: Promise<IDBDatabase> | null = null;
 function db(): Promise<IDBDatabase> {
   dbp ??= new Promise((ok, bad) => {

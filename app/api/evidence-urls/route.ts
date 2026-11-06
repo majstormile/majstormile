@@ -3,7 +3,7 @@ import {adminClient,workspaceId} from '@/lib/store';
 import {canSee} from '@/lib/domain';
 import {AppError} from '@/lib/actions';
 export const runtime='nodejs';export const dynamic='force-dynamic';
-const bucket=(process.env.EVIDENCE_BUCKET?.trim()||'baunavi-evidence');
+const bucket=(process.env.EVIDENCE_BUCKET?.trim()||'majstormile-evidence');
 
 export async function GET(req:Request){try{
  const c=await context(req);

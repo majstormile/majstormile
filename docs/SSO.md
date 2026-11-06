@@ -40,7 +40,7 @@ Redeploy after changing `NEXT_PUBLIC_*` variables, because they are built into t
 2. Certificates & secrets → New client secret. Copy the **Value** (not the ID). Note its expiry date in your calendar.
 3. Token configuration → Add optional claim → ID token → add `email` and `xms_edov` (marks whether the email is verified).
 4. Supabase → Authentication → Sign In / Providers → **Azure** → enable. Paste the Application (client) ID and the secret. Azure Tenant URL: leave empty for multitenant, or `https://login.microsoftonline.com/<tenant-id>` for one company.
-5. Supabase → Authentication → URL Configuration: set Site URL to your MajstorMile address (for example `https://baunavi.vercel.app`) and add it under Redirect URLs, along with `http://localhost:3000` for local testing.
+5. Supabase → Authentication → URL Configuration: set Site URL to your MajstorMile address (for example `https://www.majstormile.com`) and add it under Redirect URLs, along with `http://localhost:3000` for local testing.
 6. In Vercel set `NEXT_PUBLIC_SSO_PROVIDERS=azure` (or `azure,google`) and `SSO_ALLOWED_DOMAINS`, then redeploy.
 
 ## Set up Google

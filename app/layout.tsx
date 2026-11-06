@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import "./baunavi.css";
+import "./majstormile.css";
 import { LangProvider } from "@/lib/i18n";
 import { instance } from "@/lib/instance";
 import SwRegister from "@/components/sw-register";

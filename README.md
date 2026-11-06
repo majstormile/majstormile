@@ -22,7 +22,7 @@ One demo pack, **Užice** (`demo/uzice.json`): two teams (Centar, Turica i Krča
 ## Set it up (step by step)
 
 1. **GitHub:** the code lives in `majstormile/majstormile` (branch `main`).
-2. **Supabase:** create a project in your own Supabase account (Frankfurt, eu-central-1). In the SQL editor run the files in `supabase/migrations/` in order (a combined script is in the setup notes). This creates the `workspaces` table and the private `baunavi-evidence` storage bucket (the bucket keeps its original name; only the name inside Supabase). Turn off public sign-up and create and confirm your owner account under Authentication → Users.
+2. **Supabase:** create a project in your own Supabase account (Frankfurt, eu-central-1). In the SQL editor run the files in `supabase/migrations/` in order (a combined script is in the setup notes). This creates the `workspaces` table and the private `majstormile-evidence` storage bucket (the bucket keeps its original name; only the name inside Supabase). Turn off public sign-up and create and confirm your owner account under Authentication → Users.
 3. **Local check:** copy `.env.example` to `.env.local` and fill in the values, then:
    ```sh
    npm ci

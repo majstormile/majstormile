@@ -1366,7 +1366,6 @@ export const de: Record<string, string> = {
   "Your choice is remembered on this device.": "Ihre Wahl wird auf diesem Gerät gespeichert.",
   "Your email": "Ihre E-Mail",
   "Your location could not be found. Allow location access, or tap the map instead.": "Ihr Standort konnte nicht ermittelt werden. Erlauben Sie den Standortzugriff oder tippen Sie auf die Karte.",
-  "Your message could not be sent right now. Please try again later, or email baunavi@gmail.com directly.": "Ihre Nachricht konnte gerade nicht gesendet werden. Bitte später erneut versuchen oder direkt an den Support schreiben.",
   "Your message could not be sent right now. Please try again later.": "Ihre Nachricht konnte gerade nicht gesendet werden. Bitte später erneut versuchen.",
   "Your message could not be sent.": "Ihre Nachricht konnte nicht gesendet werden.",
   "Your name": "Ihr Name",

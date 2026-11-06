@@ -4,7 +4,7 @@
 
 Vercel export • Version 2.0 • 25 September 2026
 
-This package reconstructs the accessible MajstorMile project files and supplies an operational pilot for one municipal workspace. Deploy the baunavi-vercel folder. The original business documents and source snapshot are preserved separately.
+This package reconstructs the accessible MajstorMile project files and supplies an operational pilot for one municipal workspace. Deploy the majstormile-vercel folder. The original business documents and source snapshot are preserved separately.
 
 ## What is ready
 
@@ -18,7 +18,7 @@ Live AI detection, delivery receipts, scheduled reminders, subscriptions and a p
 
 | Location | Purpose |
 | --- | --- |
-| baunavi-vercel/ | Deployable source, dependency lock, configuration, SQL, tests and Markdown guides. |
+| majstormile-vercel/ | Deployable source, dependency lock, configuration, SQL, tests and Markdown guides. |
 | originals/ | Business plan, brochures, engineering design, financial workbook, logo, overview, historical domain research and original archives. |
 | guides/ | This guide in Word, PDF and Markdown. |
 | MANIFEST_SHA256.txt | Checksums for every delivered master-package file except the manifest itself. |
@@ -35,7 +35,7 @@ Reading order: setup 2–4; roles 5; investigation 6–7; evidence and architect
 
 Use one Vercel project and one dedicated Supabase project per municipality for this pilot. WORKSPACE_ID identifies one workspace; it is not a customer-selectable tenant boundary. Do not use this version as a shared multi-municipality SaaS installation.
 
-Create a private Git repository containing the contents of baunavi-vercel. If you commit the entire master folder instead, set Vercel Root Directory to baunavi-vercel. Keep originals and the master ZIP out of the application repository.
+Create a private Git repository containing the contents of majstormile-vercel. If you commit the entire master folder instead, set Vercel Root Directory to majstormile-vercel. Keep originals and the master ZIP out of the application repository.
 
 ## Required accounts and tools
 
@@ -47,7 +47,7 @@ Create a private Git repository containing the contents of baunavi-vercel. If yo
 ## Run locally
 
 ```text
-cd baunavi-vercel
+cd majstormile-vercel
 npm ci
 # Copy .env.example to .env.local and fill it in.
 node --env-file=.env.local scripts/check-env.mjs
@@ -76,7 +76,7 @@ Create a new Supabase project. Frankfurt (eu-central-1) is the natural region fo
 - Open the SQL Editor. Run supabase/migrations/202609250001_workspaces.sql first.
 - Run supabase/migrations/202609250002_private_evidence.sql second.
 - Confirm public.workspaces exists and Row Level Security is enabled. There should be no browser read/write policy for this table.
-- Confirm the baunavi-evidence bucket is private, has a 15,000,000-byte limit and no MIME restriction (photos, contract documents and backups share it; the server checks each type). Do not create public storage policies.
+- Confirm the majstormile-evidence bucket is private, has a 15,000,000-byte limit and no MIME restriction (photos, contract documents and backups share it; the server checks each type). Do not create public storage policies.
 - In a reused project, inspect all storage.objects policies: a broad existing policy may expose this bucket. A fresh dedicated project avoids that ambiguity.
 
 ## Authentication
@@ -94,7 +94,7 @@ where oid = 'public.workspaces'::regclass;
 
 select id, public, file_size_limit
 from storage.buckets
-where id = 'baunavi-evidence';
+where id = 'majstormile-evidence';
 ```
 
 Expected results: relrowsecurity = true; bucket public = false; file_size_limit = 15000000. The workspace table is initially empty. The owner’s first authenticated request creates the row atomically.

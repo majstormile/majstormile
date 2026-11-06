@@ -3,7 +3,7 @@ import {context,failure} from '@/lib/context';
 import {adminClient,saveWorkspace,workspaceId} from '@/lib/store';
 import {AppError} from '@/lib/actions';
 export const runtime='nodejs';export const dynamic='force-dynamic';
-const bucket=(process.env.EVIDENCE_BUCKET?.trim()||'baunavi-evidence');
+const bucket=(process.env.EVIDENCE_BUCKET?.trim()||'majstormile-evidence');
 const key=(contract:string,id:string)=>`${workspaceId}/contracts/${contract}/${id}`;
 
 export async function GET(req:Request){try{

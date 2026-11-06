@@ -2,13 +2,13 @@
 // Pure helpers here; storage calls live in the API route and the daily job.
 import type {State} from './domain.ts';
 
-export const BACKUP_BUCKET = (process.env.EVIDENCE_BUCKET?.trim()||'baunavi-evidence');
+export const BACKUP_BUCKET = (process.env.EVIDENCE_BUCKET?.trim()||'majstormile-evidence');
 export const KEEP_DAILY = 30;
 export const KEEP_MANUAL = 20;
 
 export type BackupKind = 'daily' | 'manual' | 'before-restore';
 export type BackupFile = {name: string; kind: BackupKind; at: string; size?: number};
-export type Snapshot = {format: 'baunavi-backup'; version: 1; workspace: string; kind: BackupKind; at: string; revision: number; by?: string; data: State};
+export type Snapshot = {format: 'majstormile-backup'; version: 1; workspace: string; kind: BackupKind; at: string; revision: number; by?: string; data: State};
 
 export const backupPrefix = (workspace: string) => `${workspace}/_backups`;
 /** daily-2026-10-14.json, manual-2026-10-14T09-30-00Z.json, before-restore-… */
@@ -30,12 +30,12 @@ export function retention(files: BackupFile[]): {keep: BackupFile[]; remove: Bac
   return {keep: sorted.filter(f => !remove.includes(f)), remove};
 }
 export function makeSnapshot(workspace: string, kind: BackupKind, at: string, revision: number, data: State, by?: string): Snapshot {
-  return {format: 'baunavi-backup', version: 1, workspace, kind, at, revision, by, data};
+  return {format: 'majstormile-backup', version: 1, workspace, kind, at, revision, by, data};
 }
 /** Check a downloaded file before it may replace the live workspace. */
 export function checkSnapshot(x: unknown, workspace: string): Snapshot {
   const s = x as Snapshot;
-  if (!s || s.format !== 'baunavi-backup' || s.version !== 1) throw new Error('This file is not a MajstorMile backup.');
+  if (!s || s.format !== 'majstormile-backup' || s.version !== 1) throw new Error('This file is not a MajstorMile backup.');
   if (s.workspace !== workspace) throw new Error('This backup belongs to another workspace.');
   const d = s.data as State;
   if (!d || !Array.isArray(d.tickets) || !Array.isArray(d.members) || !Array.isArray(d.teams) || !Array.isArray(d.contracts)) throw new Error('The backup is incomplete.');

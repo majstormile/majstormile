@@ -1366,7 +1366,6 @@ export const sr: Record<string, string> = {
   "Your choice is remembered on this device.": "Vaš izbor se pamti na ovom uređaju.",
   "Your email": "Vaša e-pošta",
   "Your location could not be found. Allow location access, or tap the map instead.": "Vaša lokacija nije mogla biti pronađena. Dozvolite pristup lokaciji ili umesto toga dodirnite mapu.",
-  "Your message could not be sent right now. Please try again later, or email baunavi@gmail.com directly.": "Vaša poruka trenutno nije mogla biti poslata. Pokušajte ponovo kasnije ili pošaljite e-poštu direktno na baunavi@gmail.com.",
   "Your message could not be sent right now. Please try again later.": "Vaša poruka trenutno nije mogla biti poslata. Pokušajte ponovo kasnije.",
   "Your message could not be sent.": "Vaša poruka nije mogla biti poslata.",
   "Your name": "Vaše ime",

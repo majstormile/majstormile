@@ -6,7 +6,7 @@ The complete instructions, role model and recovery runbook are in [docs/OPERATIO
 
 1. Create a dedicated project. Choose an EU region; Frankfurt (eu-central-1) keeps tenant data in Germany. Review your data-location requirements separately.
 2. Run `supabase/migrations/202609250001_workspaces.sql`, then `202609250002_private_evidence.sql` in SQL Editor.
-3. Confirm RLS on `public.workspaces` and a private `baunavi-evidence` bucket. Do not grant direct browser access.
+3. Confirm RLS on `public.workspaces` and a private `majstormile-evidence` bucket. Do not grant direct browser access.
 4. Disable public sign-up. Create and confirm the designated owner account in Authentication → Users.
 5. Obtain the project URL, publishable key and server-only secret key.
 

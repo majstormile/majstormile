@@ -11,7 +11,7 @@ import type {Evidence} from '@/lib/domain';
 import {stripImageMetadata} from '@/lib/strip-metadata';
 export const runtime = 'nodejs'; export const dynamic = 'force-dynamic';
 
-const bucket = (process.env.EVIDENCE_BUCKET?.trim()||'baunavi-evidence');
+const bucket = (process.env.EVIDENCE_BUCKET?.trim()||'majstormile-evidence');
 const perPerson = makeLimiter(5, 60 * 60_000);     // 5 reports per hour from one connection
 const perDay = makeLimiter(300, 24 * 60 * 60_000); // overall daily ceiling for the whole workspace
 const headers = {'Cache-Control': 'private, no-store'};

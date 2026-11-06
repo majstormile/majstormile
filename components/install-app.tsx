@@ -7,14 +7,14 @@ import {Download, Share, PlusSquare, Smartphone, CheckCircle2} from 'lucide-reac
 import {tx, useLang} from '@/lib/i18n';
 
 type PromptEvent = Event & {prompt: () => Promise<void>; userChoice: Promise<{outcome: 'accepted' | 'dismissed'}>};
-declare global { interface Window { __baunaviInstall?: PromptEvent | null } }
+declare global { interface Window { __majstormileInstall?: PromptEvent | null } }
 
 /** Catch the browser's install offer as early as possible; it fires once, often before this component mounts. */
 export function listenForInstall() {
-  if (typeof window === 'undefined' || (window as any).__baunaviListening) return;
-  (window as any).__baunaviListening = true;
-  window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); window.__baunaviInstall = e as PromptEvent; window.dispatchEvent(new Event('baunavi-install-ready')); });
-  window.addEventListener('appinstalled', () => { window.__baunaviInstall = null; window.dispatchEvent(new Event('baunavi-installed')); });
+  if (typeof window === 'undefined' || (window as any).__majstormileListening) return;
+  (window as any).__majstormileListening = true;
+  window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); window.__majstormileInstall = e as PromptEvent; window.dispatchEvent(new Event('majstormile-install-ready')); });
+  window.addEventListener('appinstalled', () => { window.__majstormileInstall = null; window.dispatchEvent(new Event('majstormile-installed')); });
 }
 
 export type Platform = 'android' | 'ios' | 'other';
@@ -32,14 +32,14 @@ export function InstallLink({className, label}: {className?: string; label?: str
   const [ready, setReady] = useState(false);
   useEffect(() => {
     listenForInstall();
-    const on = () => setReady(!!window.__baunaviInstall);
-    on(); window.addEventListener('baunavi-install-ready', on); window.addEventListener('baunavi-installed', on);
-    return () => { window.removeEventListener('baunavi-install-ready', on); window.removeEventListener('baunavi-installed', on); };
+    const on = () => setReady(!!window.__majstormileInstall);
+    on(); window.addEventListener('majstormile-install-ready', on); window.addEventListener('majstormile-installed', on);
+    return () => { window.removeEventListener('majstormile-install-ready', on); window.removeEventListener('majstormile-installed', on); };
   }, []);
   return <a className={className} href="/app" onClick={async e => {
-    const p = window.__baunaviInstall;
+    const p = window.__majstormileInstall;
     if (!ready || !p) return; // no direct install offer: the /app page explains the steps
-    e.preventDefault(); await p.prompt(); await p.userChoice.catch(() => null); window.__baunaviInstall = null; setReady(false);
+    e.preventDefault(); await p.prompt(); await p.userChoice.catch(() => null); window.__majstormileInstall = null; setReady(false);
   }}><Smartphone size={16}/>{tx(label || 'Android & iPhone app')}</a>;
 }
 
@@ -49,22 +49,22 @@ export default function InstallApp({compact = false}: {compact?: boolean}) {
   const [platform, setPlatform] = useState<Platform>('other');
   const [ready, setReady] = useState(false);
   const [installed, setInstalled] = useState(false);
-  const [host, setHost] = useState('baunavi.vercel.app');
+  const [host, setHost] = useState('www.majstormile.com');
   useEffect(() => {
     listenForInstall();
     setPlatform(detectPlatform()); setInstalled(standalone()); setHost(window.location.host);
-    const on = () => setReady(!!window.__baunaviInstall);
+    const on = () => setReady(!!window.__majstormileInstall);
     const done = () => { setInstalled(true); setReady(false); };
-    on(); window.addEventListener('baunavi-install-ready', on); window.addEventListener('baunavi-installed', done);
-    return () => { window.removeEventListener('baunavi-install-ready', on); window.removeEventListener('baunavi-installed', done); };
+    on(); window.addEventListener('majstormile-install-ready', on); window.addEventListener('majstormile-installed', done);
+    return () => { window.removeEventListener('majstormile-install-ready', on); window.removeEventListener('majstormile-installed', done); };
   }, []);
 
   async function install() {
-    const p = window.__baunaviInstall;
+    const p = window.__majstormileInstall;
     if (!p) return;
     await p.prompt();
     const choice = await p.userChoice.catch(() => null);
-    window.__baunaviInstall = null; setReady(false);
+    window.__majstormileInstall = null; setReady(false);
     if (choice?.outcome === 'accepted') setInstalled(true);
   }
 
