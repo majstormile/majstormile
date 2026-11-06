@@ -8,7 +8,8 @@ import {LegalFooterLinks} from '@/components/legal-page';
 
 const MIN_PASSWORD = 8;
 // Single sign-on buttons shown on the sign-in page. Each provider must also be enabled in Supabase (see docs/SSO.md).
-const SSO_PROVIDERS = (process.env.NEXT_PUBLIC_SSO_PROVIDERS || '').split(',').map(x => x.trim().toLowerCase()).filter((x): x is 'azure' | 'google' => x === 'azure' || x === 'google');
+// Default: offer Microsoft and Google. A button only appears once that provider is enabled in Supabase (checked below).
+const SSO_PROVIDERS = (process.env.NEXT_PUBLIC_SSO_PROVIDERS ?? 'azure,google').split(',').map(x => x.trim().toLowerCase()).filter((x): x is 'azure' | 'google' => x === 'azure' || x === 'google');
 const SSO_SAML = process.env.NEXT_PUBLIC_SSO_SAML === 'true';
 const SSO_LABEL: Record<'azure' | 'google', string> = {azure: 'Sign in with Microsoft', google: 'Sign in with Google'};
 
