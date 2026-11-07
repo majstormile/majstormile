@@ -108,7 +108,6 @@ export default function Concept() {
         <InstallLink className="footer-app"/>
         <a href="/report">{tx('Report a defect')}</a>
         <a href="/track">{tx('Track a report')}</a>
-        <a href="/podrska">{tx('Support')}</a>
         <LegalFooterLinks/>
       </span>
     </footer>

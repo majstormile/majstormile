@@ -2,6 +2,7 @@
 import {z} from 'zod';
 import {sendMail,makeLimiter} from '@/lib/mail';
 import {saveRequest} from '@/lib/support-store';
+import {context} from '@/lib/context';
 export const runtime='nodejs';export const dynamic='force-dynamic';
 
 const limiter=makeLimiter(3,10*60_000);
@@ -11,6 +12,8 @@ const fail=(error:string,status:number)=>Response.json({error},{status,headers})
 
 export async function POST(req:Request){
  const origin=req.headers.get('origin');if(origin&&origin!==new URL(req.url).origin)return fail('Origin mismatch',403);
+ // Admin only (the /podrska page is shown only to signed-in administrators).
+ try{const c=await context(req);if(c.actual.role!=='Admin')return fail('Only administrators can see support requests.',403)}catch{return fail('Unauthorized',401)}
  const raw=await req.text();if(new TextEncoder().encode(raw).length>16384)return fail('Request too large',413);
  let f:{name:string,email:string,phone?:string,topic:string,message:string,website?:string};
  try{f=z.object({name:z.string().trim().min(1).max(120),email:z.string().trim().email().max(200),phone:z.string().trim().max(40).optional(),topic:z.string().trim().max(60),message:z.string().trim().min(5).max(4000),website:z.string().max(200).optional()}).parse(JSON.parse(raw))}

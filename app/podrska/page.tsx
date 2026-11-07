@@ -4,7 +4,9 @@ import {tx, useLang, LangSwitch} from '@/lib/i18n';
 import {instance} from '@/lib/instance';
 import {LegalFooterLinks} from '@/components/legal-page';
 import {operator} from '@/lib/legal';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
+import AccessGate from '../access-gate';
+import {authorizedFetch} from '@/lib/supabase-browser';
 import {MessageCircle, Phone} from 'lucide-react';
 
 const PHONE = '+381 61 623 0364';
@@ -19,7 +21,7 @@ function TicketForm() {
     e.preventDefault(); setError(''); setState('sending');
     const d = Object.fromEntries(new FormData(e.currentTarget)) as Record<string, string>;
     try {
-      const r = await fetch('/api/support', {method: 'POST', headers: {'content-type': 'application/json'}, body: JSON.stringify(d)});
+      const r = await authorizedFetch('/api/support', {method: 'POST', headers: {'content-type': 'application/json'}, body: JSON.stringify(d)});
       const j = await r.json().catch(() => ({}));
       if (!r.ok) throw new Error(j.error || 'Your message could not be sent right now. Please try again later.');
       setRef(j.ref || ''); setState('sent');
@@ -40,8 +42,19 @@ function TicketForm() {
   </form>;
 }
 
+// Visible only to signed-in administrators.
 export default function SupportPage() {
+  return <AccessGate><AdminOnly/></AccessGate>;
+}
+function AdminOnly() {
   useLang();
+  const [ok, setOk] = useState<boolean | null>(null);
+  useEffect(() => { authorizedFetch('/api/support-inbox').then(r => setOk(r.ok)).catch(() => setOk(false)); }, []);
+  if (ok === null) return <main className="public-page"><p className="muted">{tx('Loading…')}</p></main>;
+  if (!ok) return <main className="public-page"><section className="public-card"><h1>{tx('Only administrators can see support requests.')}</h1><p><a href="/radni-prostor">{tx('Open MajstorMile in the browser')}</a></p></section></main>;
+  return <SupportContent/>;
+}
+function SupportContent() {
   return <main className="public-page">
     <header className="public-head">
       <a href="/"><img src={instance.logo} alt={tx('MajstorMile')}/></a>
