@@ -33,6 +33,10 @@ export default function PrivacyPolicy() {
       'Za korisnički nalog obrađujemo ime, e-poštu, ulogu, pripadnost timu odnosno firmi i evidenciju radnji u radnom prostoru. Pravni osnov je izvršenje ugovora (član 12 stav 1 tačka 2 ZZPL), a za evidenciju radnji legitimni interes sledljivosti i bezbednosti (tačka 6). Pristup dobijaju samo osobe koje je odobrio administrator.',
       'Načini prijave: lozinka, jednokratni kod poslat e-poštom, passkey (Face ID, otisak prsta ili PIN uređaja), Google ili Facebook nalog. Pri prijavi preko Google ili Facebook naloga od tog servisa dobijamo vaše ime i e-poštu, a servis saznaje da se prijavljujete u MajstorMile. Kod passkey-a čuva se samo javni ključ; otisak prsta i lice nikada ne napuštaju vaš uređaj.',
     ]},
+    {h: '4a. Zahtevi za podršku', p: [
+      'Kada nam pišete preko stranice za podršku, obrađujemo vaše ime, e-poštu, opciono broj telefona, temu i poruku, kao i naše interne beleške o rešavanju zahteva. Svrha je da odgovorimo na vaš zahtev; pravni osnov je preduzimanje radnji na vaš zahtev odnosno izvršenje ugovora (član 12 stav 1 tačka 2 ZZPL) i naš legitimni interes da odgovorimo na upite (tačka 6).',
+      'Zahtev se čuva u našoj bazi podataka i šalje na našu adresu e-pošte. Zatvoreni zahtevi se automatski brišu dve godine nakon poslednje izmene, a na vaš zahtev i ranije. Ako nam pišete preko WhatsApp-a ili Viber-a, na tu komunikaciju primenjuju se i pravila tih servisa.',
+    ]},
     {h: '5. Hosting, serverski zapisi i veb analitika', p: [
       'Kada otvorite sajt, naš hosting provajder obrađuje tehnički neophodne podatke (IP adresa, vreme, stranica, pregledač) radi isporuke i zaštite sajta (legitimni interes, član 12 stav 1 tačka 6 ZZPL). Da bismo sprečili zloupotrebu obrasca za prijavu, kratko čuvamo skraćenu, nepovratnu heš vrednost IP adrese.',
       'Koristimo Vercel Web Analytics za brojanje poseta stranicama. Ne postavlja kolačiće i ne pravi profile preko više sajtova; posetioci se razlikuju samo po heš vrednosti koja se menja svakog dana.',

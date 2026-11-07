@@ -1,6 +1,7 @@
 // Public support form (no sign-in): sends the request to info@majstormile.com via Resend.
 import {z} from 'zod';
 import {sendMail,makeLimiter} from '@/lib/mail';
+import {saveRequest} from '@/lib/support-store';
 export const runtime='nodejs';export const dynamic='force-dynamic';
 
 const limiter=makeLimiter(3,10*60_000);
@@ -19,10 +20,12 @@ export async function POST(req:Request){
  if(!limiter(ip,Date.now()))return fail('Please wait a few minutes before sending another message.',429);
  const ref='MM-'+Date.now().toString(36).toUpperCase().slice(-6);
  const to=process.env.SUPPORT_EMAIL?.trim()||'info@majstormile.com';
+ // Saved in the support inbox (Platform → Support requests) and emailed to info@; either one is enough.
+ let saved=false;try{await saveRequest({ref,name:oneLine(f.name),email:oneLine(f.email),phone:f.phone?oneLine(f.phone):undefined,topic:oneLine(f.topic),message:f.message});saved=true}catch(e){console.error('Support request not saved:',e)}
  const r=await sendMail({to,replyTo:oneLine(f.email),
   subject:`[${ref}] ${oneLine(f.topic)}: ${oneLine(f.name).slice(0,80)}`,
   text:f.message+'\n\n---\nTicket: '+ref+'\nName: '+oneLine(f.name)+'\nEmail: '+oneLine(f.email)+(f.phone?'\nPhone: '+oneLine(f.phone):'')+'\nTopic: '+oneLine(f.topic)});
- if(r.ok)return Response.json({sent:true,ref},{headers});
- console.error('Support ticket email failed:',r.reason,'detail' in r?r.detail:'');
+ if(!r.ok)console.error('Support ticket email failed:',r.reason,'detail' in r?r.detail:'');
+ if(r.ok||saved)return Response.json({sent:true,ref},{headers});
  return fail('Your message could not be sent right now. Please try again later.',503);
 }
