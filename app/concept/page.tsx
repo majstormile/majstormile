@@ -10,9 +10,9 @@ const eur = (n: number) => new Intl.NumberFormat(locale(), {style: 'currency', c
 
 // Planning prices per month, billed annually. Sizes are counted in apartment units and contractor firms.
 const PLANS = [
-  {name: 'Bronze', monthly: 500, setup: 2500, units: 'Up to 200 apartment units', contractors: 'Up to 20 contractors', staff: '10 staff accounts', extra: 'Email support', recommended: false},
-  {name: 'Silver', monthly: 1000, setup: 5000, units: 'Up to 500 apartment units', contractors: 'Up to 50 contractors', staff: '20 staff accounts', extra: 'Contract import from Excel or CSV', recommended: true},
-  {name: 'Gold', monthly: 2000, setup: 7500, units: '1,000+ apartment units', contractors: 'Up to 100 contractors', staff: '50 staff accounts', extra: 'Priority support and onboarding', recommended: false},
+  {name: 'Bronze', monthly: 500, setup: 1000, units: 'Up to 200 apartment units', contractors: 'Up to 20 contractors', staff: '10 staff accounts', extra: 'Email support', recommended: false},
+  {name: 'Silver', monthly: 1000, setup: 1900, units: 'Up to 500 apartment units', contractors: 'Up to 50 contractors', staff: '20 staff accounts', extra: 'Contract import from Excel or CSV', recommended: true},
+  {name: 'Gold', monthly: 1800, setup: 3600, units: '1,000+ apartment units', contractors: 'Up to 100 contractors', staff: '50 staff accounts', extra: 'Priority support and onboarding', recommended: false},
 ];
 
 export default function Concept() {
