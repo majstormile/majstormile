@@ -1794,4 +1794,9 @@ export const de: Record<string, string> = {
   "Scan with your phone camera to open the app page.": "Mit der Handykamera scannen, um die App-Seite zu öffnen.",
   "Serbia: Belgrade (Vračar, New Belgrade)": "Serbien: Belgrad (Vračar, Neu-Belgrad)",
   "Serbia: Zlatibor and Čajetina": "Serbien: Zlatibor und Čajetina",
+  "Close menu": "Menü schließen",
+  "More": "Mehr",
+  "Main menu": "Hauptmenü",
+  "My jobs": "Meine Aufträge",
+  "Language": "Sprache",
 };

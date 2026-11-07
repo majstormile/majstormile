@@ -134,3 +134,42 @@
 @media (max-width:760px){
  .hero-card{position:static;width:auto;margin:-28px 14px 0;position:relative;z-index:1}
 }
+
+/* Phone navigation: bottom tab bar + "More" sheet (components/mobile-nav.tsx) */
+.mnav,.mnav-sheet-wrap{display:none}
+@media (max-width:767px){
+ .mnav{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:40;background:#fff;border-top:1px solid #e1e6ee;padding:4px 4px calc(6px + env(safe-area-inset-bottom));box-shadow:0 -4px 18px rgba(15,25,35,.06)}
+ .mnav-tab{flex:1 1 0;min-width:0;min-height:58px;border:0;background:transparent;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:#5f6b7c;font-weight:500;position:relative}
+ .mnav-tab.on{color:#1f3a2e;font-weight:700}
+ .mnav-tab.on .mnav-ico::before{content:"";position:absolute;top:-8px;left:50%;width:30px;height:3px;margin-left:-15px;border-radius:2px;background:#d9a93b}
+ .mnav-ico{position:relative;display:flex}
+ .mnav-label{font-size:11px;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+ .mnav-badge{position:absolute;top:-6px;left:14px;min-width:18px;height:18px;padding:0 5px;border-radius:9px;background:#c9203d;color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center}
+ .mnav-fab{width:54px;height:54px;margin-top:-24px;border-radius:50%;background:#1f3a2e;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(31,58,46,.4)}
+ .mnav-sheet-wrap{display:block;position:fixed;inset:0;z-index:39}
+ .mnav-backdrop{position:absolute;inset:0;border:0;background:rgba(15,25,35,.45);padding:0}
+ .mnav-sheet{position:absolute;left:0;right:0;bottom:0;max-height:80vh;overflow:auto;background:#fff;border-radius:22px 22px 0 0;padding:8px 16px calc(84px + env(safe-area-inset-bottom));box-shadow:0 -10px 30px rgba(0,0,0,.15);animation:mnav-up .18s ease-out}
+ @keyframes mnav-up{from{transform:translateY(30px);opacity:.6}to{transform:none;opacity:1}}
+ .mnav-grip{width:40px;height:5px;border-radius:3px;background:#cfd6df;margin:2px auto 10px}
+ .mnav-sheet-head{display:flex;align-items:center;justify-content:space-between;padding:4px 4px 12px;border-bottom:1px solid #eef1f5;margin-bottom:4px}
+ .mnav-sheet-head strong{display:block;font-size:16px}.mnav-sheet-head small{color:#5f6b7c}
+ .mnav-row{width:100%;min-height:52px;display:flex;align-items:center;gap:14px;border:0;border-bottom:1px solid #eef1f5;background:transparent;text-align:left;font-size:16px;color:#182437;padding:0 6px}
+ .mnav-row.on{color:#1f3a2e;font-weight:700;background:#f3f6f4;border-radius:10px}
+ .mnav-lang{justify-content:space-between}
+ .mnav-out{color:#b42335;font-weight:600;border-bottom:0}
+ /* the bar replaces the sidebar button and the page's New ticket button */
+ .topbar [data-sidebar=trigger]{display:none}
+ .page-heading>.primary{display:none}
+ .content{padding-bottom:110px!important}
+ [data-theme=dark] .mnav,[data-theme=dark] .mnav-sheet{background:#1d2026;border-color:#2c3038}
+ [data-theme=dark] .mnav-row{color:#e6e9ee;border-color:#2c3038}[data-theme=dark] .mnav-row.on{background:#26302b;color:#cfe3d6}
+ [data-theme=dark] .mnav-tab{color:#9aa4b2}[data-theme=dark] .mnav-tab.on{color:#cfe3d6}
+}
+/* Phones: the logo sits in the top bar, since the sidebar is replaced by the bottom bar */
+.mobile-logo{display:none}
+@media (max-width:767px){
+ .mobile-logo{display:flex;align-items:center;flex:none}
+ .mobile-logo img{width:52px;height:52px;object-fit:contain;background:transparent}
+ .topbar{height:68px;padding:0 12px!important}
+ .topbar .breadcrumb{display:none}
+}

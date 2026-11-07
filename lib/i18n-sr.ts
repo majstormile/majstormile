@@ -1795,4 +1795,9 @@ export const sr: Record<string, string> = {
   "Scan with your phone camera to open the app page.": "Skenirajte kamerom telefona da otvorite stranicu aplikacije.",
   "Serbia: Belgrade (Vračar, New Belgrade)": "Srbija: Beograd (Vračar, Novi Beograd)",
   "Serbia: Zlatibor and Čajetina": "Srbija: Zlatibor i Čajetina",
+  "Close menu": "Zatvori meni",
+  "More": "Više",
+  "Main menu": "Glavni meni",
+  "My jobs": "Moji poslovi",
+  "Language": "Jezik",
 };
