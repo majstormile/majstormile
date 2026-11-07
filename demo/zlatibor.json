@@ -1,0 +1,668 @@
+{
+ "name": "Zlatibor i Čajetina – apartmani",
+ "description": "Apartmanski kompleksi i stambene zgrade na Zlatiboru i u Čajetini, dva tima, referenti, kontrola primopredaje, direktor i pet izvođača (molerski radovi, vodoinstalacije i grejanje, elektro, ključar, suva gradnja i zidarski radovi). Sva imena, firme i brojevi telefona su izmišljeni.",
+ "costUnit": {
+  "rate": 117,
+  "step": 500
+ },
+ "teams": [
+  "Zlatibor – Centar",
+  "Čajetina"
+ ],
+ "people": [
+  {
+   "id": "demo-lead",
+   "name": "Milica Tomić",
+   "role": "Head Analyst",
+   "teams": [
+    "Zlatibor – Centar",
+    "Čajetina"
+   ],
+   "phone": "+381 31 555 0100"
+  },
+  {
+   "id": "demo-analyst",
+   "name": "Uroš Lazarević",
+   "role": "Analyst",
+   "teams": [
+    "Zlatibor – Centar"
+   ]
+  },
+  {
+   "id": "demo-analyst-2",
+   "name": "Jovana Đurić",
+   "role": "Analyst",
+   "teams": [
+    "Čajetina"
+   ]
+  },
+  {
+   "id": "demo-auditor",
+   "name": "Slobodan Matić",
+   "role": "Auditor",
+   "teams": []
+  },
+  {
+   "id": "demo-director",
+   "name": "Ljiljana Bogdanović",
+   "role": "Director",
+   "teams": []
+  },
+  {
+   "id": "demo-contractor",
+   "name": "Goran Mićić",
+   "role": "Contractor",
+   "teams": [],
+   "contractor": "Moleraj Čigota (Demo)"
+  },
+  {
+   "id": "demo-contractor-2",
+   "name": "Dragana Šumarac",
+   "role": "Contractor",
+   "teams": [],
+   "contractor": "Termo-vod Tornik (Demo)"
+  },
+  {
+   "id": "demo-contractor-3",
+   "name": "Miloš Glišović",
+   "role": "Contractor",
+   "teams": [],
+   "contractor": "Elektro Ribnica (Demo)"
+  },
+  {
+   "id": "demo-contractor-4",
+   "name": "Ivan Pećinar",
+   "role": "Contractor",
+   "teams": [],
+   "contractor": "Ključar Kraljeve vode (Demo)"
+  },
+  {
+   "id": "demo-contractor-5",
+   "name": "Rade Jevtić",
+   "role": "Contractor",
+   "teams": [],
+   "contractor": "Gradnja Mačkat (Demo)"
+  }
+ ],
+ "contracts": [
+  {
+   "id": "CT-ZL-101",
+   "contractor": "Moleraj Čigota (Demo)",
+   "trade": "Painting",
+   "road": "Miladina Pećinara",
+   "additionalRoads": [
+    "Sportska",
+    "Jezerska",
+    "Tihi kutak",
+    "Aleksandra Karađorđevića"
+   ],
+   "start": "2025-03-01",
+   "end": "2028-02-29",
+   "poc": "Goran Mićić",
+   "email": "goran.micic@example.invalid",
+   "phone": "+381 31 555 0210",
+   "scope": "Krečenje i molerski radovi u stanovima i na stepeništima, Zlatibor i Čajetina",
+   "addressCountry": "SRB",
+   "notes": "Okvirni ugovor 2025-M-03 (demo)"
+  },
+  {
+   "id": "CT-ZL-102",
+   "contractor": "Termo-vod Tornik (Demo)",
+   "trade": "Plumbing",
+   "road": "Partizanski put",
+   "additionalRoads": [
+    "Kraljeve vode",
+    "Đurkovac",
+    "Partizanska",
+    "Nikole Tesle"
+   ],
+   "start": "2025-03-01",
+   "end": "2028-02-29",
+   "poc": "Dragana Šumarac",
+   "email": "dragana.sumarac@example.invalid",
+   "phone": "+381 31 555 0220",
+   "scope": "Vodoinstalaterski radovi i radovi na cevovodu, hitna intervencija u roku od 24 sata",
+   "addressCountry": "SRB",
+   "notes": "Okvirni ugovor 2025-S-07 (demo)"
+  },
+  {
+   "id": "CT-ZL-103",
+   "contractor": "Termo-vod Tornik (Demo)",
+   "trade": "Heating",
+   "road": "Aleksandra Karađorđevića",
+   "additionalRoads": [
+    "Moravska",
+    "Borova",
+    "Palisadska"
+   ],
+   "start": "2025-03-01",
+   "end": "2028-02-29",
+   "poc": "Dragana Šumarac",
+   "email": "dragana.sumarac@example.invalid",
+   "phone": "+381 31 555 0220",
+   "scope": "Servisiranje i otklanjanje kvarova na sistemima grejanja i kotlovima",
+   "addressCountry": "SRB",
+   "notes": "Ugovor o održavanju 2025-H-02 (demo)"
+  },
+  {
+   "id": "CT-ZL-104",
+   "contractor": "Elektro Ribnica (Demo)",
+   "trade": "Electrical",
+   "road": "Đurkovac",
+   "additionalRoads": [
+    "Kralja Petra I",
+    "Naselje Sloboda",
+    "Zlatiborskih partizana",
+    "Miladina Pećinara"
+   ],
+   "start": "2025-03-01",
+   "end": "2028-02-29",
+   "poc": "Miloš Glišović",
+   "email": "milos.glisovic@example.invalid",
+   "phone": "+381 31 555 0230",
+   "scope": "Elektroinstalacije, otklanjanje kvarova i ispitivanje električnih instalacija",
+   "addressCountry": "SRB",
+   "notes": "Okvirni ugovor 2025-E-04 (demo)"
+  },
+  {
+   "id": "CT-ZL-105",
+   "contractor": "Ključar Kraljeve vode (Demo)",
+   "trade": "Locksmith",
+   "road": "Sportska",
+   "additionalRoads": [
+    "Ribnička",
+    "Jezerska",
+    "Miladina Pećinara",
+    "Moravska"
+   ],
+   "start": "2025-03-01",
+   "end": "2028-02-29",
+   "poc": "Ivan Pećinar",
+   "email": "ivan.pecinar@example.invalid",
+   "phone": "+381 31 555 0240",
+   "scope": "Otvaranje vrata, zamena cilindara i sistemi ključeva, dežurstvo 0–24",
+   "addressCountry": "SRB",
+   "notes": "Okvirni ugovor 2025-K-01 (demo)"
+  },
+  {
+   "id": "CT-ZL-106",
+   "contractor": "Gradnja Mačkat (Demo)",
+   "trade": "Drywall",
+   "road": "Miladina Pećinara",
+   "additionalRoads": [],
+   "start": "2025-03-01",
+   "end": "2028-02-29",
+   "poc": "Rade Jevtić",
+   "email": "rade.jevtic@example.invalid",
+   "phone": "+381 31 555 0260",
+   "scope": "Suva gradnja, malterisanje i zidarski radovi u upravljanim stanovima; fiksne cene prema predmeru radova",
+   "addressCountry": "SRB",
+   "notes": "Okvirni ugovor 2025-B-06 (demo)"
+  },
+  {
+   "id": "CT-ZL-107",
+   "contractor": "Gradnja Mačkat (Demo)",
+   "trade": "Masonry",
+   "road": "Sportska",
+   "additionalRoads": [],
+   "start": "2025-03-01",
+   "end": "2028-02-29",
+   "poc": "Rade Jevtić",
+   "email": "rade.jevtic@example.invalid",
+   "phone": "+381 31 555 0260",
+   "scope": "Suva gradnja, malterisanje i zidarski radovi u upravljanim stanovima; fiksne cene prema predmeru radova",
+   "addressCountry": "SRB",
+   "notes": "Okvirni ugovor 2025-B-07 (demo)"
+  }
+ ],
+ "notes": {
+  "Detected": "Prijava primljena.",
+  "Team assigned": "Prosleđeno nadležnom timu za objekte.",
+  "Analyst assigned": "Dodeljen referent.",
+  "Investigating": "Dogovoren izlazak na lice mesta; proveravaju se kvar i pristup.",
+  "Confirmed": "Kvar potvrđen na licu mesta.",
+  "Notice prepared": "Narudžbina po okvirnom ugovoru je pripremljena.",
+  "Acknowledged": "Izvođač je potvrdio nalog.",
+  "Repair in progress": "Majstor je na licu mesta.",
+  "Awaiting verification": "Radovi su završeni; čeka se primopredaja.",
+  "Verified closed": "Fotografija „posle“ potvrđuje izvedene radove; primopredaja obavljena.",
+  "Reopened": "Kvar se ponovo pojavio.",
+  "On hold": "Čeka se saglasnost skupštine stanara.",
+  "Rejected": "Kvar nije utvrđen.",
+  "Duplicate": "Ista prijava kao u glavnom nalogu."
+ },
+ "tickets": [
+  {
+   "id": "ZL-DEMO-001",
+   "title": "Vodena šteta: curi sa plafona u kupatilu",
+   "trade": "Plumbing",
+   "road": "Partizanski put",
+   "address": "Partizanski put 10, 31315 Zlatibor",
+   "severity": "Urgent",
+   "team": "Zlatibor – Centar",
+   "source": "Resident report",
+   "observations": 2,
+   "daysAgo": 1,
+   "path": [],
+   "unit": "2. sprat levo",
+   "access": "Stanarka je kod kuće; domar ima rezervni ključ",
+   "contactName": "Ana Nikolić",
+   "contactPhone": "031 555 0101"
+  },
+  {
+   "id": "ZL-DEMO-002",
+   "title": "Utičnice u kuhinji bez struje",
+   "trade": "Electrical",
+   "road": "Đurkovac",
+   "address": "Đurkovac 10, 31315 Zlatibor",
+   "severity": "Standard",
+   "team": "Zlatibor – Centar",
+   "source": "Resident report",
+   "observations": 1,
+   "daysAgo": 2,
+   "path": [
+    "Team assigned"
+   ],
+   "unit": "Prizemlje desno",
+   "access": "Ključ kod domara, g. Kovača",
+   "contactName": "Mirza Hadžić",
+   "contactPhone": "031 555 0102"
+  },
+  {
+   "id": "ZL-DEMO-003",
+   "title": "Zaključan van stana: ključ se slomio u bravi",
+   "trade": "Locksmith",
+   "road": "Ribnička",
+   "address": "Ribnička 1, 31315 Zlatibor",
+   "severity": "Urgent",
+   "team": "Zlatibor – Centar",
+   "analyst": "demo-analyst",
+   "source": "Resident report",
+   "observations": 1,
+   "daysAgo": 1,
+   "path": [
+    "Team assigned",
+    "Analyst assigned"
+   ],
+   "unit": "Stan 4, 1. sprat",
+   "access": "Stanar čeka ispred vrata",
+   "contactName": "Luka Savić",
+   "contactPhone": "031 555 0103"
+  },
+  {
+   "id": "ZL-DEMO-004",
+   "title": "Buđ na spoljnom zidu u spavaćoj sobi",
+   "trade": "Painting",
+   "road": "Sportska",
+   "address": "Sportska 15, 31315 Zlatibor",
+   "severity": "Standard",
+   "team": "Zlatibor – Centar",
+   "analyst": "demo-analyst",
+   "source": "Resident report",
+   "observations": 3,
+   "daysAgo": 6,
+   "path": [
+    "Team assigned",
+    "Analyst assigned",
+    "Investigating"
+   ],
+   "unit": "3. sprat, stan 9",
+   "access": "Radnim danom posle 16 časova",
+   "contactName": "Petra Simić",
+   "contactPhone": "031 555 0104"
+  },
+  {
+   "id": "ZL-DEMO-005",
+   "title": "Radijator u dnevnoj sobi ostaje hladan",
+   "trade": "Heating",
+   "road": "Aleksandra Karađorđevića",
+   "address": "Aleksandra Karađorđevića 12, 31310 Čajetina",
+   "severity": "Standard",
+   "team": "Čajetina",
+   "analyst": "demo-analyst-2",
+   "source": "Resident report",
+   "observations": 2,
+   "daysAgo": 7,
+   "contractId": "CT-ZL-103",
+   "path": [
+    "Team assigned",
+    "Analyst assigned",
+    "Investigating",
+    "Confirmed"
+   ],
+   "unit": "1. sprat levo",
+   "access": "Stanar je preko dana kod kuće",
+   "contactName": "Olga Vasić",
+   "contactPhone": "031 555 0105"
+  },
+  {
+   "id": "ZL-DEMO-006",
+   "title": "Osigurač ispada kada radi veš-mašina",
+   "trade": "Electrical",
+   "road": "Kralja Petra I",
+   "address": "Kralja Petra I 1, 31310 Čajetina",
+   "severity": "Urgent",
+   "team": "Čajetina",
+   "analyst": "demo-analyst-2",
+   "source": "Field inspection",
+   "observations": 2,
+   "daysAgo": 9,
+   "contractId": "CT-ZL-104",
+   "path": [
+    "Team assigned",
+    "Analyst assigned",
+    "Investigating",
+    "Confirmed",
+    "Notice prepared"
+   ],
+   "unit": "Suteren",
+   "access": "Praonica se otvara iz dvorišta, ključ kod domara",
+   "contactName": "Jovan Rakić",
+   "contactPhone": "031 555 0106"
+  },
+  {
+   "id": "ZL-DEMO-007",
+   "title": "Krečenje nakon iseljenja (dvosoban stan)",
+   "trade": "Painting",
+   "road": "Miladina Pećinara",
+   "address": "Miladina Pećinara 30, 31315 Zlatibor",
+   "severity": "Standard",
+   "team": "Zlatibor – Centar",
+   "analyst": "demo-analyst",
+   "source": "Staff report",
+   "observations": 1,
+   "daysAgo": 12,
+   "contractId": "CT-ZL-101",
+   "path": [
+    "Team assigned",
+    "Analyst assigned",
+    "Investigating",
+    "Confirmed",
+    "Notice prepared",
+    "Acknowledged"
+   ],
+   "unit": "2. sprat desno (prazan stan)",
+   "access": "Ključ preuzeti u kancelariji upravnika",
+   "contactName": "Upravnik kompleksa Zlatibor",
+   "contactPhone": "031 555 0100"
+  },
+  {
+   "id": "ZL-DEMO-008",
+   "title": "Curi sifon ispod lavaboa",
+   "trade": "Plumbing",
+   "road": "Kraljeve vode",
+   "address": "Kraljeve vode 14, 31315 Zlatibor",
+   "severity": "Urgent",
+   "team": "Zlatibor – Centar",
+   "analyst": "demo-analyst",
+   "source": "Resident report",
+   "observations": 2,
+   "daysAgo": 10,
+   "contractId": "CT-ZL-102",
+   "path": [
+    "Team assigned",
+    "Analyst assigned",
+    "Investigating",
+    "Confirmed",
+    "Notice prepared",
+    "Acknowledged",
+    "Repair in progress"
+   ],
+   "unit": "Prizemlje, stan 1",
+   "access": "Stanarka je dostupna prepodne",
+   "contactName": "Sanja Kovačević",
+   "contactPhone": "031 555 0108",
+   "workStage": "Waiting for parts"
+  },
+  {
+   "id": "ZL-DEMO-009",
+   "title": "Ulazna brava zgrade: zamenjen cilindar",
+   "trade": "Locksmith",
+   "road": "Jezerska",
+   "address": "Jezerska 3, 31315 Zlatibor",
+   "severity": "Standard",
+   "team": "Zlatibor – Centar",
+   "analyst": "demo-analyst",
+   "source": "Staff report",
+   "observations": 1,
+   "daysAgo": 18,
+   "contractId": "CT-ZL-105",
+   "path": [
+    "Team assigned",
+    "Analyst assigned",
+    "Investigating",
+    "Confirmed",
+    "Notice prepared",
+    "Acknowledged",
+    "Repair in progress",
+    "Awaiting verification"
+   ],
+   "unit": "Ulaz u zgradu",
+   "access": "Nove ključeve podeliti svim stanarima",
+   "contactName": "Domar Kovač",
+   "contactPhone": "031 555 0109"
+  },
+  {
+   "id": "ZL-DEMO-010",
+   "title": "Krečenje stepeništa",
+   "trade": "Painting",
+   "road": "Tihi kutak",
+   "address": "Tihi kutak 5, 31315 Zlatibor",
+   "severity": "Low",
+   "team": "Zlatibor – Centar",
+   "analyst": "demo-analyst",
+   "source": "Manual report",
+   "observations": 1,
+   "daysAgo": 33,
+   "contractId": "CT-ZL-101",
+   "path": [
+    "Team assigned",
+    "Analyst assigned",
+    "Investigating",
+    "Confirmed",
+    "Repair in progress",
+    "Awaiting verification",
+    "Verified closed"
+   ],
+   "unit": "Stepenište",
+   "access": "Ulazna vrata se otvaraju ključem iz sistema ključeva",
+   "contactName": "Domar Kovač",
+   "contactPhone": "031 555 0109"
+  },
+  {
+   "id": "ZL-DEMO-011",
+   "title": "Vodokotlić stalno curi",
+   "trade": "Plumbing",
+   "road": "Partizanska",
+   "address": "Partizanska 20, 31310 Čajetina",
+   "severity": "Urgent",
+   "team": "Čajetina",
+   "analyst": "demo-analyst-2",
+   "source": "Resident report",
+   "observations": 3,
+   "daysAgo": 38,
+   "contractId": "CT-ZL-102",
+   "reopened": 1,
+   "path": [
+    "Team assigned",
+    "Analyst assigned",
+    "Investigating",
+    "Confirmed",
+    "Notice prepared",
+    "Acknowledged",
+    "Repair in progress",
+    "Awaiting verification",
+    "Verified closed",
+    "Reopened"
+   ],
+   "unit": "1. sprat desno",
+   "access": "Stanar po dogovoru",
+   "contactName": "Tomislav Novaković",
+   "contactPhone": "031 555 0111"
+  },
+  {
+   "id": "ZL-DEMO-012",
+   "title": "Krečenje fasade sa dvorišne strane",
+   "trade": "Painting",
+   "road": "Naselje Sloboda",
+   "address": "Naselje Sloboda 5, 31315 Zlatibor",
+   "severity": "Low",
+   "team": "Zlatibor – Centar",
+   "analyst": "demo-analyst",
+   "source": "Staff report",
+   "observations": 1,
+   "daysAgo": 15,
+   "holdFrom": "Investigating",
+   "path": [
+    "Team assigned",
+    "Analyst assigned",
+    "Investigating",
+    "On hold"
+   ],
+   "unit": "Dvorišna strana",
+   "access": "Pristup kroz dvorišnu kapiju, potrebna skela",
+   "contactName": "Upravnik kompleksa Zlatibor",
+   "contactPhone": "031 555 0100"
+  },
+  {
+   "id": "ZL-DEMO-013",
+   "title": "Treperi svetlo u podrumu",
+   "trade": "Electrical",
+   "road": "Zlatiborskih partizana",
+   "address": "Zlatiborskih partizana 8, 31315 Zlatibor",
+   "severity": "Low",
+   "team": "Zlatibor – Centar",
+   "analyst": "demo-analyst",
+   "source": "Resident report",
+   "observations": 1,
+   "daysAgo": 5,
+   "path": [
+    "Team assigned",
+    "Analyst assigned",
+    "Investigating",
+    "Rejected"
+   ],
+   "unit": "Podrum",
+   "access": "Ključ od podruma kod domara",
+   "contactName": "Domar Kovač",
+   "contactPhone": "031 555 0109"
+  },
+  {
+   "id": "ZL-DEMO-014",
+   "title": "Voda curi sa plafona (duplirana prijava)",
+   "trade": "Plumbing",
+   "road": "Partizanski put",
+   "address": "Partizanski put 10, 31315 Zlatibor",
+   "severity": "Urgent",
+   "team": "Zlatibor – Centar",
+   "analyst": "demo-analyst",
+   "source": "Resident report",
+   "observations": 1,
+   "daysAgo": 1,
+   "duplicateOf": "ZL-DEMO-001",
+   "path": [
+    "Team assigned",
+    "Analyst assigned",
+    "Investigating",
+    "Duplicate"
+   ],
+   "unit": "2. sprat levo",
+   "access": "Stanarka je kod kuće",
+   "contactName": "Ana Nikolić",
+   "contactPhone": "031 555 0101"
+  },
+  {
+   "id": "ZL-DEMO-015",
+   "title": "Kotao javlja grešku, nema tople vode",
+   "trade": "Heating",
+   "road": "Moravska",
+   "address": "Moravska 2, 31310 Čajetina",
+   "severity": "Urgent",
+   "team": "Čajetina",
+   "analyst": "demo-analyst-2",
+   "source": "Resident report",
+   "observations": 2,
+   "daysAgo": 3,
+   "contractId": "CT-ZL-103",
+   "path": [
+    "Team assigned",
+    "Analyst assigned",
+    "Investigating",
+    "Confirmed"
+   ],
+   "unit": "Potkrovlje, stan 12",
+   "access": "Stanar dostupan posle 17 časova",
+   "contactName": "Kemal Hasanović",
+   "contactPhone": "031 555 0115"
+  },
+  {
+   "id": "ZL-DEMO-016",
+   "title": "Prozor se ne zatvara kako treba",
+   "trade": "Carpentry",
+   "road": "Nikole Tesle",
+   "address": "Nikole Tesle 6, 31310 Čajetina",
+   "severity": "Standard",
+   "team": "Čajetina",
+   "analyst": "demo-analyst-2",
+   "source": "Resident report",
+   "observations": 1,
+   "daysAgo": 4,
+   "path": [
+    "Team assigned",
+    "Analyst assigned",
+    "Investigating"
+   ],
+   "unit": "1. sprat, stan 3",
+   "access": "Radnim danom 8–12 časova",
+   "contactName": "Monika Branković",
+   "contactPhone": "031 555 0116"
+  },
+  {
+   "id": "ZL-DEMO-017",
+   "title": "Pukotina na zidu dnevne sobe, malter otpada",
+   "trade": "Drywall",
+   "road": "Miladina Pećinara",
+   "address": "Miladina Pećinara 12, 31315 Zlatibor",
+   "unit": "1. sprat desno",
+   "access": "Stanar je kod kuće od 15 časova",
+   "contactName": "Erik Vuković",
+   "contactPhone": "031 555 0117",
+   "offer": "open",
+   "severity": "Standard",
+   "team": "Zlatibor – Centar",
+   "analyst": "demo-analyst",
+   "source": "Resident report",
+   "observations": 1,
+   "daysAgo": 3,
+   "path": [
+    "Team assigned",
+    "Analyst assigned",
+    "Investigating",
+    "Confirmed",
+    "Notice prepared"
+   ]
+  },
+  {
+   "id": "ZL-DEMO-018",
+   "title": "Vlažan zid u podrumu, fuge isprane",
+   "trade": "Masonry",
+   "road": "Sportska",
+   "address": "Sportska 3, 31315 Zlatibor",
+   "unit": "Podrum",
+   "access": "Ključ od podruma kod domara",
+   "contactName": "Domar Kovač",
+   "contactPhone": "031 555 0109",
+   "severity": "Low",
+   "team": "Zlatibor – Centar",
+   "analyst": "demo-analyst",
+   "source": "Staff report",
+   "observations": 1,
+   "daysAgo": 6,
+   "path": [
+    "Team assigned",
+    "Analyst assigned",
+    "Investigating"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,668 @@
+{
+ "name": "Beograd – Vračar i Novi Beograd",
+ "description": "Stambene zgrade u Beogradu (Vračar i Novi Beograd), dva tima, referenti, kontrola primopredaje, direktor i pet izvođača (molerski radovi, vodoinstalacije i grejanje, elektro, ključar, suva gradnja i zidarski radovi). Sva imena, firme i brojevi telefona su izmišljeni.",
+ "costUnit": {
+  "rate": 117,
+  "step": 500
+ },
+ "teams": [
+  "Beograd – Vračar",
+  "Beograd – Novi Beograd"
+ ],
+ "people": [
+  {
+   "id": "demo-lead",
+   "name": "Tamara Đorđević",
+   "role": "Head Analyst",
+   "teams": [
+    "Beograd – Vračar",
+    "Beograd – Novi Beograd"
+   ],
+   "phone": "+381 11 555 0100"
+  },
+  {
+   "id": "demo-analyst",
+   "name": "Vuk Stefanović",
+   "role": "Analyst",
+   "teams": [
+    "Beograd – Vračar"
+   ]
+  },
+  {
+   "id": "demo-analyst-2",
+   "name": "Ivana Popović",
+   "role": "Analyst",
+   "teams": [
+    "Beograd – Novi Beograd"
+   ]
+  },
+  {
+   "id": "demo-auditor",
+   "name": "Branko Pavlović",
+   "role": "Auditor",
+   "teams": []
+  },
+  {
+   "id": "demo-director",
+   "name": "Gordana Milić",
+   "role": "Director",
+   "teams": []
+  },
+  {
+   "id": "demo-contractor",
+   "name": "Dejan Kostić",
+   "role": "Contractor",
+   "teams": [],
+   "contractor": "Moleraj Vračar (Demo)"
+  },
+  {
+   "id": "demo-contractor-2",
+   "name": "Zorica Mitrović",
+   "role": "Contractor",
+   "teams": [],
+   "contractor": "Vodo-term Savski (Demo)"
+  },
+  {
+   "id": "demo-contractor-3",
+   "name": "Aleksa Janković",
+   "role": "Contractor",
+   "teams": [],
+   "contractor": "Elektro Slavija (Demo)"
+  },
+  {
+   "id": "demo-contractor-4",
+   "name": "Bojan Ristić",
+   "role": "Contractor",
+   "teams": [],
+   "contractor": "Ključar Kalenić (Demo)"
+  },
+  {
+   "id": "demo-contractor-5",
+   "name": "Nenad Živković",
+   "role": "Contractor",
+   "teams": [],
+   "contractor": "Gips i zid Beograd (Demo)"
+  }
+ ],
+ "contracts": [
+  {
+   "id": "CT-BG-101",
+   "contractor": "Moleraj Vračar (Demo)",
+   "trade": "Painting",
+   "road": "Njegoševa",
+   "additionalRoads": [
+    "Krunska",
+    "Kralja Milana",
+    "Makenzijeva",
+    "Bulevar Mihajla Pupina"
+   ],
+   "start": "2025-03-01",
+   "end": "2028-02-29",
+   "poc": "Dejan Kostić",
+   "email": "dejan.kostic@example.invalid",
+   "phone": "+381 11 555 0210",
+   "scope": "Krečenje i molerski radovi u stanovima i na stepeništima, Vračar i Novi Beograd",
+   "addressCountry": "SRB",
+   "notes": "Okvirni ugovor 2025-M-03 (demo)"
+  },
+  {
+   "id": "CT-BG-102",
+   "contractor": "Vodo-term Savski (Demo)",
+   "trade": "Plumbing",
+   "road": "Maksima Gorkog",
+   "additionalRoads": [
+    "Molerova",
+    "Kursulina",
+    "Omladinskih brigada",
+    "Nehruova"
+   ],
+   "start": "2025-03-01",
+   "end": "2028-02-29",
+   "poc": "Zorica Mitrović",
+   "email": "zorica.mitrovic@example.invalid",
+   "phone": "+381 11 555 0220",
+   "scope": "Vodoinstalaterski radovi i radovi na cevovodu, hitna intervencija u roku od 24 sata",
+   "addressCountry": "SRB",
+   "notes": "Okvirni ugovor 2025-S-07 (demo)"
+  },
+  {
+   "id": "CT-BG-103",
+   "contractor": "Vodo-term Savski (Demo)",
+   "trade": "Heating",
+   "road": "Bulevar Mihajla Pupina",
+   "additionalRoads": [
+    "Bulevar Zorana Đinđića",
+    "Baba Višnjina",
+    "Beogradska"
+   ],
+   "start": "2025-03-01",
+   "end": "2028-02-29",
+   "poc": "Zorica Mitrović",
+   "email": "zorica.mitrovic@example.invalid",
+   "phone": "+381 11 555 0220",
+   "scope": "Servisiranje i otklanjanje kvarova na sistemima grejanja i kotlovima",
+   "addressCountry": "SRB",
+   "notes": "Ugovor o održavanju 2025-H-02 (demo)"
+  },
+  {
+   "id": "CT-BG-104",
+   "contractor": "Elektro Slavija (Demo)",
+   "trade": "Electrical",
+   "road": "Kursulina",
+   "additionalRoads": [
+    "Jurija Gagarina",
+    "Južni bulevar",
+    "Smiljanićeva",
+    "Njegoševa"
+   ],
+   "start": "2025-03-01",
+   "end": "2028-02-29",
+   "poc": "Aleksa Janković",
+   "email": "aleksa.jankovic@example.invalid",
+   "phone": "+381 11 555 0230",
+   "scope": "Elektroinstalacije, otklanjanje kvarova i ispitivanje električnih instalacija",
+   "addressCountry": "SRB",
+   "notes": "Okvirni ugovor 2025-E-04 (demo)"
+  },
+  {
+   "id": "CT-BG-105",
+   "contractor": "Ključar Kalenić (Demo)",
+   "trade": "Locksmith",
+   "road": "Krunska",
+   "additionalRoads": [
+    "Mileševska",
+    "Kralja Milana",
+    "Njegoševa",
+    "Bulevar Zorana Đinđića"
+   ],
+   "start": "2025-03-01",
+   "end": "2028-02-29",
+   "poc": "Bojan Ristić",
+   "email": "bojan.ristic@example.invalid",
+   "phone": "+381 11 555 0240",
+   "scope": "Otvaranje vrata, zamena cilindara i sistemi ključeva, dežurstvo 0–24",
+   "addressCountry": "SRB",
+   "notes": "Okvirni ugovor 2025-K-01 (demo)"
+  },
+  {
+   "id": "CT-BG-106",
+   "contractor": "Gips i zid Beograd (Demo)",
+   "trade": "Drywall",
+   "road": "Njegoševa",
+   "additionalRoads": [],
+   "start": "2025-03-01",
+   "end": "2028-02-29",
+   "poc": "Nenad Živković",
+   "email": "nenad.zivkovic@example.invalid",
+   "phone": "+381 11 555 0260",
+   "scope": "Suva gradnja, malterisanje i zidarski radovi u upravljanim stanovima; fiksne cene prema predmeru radova",
+   "addressCountry": "SRB",
+   "notes": "Okvirni ugovor 2025-B-06 (demo)"
+  },
+  {
+   "id": "CT-BG-107",
+   "contractor": "Gips i zid Beograd (Demo)",
+   "trade": "Masonry",
+   "road": "Krunska",
+   "additionalRoads": [],
+   "start": "2025-03-01",
+   "end": "2028-02-29",
+   "poc": "Nenad Živković",
+   "email": "nenad.zivkovic@example.invalid",
+   "phone": "+381 11 555 0260",
+   "scope": "Suva gradnja, malterisanje i zidarski radovi u upravljanim stanovima; fiksne cene prema predmeru radova",
+   "addressCountry": "SRB",
+   "notes": "Okvirni ugovor 2025-B-07 (demo)"
+  }
+ ],
+ "notes": {
+  "Detected": "Prijava primljena.",
+  "Team assigned": "Prosleđeno nadležnom timu za objekte.",
+  "Analyst assigned": "Dodeljen referent.",
+  "Investigating": "Dogovoren izlazak na lice mesta; proveravaju se kvar i pristup.",
+  "Confirmed": "Kvar potvrđen na licu mesta.",
+  "Notice prepared": "Narudžbina po okvirnom ugovoru je pripremljena.",
+  "Acknowledged": "Izvođač je potvrdio nalog.",
+  "Repair in progress": "Majstor je na licu mesta.",
+  "Awaiting verification": "Radovi su završeni; čeka se primopredaja.",
+  "Verified closed": "Fotografija „posle“ potvrđuje izvedene radove; primopredaja obavljena.",
+  "Reopened": "Kvar se ponovo pojavio.",
+  "On hold": "Čeka se saglasnost skupštine stanara.",
+  "Rejected": "Kvar nije utvrđen.",
+  "Duplicate": "Ista prijava kao u glavnom nalogu."
+ },
+ "tickets": [
+  {
+   "id": "BG-DEMO-001",
+   "title": "Vodena šteta: curi sa plafona u kupatilu",
+   "trade": "Plumbing",
+   "road": "Maksima Gorkog",
+   "address": "Maksima Gorkog 10, 11000 Beograd",
+   "severity": "Urgent",
+   "team": "Beograd – Vračar",
+   "source": "Resident report",
+   "observations": 2,
+   "daysAgo": 1,
+   "path": [],
+   "unit": "2. sprat levo",
+   "access": "Stanarka je kod kuće; domar ima rezervni ključ",
+   "contactName": "Ana Nikolić",
+   "contactPhone": "011 555 0101"
+  },
+  {
+   "id": "BG-DEMO-002",
+   "title": "Utičnice u kuhinji bez struje",
+   "trade": "Electrical",
+   "road": "Kursulina",
+   "address": "Kursulina 10, 11000 Beograd",
+   "severity": "Standard",
+   "team": "Beograd – Vračar",
+   "source": "Resident report",
+   "observations": 1,
+   "daysAgo": 2,
+   "path": [
+    "Team assigned"
+   ],
+   "unit": "Prizemlje desno",
+   "access": "Ključ kod domara, g. Perića",
+   "contactName": "Mirza Hadžić",
+   "contactPhone": "011 555 0102"
+  },
+  {
+   "id": "BG-DEMO-003",
+   "title": "Zaključan van stana: ključ se slomio u bravi",
+   "trade": "Locksmith",
+   "road": "Mileševska",
+   "address": "Mileševska 1, 11000 Beograd",
+   "severity": "Urgent",
+   "team": "Beograd – Vračar",
+   "analyst": "demo-analyst",
+   "source": "Resident report",
+   "observations": 1,
+   "daysAgo": 1,
+   "path": [
+    "Team assigned",
+    "Analyst assigned"
+   ],
+   "unit": "Stan 4, 1. sprat",
+   "access": "Stanar čeka ispred vrata",
+   "contactName": "Luka Savić",
+   "contactPhone": "011 555 0103"
+  },
+  {
+   "id": "BG-DEMO-004",
+   "title": "Buđ na spoljnom zidu u spavaćoj sobi",
+   "trade": "Painting",
+   "road": "Krunska",
+   "address": "Krunska 15, 11000 Beograd",
+   "severity": "Standard",
+   "team": "Beograd – Vračar",
+   "analyst": "demo-analyst",
+   "source": "Resident report",
+   "observations": 3,
+   "daysAgo": 6,
+   "path": [
+    "Team assigned",
+    "Analyst assigned",
+    "Investigating"
+   ],
+   "unit": "3. sprat, stan 9",
+   "access": "Radnim danom posle 16 časova",
+   "contactName": "Petra Simić",
+   "contactPhone": "011 555 0104"
+  },
+  {
+   "id": "BG-DEMO-005",
+   "title": "Radijator u dnevnoj sobi ostaje hladan",
+   "trade": "Heating",
+   "road": "Bulevar Mihajla Pupina",
+   "address": "Bulevar Mihajla Pupina 12, 11070 Novi Beograd",
+   "severity": "Standard",
+   "team": "Beograd – Novi Beograd",
+   "analyst": "demo-analyst-2",
+   "source": "Resident report",
+   "observations": 2,
+   "daysAgo": 7,
+   "contractId": "CT-BG-103",
+   "path": [
+    "Team assigned",
+    "Analyst assigned",
+    "Investigating",
+    "Confirmed"
+   ],
+   "unit": "1. sprat levo",
+   "access": "Stanar je preko dana kod kuće",
+   "contactName": "Olga Vasić",
+   "contactPhone": "011 555 0105"
+  },
+  {
+   "id": "BG-DEMO-006",
+   "title": "Osigurač ispada kada radi veš-mašina",
+   "trade": "Electrical",
+   "road": "Jurija Gagarina",
+   "address": "Jurija Gagarina 1, 11070 Novi Beograd",
+   "severity": "Urgent",
+   "team": "Beograd – Novi Beograd",
+   "analyst": "demo-analyst-2",
+   "source": "Field inspection",
+   "observations": 2,
+   "daysAgo": 9,
+   "contractId": "CT-BG-104",
+   "path": [
+    "Team assigned",
+    "Analyst assigned",
+    "Investigating",
+    "Confirmed",
+    "Notice prepared"
+   ],
+   "unit": "Suteren",
+   "access": "Praonica se otvara iz dvorišta, ključ kod domara",
+   "contactName": "Jovan Rakić",
+   "contactPhone": "011 555 0106"
+  },
+  {
+   "id": "BG-DEMO-007",
+   "title": "Krečenje nakon iseljenja (dvosoban stan)",
+   "trade": "Painting",
+   "road": "Njegoševa",
+   "address": "Njegoševa 30, 11000 Beograd",
+   "severity": "Standard",
+   "team": "Beograd – Vračar",
+   "analyst": "demo-analyst",
+   "source": "Staff report",
+   "observations": 1,
+   "daysAgo": 12,
+   "contractId": "CT-BG-101",
+   "path": [
+    "Team assigned",
+    "Analyst assigned",
+    "Investigating",
+    "Confirmed",
+    "Notice prepared",
+    "Acknowledged"
+   ],
+   "unit": "2. sprat desno (prazan stan)",
+   "access": "Ključ preuzeti u kancelariji upravnika",
+   "contactName": "Upravnik zgrade Vračar",
+   "contactPhone": "011 555 0100"
+  },
+  {
+   "id": "BG-DEMO-008",
+   "title": "Curi sifon ispod lavaboa",
+   "trade": "Plumbing",
+   "road": "Molerova",
+   "address": "Molerova 14, 11000 Beograd",
+   "severity": "Urgent",
+   "team": "Beograd – Vračar",
+   "analyst": "demo-analyst",
+   "source": "Resident report",
+   "observations": 2,
+   "daysAgo": 10,
+   "contractId": "CT-BG-102",
+   "path": [
+    "Team assigned",
+    "Analyst assigned",
+    "Investigating",
+    "Confirmed",
+    "Notice prepared",
+    "Acknowledged",
+    "Repair in progress"
+   ],
+   "unit": "Prizemlje, stan 1",
+   "access": "Stanarka je dostupna prepodne",
+   "contactName": "Sanja Kovačević",
+   "contactPhone": "011 555 0108",
+   "workStage": "Waiting for parts"
+  },
+  {
+   "id": "BG-DEMO-009",
+   "title": "Ulazna brava zgrade: zamenjen cilindar",
+   "trade": "Locksmith",
+   "road": "Kralja Milana",
+   "address": "Kralja Milana 3, 11000 Beograd",
+   "severity": "Standard",
+   "team": "Beograd – Vračar",
+   "analyst": "demo-analyst",
+   "source": "Staff report",
+   "observations": 1,
+   "daysAgo": 18,
+   "contractId": "CT-BG-105",
+   "path": [
+    "Team assigned",
+    "Analyst assigned",
+    "Investigating",
+    "Confirmed",
+    "Notice prepared",
+    "Acknowledged",
+    "Repair in progress",
+    "Awaiting verification"
+   ],
+   "unit": "Ulaz u zgradu",
+   "access": "Nove ključeve podeliti svim stanarima",
+   "contactName": "Domar Perić",
+   "contactPhone": "011 555 0109"
+  },
+  {
+   "id": "BG-DEMO-010",
+   "title": "Krečenje stepeništa",
+   "trade": "Painting",
+   "road": "Makenzijeva",
+   "address": "Makenzijeva 5, 11000 Beograd",
+   "severity": "Low",
+   "team": "Beograd – Vračar",
+   "analyst": "demo-analyst",
+   "source": "Manual report",
+   "observations": 1,
+   "daysAgo": 33,
+   "contractId": "CT-BG-101",
+   "path": [
+    "Team assigned",
+    "Analyst assigned",
+    "Investigating",
+    "Confirmed",
+    "Repair in progress",
+    "Awaiting verification",
+    "Verified closed"
+   ],
+   "unit": "Stepenište",
+   "access": "Ulazna vrata se otvaraju ključem iz sistema ključeva",
+   "contactName": "Domar Perić",
+   "contactPhone": "011 555 0109"
+  },
+  {
+   "id": "BG-DEMO-011",
+   "title": "Vodokotlić stalno curi",
+   "trade": "Plumbing",
+   "road": "Omladinskih brigada",
+   "address": "Omladinskih brigada 20, 11070 Novi Beograd",
+   "severity": "Urgent",
+   "team": "Beograd – Novi Beograd",
+   "analyst": "demo-analyst-2",
+   "source": "Resident report",
+   "observations": 3,
+   "daysAgo": 38,
+   "contractId": "CT-BG-102",
+   "reopened": 1,
+   "path": [
+    "Team assigned",
+    "Analyst assigned",
+    "Investigating",
+    "Confirmed",
+    "Notice prepared",
+    "Acknowledged",
+    "Repair in progress",
+    "Awaiting verification",
+    "Verified closed",
+    "Reopened"
+   ],
+   "unit": "1. sprat desno",
+   "access": "Stanar po dogovoru",
+   "contactName": "Tomislav Novaković",
+   "contactPhone": "011 555 0111"
+  },
+  {
+   "id": "BG-DEMO-012",
+   "title": "Krečenje fasade sa dvorišne strane",
+   "trade": "Painting",
+   "road": "Južni bulevar",
+   "address": "Južni bulevar 5, 11000 Beograd",
+   "severity": "Low",
+   "team": "Beograd – Vračar",
+   "analyst": "demo-analyst",
+   "source": "Staff report",
+   "observations": 1,
+   "daysAgo": 15,
+   "holdFrom": "Investigating",
+   "path": [
+    "Team assigned",
+    "Analyst assigned",
+    "Investigating",
+    "On hold"
+   ],
+   "unit": "Dvorišna strana",
+   "access": "Pristup kroz dvorišnu kapiju, potrebna skela",
+   "contactName": "Upravnik zgrade Vračar",
+   "contactPhone": "011 555 0100"
+  },
+  {
+   "id": "BG-DEMO-013",
+   "title": "Treperi svetlo u podrumu",
+   "trade": "Electrical",
+   "road": "Smiljanićeva",
+   "address": "Smiljanićeva 8, 11000 Beograd",
+   "severity": "Low",
+   "team": "Beograd – Vračar",
+   "analyst": "demo-analyst",
+   "source": "Resident report",
+   "observations": 1,
+   "daysAgo": 5,
+   "path": [
+    "Team assigned",
+    "Analyst assigned",
+    "Investigating",
+    "Rejected"
+   ],
+   "unit": "Podrum",
+   "access": "Ključ od podruma kod domara",
+   "contactName": "Domar Perić",
+   "contactPhone": "011 555 0109"
+  },
+  {
+   "id": "BG-DEMO-014",
+   "title": "Voda curi sa plafona (duplirana prijava)",
+   "trade": "Plumbing",
+   "road": "Maksima Gorkog",
+   "address": "Maksima Gorkog 10, 11000 Beograd",
+   "severity": "Urgent",
+   "team": "Beograd – Vračar",
+   "analyst": "demo-analyst",
+   "source": "Resident report",
+   "observations": 1,
+   "daysAgo": 1,
+   "duplicateOf": "BG-DEMO-001",
+   "path": [
+    "Team assigned",
+    "Analyst assigned",
+    "Investigating",
+    "Duplicate"
+   ],
+   "unit": "2. sprat levo",
+   "access": "Stanarka je kod kuće",
+   "contactName": "Ana Nikolić",
+   "contactPhone": "011 555 0101"
+  },
+  {
+   "id": "BG-DEMO-015",
+   "title": "Kotao javlja grešku, nema tople vode",
+   "trade": "Heating",
+   "road": "Bulevar Zorana Đinđića",
+   "address": "Bulevar Zorana Đinđića 2, 11070 Novi Beograd",
+   "severity": "Urgent",
+   "team": "Beograd – Novi Beograd",
+   "analyst": "demo-analyst-2",
+   "source": "Resident report",
+   "observations": 2,
+   "daysAgo": 3,
+   "contractId": "CT-BG-103",
+   "path": [
+    "Team assigned",
+    "Analyst assigned",
+    "Investigating",
+    "Confirmed"
+   ],
+   "unit": "Potkrovlje, stan 12",
+   "access": "Stanar dostupan posle 17 časova",
+   "contactName": "Kemal Hasanović",
+   "contactPhone": "011 555 0115"
+  },
+  {
+   "id": "BG-DEMO-016",
+   "title": "Prozor se ne zatvara kako treba",
+   "trade": "Carpentry",
+   "road": "Nehruova",
+   "address": "Nehruova 6, 11070 Novi Beograd",
+   "severity": "Standard",
+   "team": "Beograd – Novi Beograd",
+   "analyst": "demo-analyst-2",
+   "source": "Resident report",
+   "observations": 1,
+   "daysAgo": 4,
+   "path": [
+    "Team assigned",
+    "Analyst assigned",
+    "Investigating"
+   ],
+   "unit": "1. sprat, stan 3",
+   "access": "Radnim danom 8–12 časova",
+   "contactName": "Monika Branković",
+   "contactPhone": "011 555 0116"
+  },
+  {
+   "id": "BG-DEMO-017",
+   "title": "Pukotina na zidu dnevne sobe, malter otpada",
+   "trade": "Drywall",
+   "road": "Njegoševa",
+   "address": "Njegoševa 12, 11000 Beograd",
+   "unit": "1. sprat desno",
+   "access": "Stanar je kod kuće od 15 časova",
+   "contactName": "Erik Vuković",
+   "contactPhone": "011 555 0117",
+   "offer": "open",
+   "severity": "Standard",
+   "team": "Beograd – Vračar",
+   "analyst": "demo-analyst",
+   "source": "Resident report",
+   "observations": 1,
+   "daysAgo": 3,
+   "path": [
+    "Team assigned",
+    "Analyst assigned",
+    "Investigating",
+    "Confirmed",
+    "Notice prepared"
+   ]
+  },
+  {
+   "id": "BG-DEMO-018",
+   "title": "Vlažan zid u podrumu, fuge isprane",
+   "trade": "Masonry",
+   "road": "Krunska",
+   "address": "Krunska 3, 11000 Beograd",
+   "unit": "Podrum",
+   "access": "Ključ od podruma kod domara",
+   "contactName": "Domar Perić",
+   "contactPhone": "011 555 0109",
+   "severity": "Low",
+   "team": "Beograd – Vračar",
+   "analyst": "demo-analyst",
+   "source": "Staff report",
+   "observations": 1,
+   "daysAgo": 6,
+   "path": [
+    "Team assigned",
+    "Analyst assigned",
+    "Investigating"
+   ]
+  }
+ ]
+}

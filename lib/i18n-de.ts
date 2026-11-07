@@ -1792,4 +1792,6 @@ export const de: Record<string, string> = {
   "QR code for www.majstormile.com/app": "QR-Code für www.majstormile.com/app",
   "On a computer?": "Am Computer?",
   "Scan with your phone camera to open the app page.": "Mit der Handykamera scannen, um die App-Seite zu öffnen.",
+  "Serbia: Belgrade (Vračar, New Belgrade)": "Serbien: Belgrad (Vračar, Neu-Belgrad)",
+  "Serbia: Zlatibor and Čajetina": "Serbien: Zlatibor und Čajetina",
 };

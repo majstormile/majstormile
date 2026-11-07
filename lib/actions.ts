@@ -93,7 +93,7 @@ export function applyAction(s:State,m:Member,actual:Member,body:Record<string,un
   // Replaces the demo content. Only a real administrator, not a role preview, can do it. Every real (non-demo)
   // member keeps their membership and sign-in; only the fictional demo people are replaced.
   if(actual.role!=='Admin'||m.id!==actual.id)throw new AppError('Only an administrator can load demo data. Return to your own identity first.',403);
-  const pack=z.enum(['uzice']).parse(body.pack);
+  const pack=z.enum(['uzice','beograd','zlatibor']).parse(body.pack);
   const keep=s.members.filter(x=>!x.demo);
   try{loadDemoPack(s,pack,keep,now,actual.name)}catch(e){throw new AppError((e as Error).message)}
   return;

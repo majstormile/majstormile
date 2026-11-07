@@ -6,6 +6,8 @@ import {instance} from '@/lib/instance';
 
 const PACKS = [
   {id: 'uzice', label: 'Serbia: Užice', count: 18},
+  {id: 'beograd', label: 'Serbia: Belgrade (Vračar, New Belgrade)', count: 18},
+  {id: 'zlatibor', label: 'Serbia: Zlatibor and Čajetina', count: 18},
 ] as const;
 
 /** Admin card: load or reset a demo pack. Real sign-in accounts are kept. */

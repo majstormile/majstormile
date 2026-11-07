@@ -1,13 +1,15 @@
 // Demo packs: complete sample worlds (teams, people, contracts, tickets) that an admin can load or reset.
 // Packs live in demo/*.json with dates relative to today, so a freshly loaded demo always looks current.
 import uzice from '../demo/uzice.json' with {type: 'json'};
+import beograd from '../demo/beograd.json' with {type: 'json'};
+import zlatibor from '../demo/zlatibor.json' with {type: 'json'};
 import {isTrade, transitions, type State, type Member, type Ticket, type Status, type Role, type Evidence} from './domain.ts';
 
 export type PackTicket = {id: string; title: string; trade?: string; road: string; address: string; unit?: string; access?: string; contactName?: string; contactPhone?: string;
   /** Released to every firm for the trade instead of the contract's firm. */ offer?: 'open'; workStage?: string; severity: string; team: string; analyst?: string; source: string; confidence?: number; observations: number; daysAgo: number; contractId?: string; reopened?: number; holdFrom?: string; duplicateOf?: string; path: string[]};
 export type DemoPack = {name: string; description: string; /** Currency conversion for the illustrative job costs (base amounts are in euros). */ costUnit?: {rate: number; step: number}; teams: string[]; people: {id: string; name: string; role: string; teams: string[]; contractor?: string; vehicleTag?: string; phone?: string}[]; contracts: (State['contracts'][number])[]; notes: Record<string, string>; tickets: PackTicket[]};
 
-export const DEMO_PACKS: Record<'uzice', DemoPack> = {uzice: uzice as DemoPack};
+export const DEMO_PACKS: Record<'uzice' | 'beograd' | 'zlatibor', DemoPack> = {uzice: uzice as DemoPack, beograd: beograd as DemoPack, zlatibor: zlatibor as DemoPack};
 export type PackId = keyof typeof DEMO_PACKS;
 
 const DAY = 86400000;
