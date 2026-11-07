@@ -4,6 +4,7 @@ const nextConfig: NextConfig = {
   async redirects() { return [
     {source: '/impressum', destination: '/podaci-o-pruzaocu-usluge', permanent: true},
     {source: '/datenschutz', destination: '/politika-privatnosti', permanent: true},
+    {source: '/', destination: '/concept', permanent: true},
   ]; },
   async headers() { return [{ source: '/(.*)', headers: [
     {key:'X-Content-Type-Options',value:'nosniff'},
