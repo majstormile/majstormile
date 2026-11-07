@@ -73,3 +73,18 @@
 [data-theme=dark] .legal-table th{background:#2a2f26;color:#f6ebcf}
 [data-theme=dark] .legal-table th,[data-theme=dark] .legal-table td,[data-theme=dark] .legal-other{border-color:#2c3038}
 .legal section p{margin:0 0 10px}
+
+/* Support page */
+.support-buttons{display:flex;flex-wrap:wrap;gap:12px;margin:20px 0}
+.support-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:12px;color:#fff;font-weight:700;text-decoration:none;flex:1 1 200px;justify-content:center}
+.support-btn svg{width:24px;height:24px}
+.support-btn.whatsapp{background:#1f8f4e}
+.support-btn.viber{background:#665cac}
+.support-btn:hover{filter:brightness(1.08)}
+.support-form{display:grid;gap:12px;margin:28px 0 16px;padding-top:20px;border-top:1px solid var(--border,#ddd)}
+.support-form label{display:grid;gap:4px;font-weight:600}
+.support-form input,.support-form select,.support-form textarea{font:inherit;padding:10px 12px;border:1px solid var(--border,#ccc);border-radius:10px;background:var(--background,#fff);color:inherit}
+.support-form .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.support-form .primary{padding:12px 20px;border:0;border-radius:10px;background:#1f3a2e;color:#fff;font-weight:700;cursor:pointer}
+.support-form .form-error{color:#b42318}
+.support-sent{margin:28px 0;padding:20px;border-radius:12px;background:rgba(31,143,78,.08)}
