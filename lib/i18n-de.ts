@@ -1799,4 +1799,5 @@ export const de: Record<string, string> = {
   "Main menu": "Hauptmenü",
   "My jobs": "Meine Aufträge",
   "Language": "Sprache",
+  "Profile": "Profil",
 };

@@ -1800,4 +1800,5 @@ export const sr: Record<string, string> = {
   "Main menu": "Glavni meni",
   "My jobs": "Moji poslovi",
   "Language": "Jezik",
+  "Profile": "Profil",
 };

@@ -2,7 +2,7 @@
 // Phones: a bottom tab bar (Overview, Tickets, + New ticket, Notifications, More) with a "More" sheet
 // holding the rest of the menu, the profile and log out. Hidden on wider screens (see app/majstormile.css).
 import {useEffect, useState} from 'react';
-import {LayoutDashboard, ListChecks, Plus, Bell, Menu, UserRound, LogOut, X} from 'lucide-react';
+import {LayoutDashboard, ListChecks, Plus, Bell, Menu, LogOut} from 'lucide-react';
 import {tx, useLang, LangSwitch} from '@/lib/i18n';
 
 type Item = {name: string; icon: React.ComponentType<{size?: number}>};
@@ -25,8 +25,7 @@ export default function MobileNav({view, go, nav, canCreate, ticketCount, notifC
     canCreate && {name: 'New ticket', label: 'New', icon: Plus, fab: true},
     has('Notifications') && {name: 'Notifications', label: 'Notifications', icon: Bell, count: notifCount},
   ].filter(Boolean) as {name: string; label: string; icon: Item['icon']; fab?: boolean; count?: number}[];
-  const rest = nav.filter(n => !tabs.some(t => t.name === n.name));
-  const inMore = more || rest.some(n => n.name === view) || view === 'User Profile';
+  const inMore = more || (!tabs.some(t => t.name === view));
   const pick = (n: string) => { setMore(false); go(n); };
 
   return <>
@@ -34,11 +33,21 @@ export default function MobileNav({view, go, nav, canCreate, ticketCount, notifC
       <button className="mnav-backdrop" aria-label={tx('Close menu')} onClick={() => setMore(false)}/>
       <div className="mnav-sheet" role="dialog" aria-label={tx('More')}>
         <div className="mnav-grip"/>
-        <div className="mnav-sheet-head"><div><strong>{userName}</strong><small>{tx(role)}</small></div><button className="icon-btn" aria-label={tx('Close menu')} onClick={() => setMore(false)}><X size={20}/></button></div>
-        {rest.map(n => <button key={n.name} className={'mnav-row' + (view === n.name ? ' on' : '')} onClick={() => pick(n.name)}><n.icon size={20}/><span>{tx(n.name)}</span></button>)}
-        <button className={'mnav-row' + (view === 'User Profile' ? ' on' : '')} onClick={() => pick('User Profile')}><UserRound size={20}/><span>{tx('User Profile')}</span></button>
-        <div className="mnav-row mnav-lang"><span>{tx('Language')}</span><LangSwitch/></div>
-        <button className="mnav-row mnav-out" onClick={() => { setMore(false); onLogout(); }}><LogOut size={20}/><span>{tx('Log out')}</span></button>
+        <div className="mnav-sheet-head">
+          <span className="mnav-avatar">{(userName || 'M').slice(0, 1)}</span>
+          <div className="mnav-who"><strong>{userName}</strong><small>{tx(role)}</small></div>
+          <button className="mnav-profile" onClick={() => pick('User Profile')}>{tx('Profile')}</button>
+        </div>
+        <div className="mnav-tiles">
+          {[...nav.filter(n => n.name === 'Overview' || n.name === 'Tickets'), ...(canCreate ? [{name: 'New ticket', icon: Plus}] : []), ...nav.filter(n => n.name !== 'Overview' && n.name !== 'Tickets')].map(n =>
+            <button key={n.name} className={'mnav-tile' + (view === n.name ? ' on' : '')} onClick={() => pick(n.name)}>
+              <n.icon size={24}/><span>{tx(n.name === 'Tickets' && role === 'Contractor' ? 'My jobs' : n.name)}</span>
+            </button>)}
+        </div>
+        <div className="mnav-foot">
+          <div className="mnav-lang"><LangSwitch/></div>
+          <button className="mnav-out" onClick={() => { setMore(false); onLogout(); }}><LogOut size={18}/>{tx('Log out')}</button>
+        </div>
       </div>
     </div>}
     <nav className="mnav" aria-label={tx('Main menu')}>

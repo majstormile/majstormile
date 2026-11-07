@@ -179,3 +179,19 @@
  .topbar input{min-height:44px;font-size:16px}
  .content{padding-top:18px!important}
 }
+/* "More" sheet as big tiles (design B) */
+@media (max-width:767px){
+ .mnav-sheet-head{gap:12px;justify-content:flex-start;padding:4px 2px 14px;margin-bottom:14px}
+ .mnav-avatar{width:44px;height:44px;border-radius:50%;background:#e6ebf2;display:flex;align-items:center;justify-content:center;font-weight:700;flex:none}
+ .mnav-who{flex:1;min-width:0}
+ .mnav-profile{min-height:44px;padding:0 14px;border:1px solid #e0e6ed;background:#fff;border-radius:10px;font-size:14px;color:#182437}
+ .mnav-tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+ .mnav-tile{min-height:88px;border-radius:16px;border:1px solid #e0e6ed;background:#f7f9fb;color:#182437;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:8px 4px;font-size:13px;line-height:1.2;text-align:center}
+ .mnav-tile.on{background:#1f3a2e;border-color:#1f3a2e;color:#fff;font-weight:700}
+ .mnav-foot{display:flex;gap:10px;margin-top:16px}
+ .mnav-foot .mnav-lang{flex:1;min-height:48px;border:1px solid #e0e6ed;border-radius:12px;display:flex;align-items:center;justify-content:center}
+ .mnav-foot .mnav-out{flex:1;min-height:48px;border:1px solid #f1c8ce;background:#fff5f6;border-radius:12px;color:#b42335;font-weight:600;font-size:15px;display:flex;align-items:center;justify-content:center;gap:8px}
+ [data-theme=dark] .mnav-tile,[data-theme=dark] .mnav-profile,[data-theme=dark] .mnav-foot .mnav-lang{background:#23272e;border-color:#2c3038;color:#e6e9ee}
+ [data-theme=dark] .mnav-tile.on{background:#3d6b52;border-color:#3d6b52}
+ [data-theme=dark] .mnav-avatar{background:#2c3038;color:#e6e9ee}
+}
