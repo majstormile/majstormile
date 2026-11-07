@@ -9,7 +9,7 @@ export default function manifest(): MetadataRoute.Manifest {
     short_name: instance.brand,
     description: meta.description,
     id: '/',
-    start_url: '/',
+    start_url: '/radni-prostor',
     scope: '/',
     display: 'standalone',
     orientation: 'any',

@@ -1,12 +1,12 @@
 // MajstorMile service worker: open the app without signal and keep the last workspace that was loaded.
 // Changes made offline are queued in the page (IndexedDB) and sent when the connection returns.
-const VERSION = 'hw-v2';
+const VERSION = 'hw-v3';
 const SHELL = VERSION + '-shell';
 const DATA = VERSION + '-data';
 const STATIC = /^\/(_next\/static\/|fonts\/|icons\/|demo\/|logo|favicon)/;
 
 self.addEventListener('install', event => {
-  event.waitUntil(caches.open(SHELL).then(c => c.addAll(['/', '/report', '/manifest.webmanifest']).catch(() => {})));
+  event.waitUntil(caches.open(SHELL).then(c => c.addAll(['/', '/radni-prostor', '/report', '/manifest.webmanifest']).catch(() => {})));
   self.skipWaiting();
 });
 
@@ -47,6 +47,6 @@ self.addEventListener('fetch', event => {
     return;
   }
   if (req.mode === 'navigate') {
-    event.respondWith(networkFirst(req, SHELL).catch(async () => (await caches.match('/')) || Response.error()));
+    event.respondWith(networkFirst(req, SHELL).catch(async () => (await caches.match(new URL(req.url).pathname)) || (await caches.match('/radni-prostor')) || Response.error()));
   }
 });

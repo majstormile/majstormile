@@ -27,7 +27,7 @@ export default function Concept() {
         <a href="#pilot">{tx('Pilot')}</a>
         <a href="/report">{tx('Report a problem')}</a>
         <LangSwitch/>
-        <a href="/" className="primary">{tx('Open workspace ')}<ArrowUpRight size={16}/></a>
+        <a href="/radni-prostor" className="primary">{tx('Open workspace ')}<ArrowUpRight size={16}/></a>
       </div>
     </nav>
 
@@ -37,7 +37,7 @@ export default function Concept() {
         <h1>{tx('Every defect in your buildings.')}<br/>{tx('A tradesperson')}<br/><em>{tx('who takes it on.')}</em></h1>
         <p>{tx('Tenants report from their phone. You release the job to your contracted trades. The contractor accepts, reports progress with photos, and you sign off the work.')}</p>
         <div className="hero-actions">
-          <a className="primary" href="/">{tx('Explore the working demo ')}<ArrowUpRight size={18}/></a>
+          <a className="primary" href="/radni-prostor">{tx('Explore the working demo ')}<ArrowUpRight size={18}/></a>
           <a className="secondary hero-report" href="/report">{tx('Report a defect')}</a>
           <a className="secondary hero-report" href="#app"><Smartphone size={16}/>{tx('Get the app')}</a>
         </div>
@@ -98,7 +98,7 @@ export default function Concept() {
           <h2>{tx('Prove the workflow on your own buildings.')}</h2>
           <p>{tx('Proposed paid pilot: one property portfolio with up to 500 apartments. Validate reporting, contractor acceptance, progress reports and sign-off. The pilot price is agreed with the property management.')}</p>
         </div>
-        <a className="secondary" href="/">{tx('Review the prototype ')}<ArrowUpRight size={18}/></a>
+        <a className="secondary" href="/radni-prostor">{tx('Review the prototype ')}<ArrowUpRight size={18}/></a>
       </div>
     </section>
 

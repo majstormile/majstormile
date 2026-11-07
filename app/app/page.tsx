@@ -17,7 +17,7 @@ export default function AppPage() {
       <h1>{tx('Install MajstorMile on your phone')}</h1>
       <p className="muted">{tx('No app store needed. The app opens full screen, works with a weak signal and updates itself.')}</p>
       <InstallApp compact/>
-      <p className="public-links"><a href="/">{tx('Open MajstorMile in the browser')}</a> · <a href="/report">{tx('Report a defect')}</a> · <LegalFooterLinks/></p>
+      <p className="public-links"><a href="/radni-prostor">{tx('Open MajstorMile in the browser')}</a> · <a href="/report">{tx('Report a defect')}</a> · <LegalFooterLinks/></p>
     </section>
   </main>;
 }
