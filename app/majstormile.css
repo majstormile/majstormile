@@ -129,3 +129,8 @@
 .marketing-nav>a>img{width:140px;height:140px}
 .public-head>a>img{width:110px;height:110px;object-fit:contain}
 @media (max-width:760px){.marketing-nav>a>img{width:96px;height:96px}.public-head>a>img{width:84px;height:84px}}
+
+/* Phones: the workflow card sits below the illustration instead of covering it */
+@media (max-width:760px){
+ .hero-card{position:static;width:auto;margin:-28px 14px 0;position:relative;z-index:1}
+}
