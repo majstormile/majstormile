@@ -3,7 +3,7 @@
 // holding the rest of the menu, the profile and log out. Hidden on wider screens (see app/majstormile.css).
 import {useEffect, useState} from 'react';
 import {LayoutDashboard, ListChecks, Plus, Bell, Menu, LogOut} from 'lucide-react';
-import {tx, useLang, LangSwitch} from '@/lib/i18n';
+import {tx, useLang, LangButtons} from '@/lib/i18n';
 
 type Item = {name: string; icon: React.ComponentType<{size?: number}>};
 export default function MobileNav({view, go, nav, canCreate, ticketCount, notifCount, userName, role, onLogout}: {
@@ -44,8 +44,8 @@ export default function MobileNav({view, go, nav, canCreate, ticketCount, notifC
               <n.icon size={24}/><span>{tx(n.name === 'Tickets' && role === 'Contractor' ? 'My jobs' : n.name)}</span>
             </button>)}
         </div>
+        <div className="mnav-lang"><LangButtons/></div>
         <div className="mnav-foot">
-          <div className="mnav-lang"><LangSwitch/></div>
           <button className="mnav-out" onClick={() => { setMore(false); onLogout(); }}><LogOut size={18}/>{tx('Log out')}</button>
         </div>
       </div>

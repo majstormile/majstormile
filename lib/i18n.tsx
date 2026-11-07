@@ -106,6 +106,14 @@ const NAMES: Record<Lang, string> = {sr: 'Srpski', de: 'Deutsch', en: 'English'}
 const CODES: Record<Lang, string> = {sr: 'SR', de: 'DE', en: 'EN'};
 const LABEL: Record<Lang, string> = {sr: 'Jezik', de: 'Sprache', en: 'Language'};
 
+/** All languages side by side, no dropdown (used where a dropdown would be clipped, e.g. the phone menu sheet). */
+export function LangButtons() {
+  const {lang, setLang} = useLang();
+  return <div className="lang-toggle" role="group" aria-label={LABEL[lang]}>
+    {LANGS.map(l => <button key={l} type="button" className={l === lang ? 'active' : ''} aria-pressed={l === lang} title={NAMES[l]} onClick={() => setLang(l)}><Flag lang={l} size={18}/><span>{CODES[l]}</span></button>)}
+  </div>;
+}
+
 /** Language dropdown: the current flag with an arrow, and the flags stacked directly beneath it. Opens on hover (desktop) or tap. */
 export function LangSwitch() {
   const {lang, setLang} = useLang();
