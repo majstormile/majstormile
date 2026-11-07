@@ -43,6 +43,40 @@ export function InstallLink({className, label}: {className?: string; label?: str
   }}><Smartphone size={16}/>{tx(label || 'Android & iPhone app')}</a>;
 }
 
+/** Store-style download badges plus a QR code for desktop visitors. Not Google Play / App Store badges:
+ *  MajstorMile installs straight from the website. */
+export function AppBadges() {
+  useLang();
+  const [ready, setReady] = useState(false);
+  useEffect(() => {
+    listenForInstall();
+    const on = () => setReady(!!window.__majstormileInstall);
+    on(); window.addEventListener('majstormile-install-ready', on);
+    return () => window.removeEventListener('majstormile-install-ready', on);
+  }, []);
+  const go = (id: string) => (e: React.MouseEvent) => {
+    const p = window.__majstormileInstall;
+    if (id === 'android' && ready && p) { e.preventDefault(); void p.prompt(); return; }
+    e.preventDefault(); document.getElementById(id)?.scrollIntoView({behavior: 'smooth', block: 'center'});
+  };
+  return <div className="app-badges">
+    <div className="badge-row">
+      <a className="app-badge" href="#android" onClick={go('android')}>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#9fd36a" d="M6 9h12v8a2 2 0 0 1-2 2h-1v3a1.5 1.5 0 0 1-3 0v-3h-0v3a1.5 1.5 0 0 1-3 0v-3H8a2 2 0 0 1-2-2V9Zm-2.5 0A1.5 1.5 0 0 1 5 10.5v5a1.5 1.5 0 0 1-3 0v-5A1.5 1.5 0 0 1 3.5 9Zm17 0a1.5 1.5 0 0 1 1.5 1.5v5a1.5 1.5 0 0 1-3 0v-5A1.5 1.5 0 0 1 20.5 9ZM6.2 8a5.9 5.9 0 0 1 3-4.4L8.1 1.8a.4.4 0 0 1 .7-.4l1.1 1.9a6.3 6.3 0 0 1 4.2 0l1.1-1.9a.4.4 0 0 1 .7.4l-1.1 1.8a5.9 5.9 0 0 1 3 4.4H6.2Zm3.3-2.6a.8.8 0 1 0 0 1.6.8.8 0 0 0 0-1.6Zm5 0a.8.8 0 1 0 0 1.6.8.8 0 0 0 0-1.6Z"/></svg>
+        <span><small>{tx('Install for')}</small><b>Android</b></span>
+      </a>
+      <a className="app-badge" href="#iphone" onClick={go('iphone')}>
+        <Smartphone size={26} aria-hidden="true"/>
+        <span><small>{tx('Add to home screen')}</small><b>iPhone & iPad</b></span>
+      </a>
+    </div>
+    <div className="qr-box">
+      <img src="/qr-app.svg" alt={tx('QR code for www.majstormile.com/app')} width={112} height={112}/>
+      <p><b>{tx('On a computer?')}</b><br/>{tx('Scan with your phone camera to open the app page.')}</p>
+    </div>
+  </div>;
+}
+
 /** The full install panel with steps for Android and iPhone, highlighting the visitor's own phone. */
 export default function InstallApp({compact = false}: {compact?: boolean}) {
   useLang();

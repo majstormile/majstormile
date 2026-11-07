@@ -1788,4 +1788,9 @@ export const sr: Record<string, string> = {
   "Support requests are unavailable. Run the support_requests migration in Supabase.": "Zahtevi za podršku nisu dostupni. Pokrenite migraciju support_requests u Supabase-u.",
   "The request could not be updated.": "Zahtev nije mogao biti izmenjen.",
   "Invalid request.": "Neispravan zahtev.",
+  "Install for": "Instaliraj za",
+  "Add to home screen": "Dodaj na početni ekran",
+  "QR code for www.majstormile.com/app": "QR kod za www.majstormile.com/app",
+  "On a computer?": "Na računaru ste?",
+  "Scan with your phone camera to open the app page.": "Skenirajte kamerom telefona da otvorite stranicu aplikacije.",
 };

@@ -3,7 +3,7 @@
 import {tx, useLang, LangSwitch, locale} from '@/lib/i18n';
 import {instance} from '@/lib/instance';
 import {Smartphone, Hammer, ClipboardCheck, ArrowUpRight} from 'lucide-react';
-import InstallApp, {InstallLink} from '@/components/install-app';
+import InstallApp, {InstallLink, AppBadges} from '@/components/install-app';
 import {LegalFooterLinks} from '@/components/legal-page';
 
 const eur = (n: number) => new Intl.NumberFormat(locale(), {style: 'currency', currency: 'EUR', maximumFractionDigits: 0}).format(n);
@@ -88,6 +88,7 @@ export default function Concept() {
       <p className="eyebrow">{tx('THE MAJSTORMILE APP')}</p>
       <h2>{tx('On every phone, without an app store.')}</h2>
       <p>{tx('Staff and contractors install MajstorMile straight from this website. It opens full screen, keeps working with a weak signal and sends what was entered offline once the connection is back.')}</p>
+      <AppBadges/>
       <InstallApp/>
     </section>
 

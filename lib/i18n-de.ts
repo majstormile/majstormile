@@ -1787,4 +1787,9 @@ export const de: Record<string, string> = {
   "Support requests are unavailable. Run the support_requests migration in Supabase.": "Supportanfragen sind nicht verfügbar. Führen Sie die Migration support_requests in Supabase aus.",
   "The request could not be updated.": "Die Anfrage konnte nicht geändert werden.",
   "Invalid request.": "Ungültige Anfrage.",
+  "Install for": "Installieren für",
+  "Add to home screen": "Zum Home-Bildschirm",
+  "QR code for www.majstormile.com/app": "QR-Code für www.majstormile.com/app",
+  "On a computer?": "Am Computer?",
+  "Scan with your phone camera to open the app page.": "Mit der Handykamera scannen, um die App-Seite zu öffnen.",
 };
