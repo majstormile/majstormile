@@ -50,35 +50,35 @@
   },
   {
    "id": "demo-contractor",
-   "name": "Milan Radović",
+   "name": "Moler – Milan Radović",
    "role": "Contractor",
    "teams": [],
    "contractor": "Moleraj Đetinja (Demo)"
   },
   {
    "id": "demo-contractor-2",
-   "name": "Vesna Lukić",
+   "name": "Vodoinstalater – Vesna Lukić",
    "role": "Contractor",
    "teams": [],
    "contractor": "Instalacije i grejanje Kadinjača (Demo)"
   },
   {
    "id": "demo-contractor-3",
-   "name": "Stefan Filipović",
+   "name": "Električar – Stefan Filipović",
    "role": "Contractor",
    "teams": [],
    "contractor": "Elektro Zlatibor (Demo)"
   },
   {
    "id": "demo-contractor-4",
-   "name": "Emir Kurtović",
+   "name": "Ključar – Emir Kurtović",
    "role": "Contractor",
    "teams": [],
    "contractor": "Ključar Trg (Demo)"
   },
   {
    "id": "demo-contractor-5",
-   "name": "Marko Todorović",
+   "name": "Zidar – Marko Todorović",
    "role": "Contractor",
    "teams": [],
    "contractor": "Zidar i gipsar Užice (Demo)"
@@ -109,6 +109,20 @@
     "Užice – Centar"
    ],
    "phone": "031 555 0117"
+  },
+  {
+   "id": "demo-contractor-6",
+   "name": "Stolar – Dušan Lazić",
+   "role": "Contractor",
+   "teams": [],
+   "contractor": "Stolarija Ponikve (Demo)"
+  },
+  {
+   "id": "demo-contractor-7",
+   "name": "Majstor za sve – Bojan Simić",
+   "role": "Contractor",
+   "teams": [],
+   "contractor": "Majstor za sve Užice (Demo)"
   }
  ],
  "contracts": [
@@ -240,6 +254,46 @@
    "scope": "Suva gradnja, malterisanje i zidarski radovi u upravljanim stanovima; fiksne cene prema predmeru radova",
    "addressCountry": "SRB",
    "notes": "Okvirni ugovor 2025-B-07 (demo)"
+  },
+  {
+   "id": "CT-UZ-108",
+   "contractor": "Stolarija Ponikve (Demo)",
+   "trade": "Carpentry",
+   "road": "Dimitrija Tucovića",
+   "additionalRoads": [
+    "Trg Svetog Save",
+    "Vojvode Mišića",
+    "Svetozara Markovića",
+    "Nikole Pašića"
+   ],
+   "start": "2025-03-01",
+   "end": "2028-02-29",
+   "poc": "Dušan Lazić",
+   "email": "dusan.lazic@example.invalid",
+   "phone": "031 555 0208",
+   "scope": "Stolarski radovi: vrata, prozori, ugradni nameštaj, podešavanje i zamena okova.",
+   "addressCountry": "SRB",
+   "notes": "Okvirni ugovor 2025-M-03 (demo)"
+  },
+  {
+   "id": "CT-UZ-109",
+   "contractor": "Majstor za sve Užice (Demo)",
+   "trade": "Other",
+   "road": "Dimitrija Tucovića",
+   "additionalRoads": [
+    "Trg Svetog Save",
+    "Vojvode Mišića",
+    "Svetozara Markovića",
+    "Nikole Pašića"
+   ],
+   "start": "2025-03-01",
+   "end": "2028-02-29",
+   "poc": "Bojan Simić",
+   "email": "bojan.simic@example.invalid",
+   "phone": "031 555 0209",
+   "scope": "Sitne popravke u stanovima i zajedničkim prostorijama: police, kvake, silikon, montaža, sitni kućni poslovi.",
+   "addressCountry": "SRB",
+   "notes": "Okvirni ugovor 2025-M-03 (demo)"
   }
  ],
  "notes": {

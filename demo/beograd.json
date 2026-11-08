@@ -50,35 +50,35 @@
   },
   {
    "id": "demo-contractor",
-   "name": "Dejan Kostić",
+   "name": "Moler – Dejan Kostić",
    "role": "Contractor",
    "teams": [],
    "contractor": "Moleraj Vračar (Demo)"
   },
   {
    "id": "demo-contractor-2",
-   "name": "Zorica Mitrović",
+   "name": "Vodoinstalater – Zorica Mitrović",
    "role": "Contractor",
    "teams": [],
    "contractor": "Vodo-term Savski (Demo)"
   },
   {
    "id": "demo-contractor-3",
-   "name": "Aleksa Janković",
+   "name": "Električar – Aleksa Janković",
    "role": "Contractor",
    "teams": [],
    "contractor": "Elektro Slavija (Demo)"
   },
   {
    "id": "demo-contractor-4",
-   "name": "Bojan Ristić",
+   "name": "Ključar – Bojan Ristić",
    "role": "Contractor",
    "teams": [],
    "contractor": "Ključar Kalenić (Demo)"
   },
   {
    "id": "demo-contractor-5",
-   "name": "Nenad Živković",
+   "name": "Zidar – Nenad Živković",
    "role": "Contractor",
    "teams": [],
    "contractor": "Gips i zid Beograd (Demo)"
@@ -109,6 +109,20 @@
     "Beograd – Vračar"
    ],
    "phone": "011 555 0117"
+  },
+  {
+   "id": "demo-contractor-6",
+   "name": "Stolar – Aleksandar Pavlović",
+   "role": "Contractor",
+   "teams": [],
+   "contractor": "Stolarija Dorćol (Demo)"
+  },
+  {
+   "id": "demo-contractor-7",
+   "name": "Majstor za sve – Nikola Jovičić",
+   "role": "Contractor",
+   "teams": [],
+   "contractor": "Kućni majstor Vračar (Demo)"
   }
  ],
  "contracts": [
@@ -240,6 +254,46 @@
    "scope": "Suva gradnja, malterisanje i zidarski radovi u upravljanim stanovima; fiksne cene prema predmeru radova",
    "addressCountry": "SRB",
    "notes": "Okvirni ugovor 2025-B-07 (demo)"
+  },
+  {
+   "id": "CT-BG-108",
+   "contractor": "Stolarija Dorćol (Demo)",
+   "trade": "Carpentry",
+   "road": "Njegoševa",
+   "additionalRoads": [
+    "Krunska",
+    "Kralja Milana",
+    "Makenzijeva",
+    "Bulevar Mihajla Pupina"
+   ],
+   "start": "2025-03-01",
+   "end": "2028-02-29",
+   "poc": "Aleksandar Pavlović",
+   "email": "aleksandar.pavlovic@example.invalid",
+   "phone": "011 555 0208",
+   "scope": "Stolarski radovi: vrata, prozori, ugradni nameštaj, podešavanje i zamena okova.",
+   "addressCountry": "SRB",
+   "notes": "Okvirni ugovor 2025-M-03 (demo)"
+  },
+  {
+   "id": "CT-BG-109",
+   "contractor": "Kućni majstor Vračar (Demo)",
+   "trade": "Other",
+   "road": "Njegoševa",
+   "additionalRoads": [
+    "Krunska",
+    "Kralja Milana",
+    "Makenzijeva",
+    "Bulevar Mihajla Pupina"
+   ],
+   "start": "2025-03-01",
+   "end": "2028-02-29",
+   "poc": "Nikola Jovičić",
+   "email": "nikola.jovicic@example.invalid",
+   "phone": "011 555 0209",
+   "scope": "Sitne popravke u stanovima i zajedničkim prostorijama: police, kvake, silikon, montaža, sitni kućni poslovi.",
+   "addressCountry": "SRB",
+   "notes": "Okvirni ugovor 2025-M-03 (demo)"
   }
  ],
  "notes": {

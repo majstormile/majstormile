@@ -50,35 +50,35 @@
   },
   {
    "id": "demo-contractor",
-   "name": "Goran Mićić",
+   "name": "Moler – Goran Mićić",
    "role": "Contractor",
    "teams": [],
    "contractor": "Moleraj Čigota (Demo)"
   },
   {
    "id": "demo-contractor-2",
-   "name": "Dragana Šumarac",
+   "name": "Vodoinstalater – Dragana Šumarac",
    "role": "Contractor",
    "teams": [],
    "contractor": "Termo-vod Tornik (Demo)"
   },
   {
    "id": "demo-contractor-3",
-   "name": "Miloš Glišović",
+   "name": "Električar – Miloš Glišović",
    "role": "Contractor",
    "teams": [],
    "contractor": "Elektro Ribnica (Demo)"
   },
   {
    "id": "demo-contractor-4",
-   "name": "Ivan Pećinar",
+   "name": "Ključar – Ivan Pećinar",
    "role": "Contractor",
    "teams": [],
    "contractor": "Ključar Kraljeve vode (Demo)"
   },
   {
    "id": "demo-contractor-5",
-   "name": "Rade Jevtić",
+   "name": "Zidar – Rade Jevtić",
    "role": "Contractor",
    "teams": [],
    "contractor": "Gradnja Mačkat (Demo)"
@@ -109,6 +109,20 @@
     "Zlatibor – Centar"
    ],
    "phone": "031 555 0117"
+  },
+  {
+   "id": "demo-contractor-6",
+   "name": "Stolar – Radoš Pantić",
+   "role": "Contractor",
+   "teams": [],
+   "contractor": "Stolarija Šljivovica (Demo)"
+  },
+  {
+   "id": "demo-contractor-7",
+   "name": "Majstor za sve – Vlada Kuzmanović",
+   "role": "Contractor",
+   "teams": [],
+   "contractor": "Majstor za sve Zlatibor (Demo)"
   }
  ],
  "contracts": [
@@ -240,6 +254,46 @@
    "scope": "Suva gradnja, malterisanje i zidarski radovi u upravljanim stanovima; fiksne cene prema predmeru radova",
    "addressCountry": "SRB",
    "notes": "Okvirni ugovor 2025-B-07 (demo)"
+  },
+  {
+   "id": "CT-ZL-108",
+   "contractor": "Stolarija Šljivovica (Demo)",
+   "trade": "Carpentry",
+   "road": "Miladina Pećinara",
+   "additionalRoads": [
+    "Sportska",
+    "Jezerska",
+    "Tihi kutak",
+    "Aleksandra Karađorđevića"
+   ],
+   "start": "2025-03-01",
+   "end": "2028-02-29",
+   "poc": "Radoš Pantić",
+   "email": "rados.pantic@example.invalid",
+   "phone": "031 555 0218",
+   "scope": "Stolarski radovi: vrata, prozori, ugradni nameštaj, podešavanje i zamena okova.",
+   "addressCountry": "SRB",
+   "notes": "Okvirni ugovor 2025-M-03 (demo)"
+  },
+  {
+   "id": "CT-ZL-109",
+   "contractor": "Majstor za sve Zlatibor (Demo)",
+   "trade": "Other",
+   "road": "Miladina Pećinara",
+   "additionalRoads": [
+    "Sportska",
+    "Jezerska",
+    "Tihi kutak",
+    "Aleksandra Karađorđevića"
+   ],
+   "start": "2025-03-01",
+   "end": "2028-02-29",
+   "poc": "Vlada Kuzmanović",
+   "email": "vlada.kuzmanovic@example.invalid",
+   "phone": "031 555 0219",
+   "scope": "Sitne popravke u stanovima i zajedničkim prostorijama: police, kvake, silikon, montaža, sitni kućni poslovi.",
+   "addressCountry": "SRB",
+   "notes": "Okvirni ugovor 2025-M-03 (demo)"
   }
  ],
  "notes": {

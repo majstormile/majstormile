@@ -138,7 +138,8 @@ test('staff release a confirmed job to one firm or to all firms of the trade', (
 
 test('a trade without any contract cannot be released to all firms', () => {
   const {s, analyst} = world();
-  const t = s.tickets.find(x => x.id === 'UZ-DEMO-016')!; // carpentry, no carpentry contract
+  const t = s.tickets.find(x => x.id === 'UZ-DEMO-016')!;
+  t.trade = 'Roofing'; // no roofing contract in the demo
   t.status = 'Confirmed'; t.analyst = analyst.id;
   assert.equal(eligibleContracts(s, t, now).length, 0);
   assert.throws(() => act(s, analyst, {action: 'transition', id: t.id, status: 'Notice prepared', note: 'Window hinge broken, needs a carpenter.', contract: 'open', scopeConfirmed: true}), /No contractor has an active contract/);
