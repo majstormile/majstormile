@@ -58,7 +58,7 @@ test('an apartment owner (Resident) sees only their own reports, can create one 
   const {canSee} = await import('../lib/domain.ts');
   const {residentView} = await import('../lib/jobs.ts');
   const marija = s.members.find(m => m.id === 'demo-resident')!;
-  assert.equal(marija.role, 'Resident'); assert.equal(marija.name, 'Marija Ilić');
+  assert.equal(marija.role, 'Resident'); assert.equal(marija.name, 'Vlasnik stana – Marija Ilić');
   const mine = s.tickets.filter(t => canSee(t, marija));
   assert.deepEqual(mine.map(t => t.reportedBy), mine.map(() => 'demo-resident'));
   assert.ok(mine.length >= 1);

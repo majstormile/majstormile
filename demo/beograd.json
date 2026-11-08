@@ -1,6 +1,6 @@
 {
  "name": "Beograd – Vračar i Novi Beograd",
- "description": "Stambene zgrade u Beogradu (Vračar i Novi Beograd), dva tima, referenti, kontrola primopredaje, direktor i pet izvođača (molerski radovi, vodoinstalacije i grejanje, elektro, ključar, suva gradnja i zidarski radovi). Sva imena, firme i brojevi telefona su izmišljeni.",
+ "description": "Stambene zgrade u Beogradu (Vračar i Novi Beograd), dva tima, jedan vodeći referent i jedan referent, kontrola primopredaje, direktor, sedam izvođača (moler, vodoinstalater, električar, ključar, zidar, stolar, majstor za sve) i tri krajnja korisnika (vlasnik stana, stanar, gost hotela). Sva imena, firme i brojevi telefona su izmišljeni.",
  "costUnit": {
   "rate": 117,
   "step": 500
@@ -26,14 +26,6 @@
    "role": "Analyst",
    "teams": [
     "Beograd – Vračar"
-   ]
-  },
-  {
-   "id": "demo-analyst-2",
-   "name": "Ivana Popović",
-   "role": "Analyst",
-   "teams": [
-    "Beograd – Novi Beograd"
    ]
   },
   {
@@ -84,33 +76,6 @@
    "contractor": "Gips i zid Beograd (Demo)"
   },
   {
-   "id": "demo-resident",
-   "name": "Marija Ilić",
-   "role": "Resident",
-   "teams": [
-    "Beograd – Vračar"
-   ],
-   "phone": "011 555 0102"
-  },
-  {
-   "id": "demo-resident-2",
-   "name": "Jelena Marković",
-   "role": "Resident",
-   "teams": [
-    "Beograd – Vračar"
-   ],
-   "phone": "011 555 0108"
-  },
-  {
-   "id": "demo-resident-3",
-   "name": "Stefan Nikolić",
-   "role": "Resident",
-   "teams": [
-    "Beograd – Vračar"
-   ],
-   "phone": "011 555 0117"
-  },
-  {
    "id": "demo-contractor-6",
    "name": "Stolar – Aleksandar Pavlović",
    "role": "Contractor",
@@ -123,6 +88,33 @@
    "role": "Contractor",
    "teams": [],
    "contractor": "Kućni majstor Vračar (Demo)"
+  },
+  {
+   "id": "demo-resident",
+   "name": "Vlasnik stana – Marija Ilić",
+   "role": "Resident",
+   "teams": [
+    "Beograd – Vračar"
+   ],
+   "phone": "011 555 0102"
+  },
+  {
+   "id": "demo-resident-2",
+   "name": "Stanar – Jelena Marković",
+   "role": "Resident",
+   "teams": [
+    "Beograd – Vračar"
+   ],
+   "phone": "011 555 0108"
+  },
+  {
+   "id": "demo-resident-3",
+   "name": "Gost hotela – Stefan Nikolić",
+   "role": "Resident",
+   "teams": [
+    "Beograd – Vračar"
+   ],
+   "phone": "011 555 0117"
   }
  ],
  "contracts": [
@@ -401,7 +393,7 @@
    "address": "Bulevar Mihajla Pupina 12, 11070 Novi Beograd",
    "severity": "Standard",
    "team": "Beograd – Novi Beograd",
-   "analyst": "demo-analyst-2",
+   "analyst": "demo-analyst",
    "source": "Resident report",
    "observations": 2,
    "daysAgo": 7,
@@ -425,7 +417,7 @@
    "address": "Jurija Gagarina 1, 11070 Novi Beograd",
    "severity": "Urgent",
    "team": "Beograd – Novi Beograd",
-   "analyst": "demo-analyst-2",
+   "analyst": "demo-analyst",
    "source": "Field inspection",
    "observations": 2,
    "daysAgo": 9,
@@ -560,7 +552,7 @@
    "address": "Omladinskih brigada 20, 11070 Novi Beograd",
    "severity": "Urgent",
    "team": "Beograd – Novi Beograd",
-   "analyst": "demo-analyst-2",
+   "analyst": "demo-analyst",
    "source": "Resident report",
    "observations": 3,
    "daysAgo": 38,
@@ -662,7 +654,7 @@
    "address": "Bulevar Zorana Đinđića 2, 11070 Novi Beograd",
    "severity": "Urgent",
    "team": "Beograd – Novi Beograd",
-   "analyst": "demo-analyst-2",
+   "analyst": "demo-analyst",
    "source": "Resident report",
    "observations": 2,
    "daysAgo": 3,
@@ -686,7 +678,7 @@
    "address": "Nehruova 6, 11070 Novi Beograd",
    "severity": "Standard",
    "team": "Beograd – Novi Beograd",
-   "analyst": "demo-analyst-2",
+   "analyst": "demo-analyst",
    "source": "Resident report",
    "observations": 1,
    "daysAgo": 4,
