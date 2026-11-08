@@ -1,6 +1,8 @@
 'use client';
 // Public progress view for a resident report: the seven repair steps with dates. No internal details.
 import {useEffect, useState} from 'react';
+import {Phone, MessageCircle, Mail} from 'lucide-react';
+import {intlDigits} from '@/components/accept-wizard';
 import {Check} from 'lucide-react';
 import {tx, useLang, LangSwitch, locale} from '@/lib/i18n';
 import {instance} from '@/lib/instance';
@@ -56,6 +58,15 @@ export default function PublicTrack({initialCode}: {initialCode?: string}) {
         <p className={'track-outcome ' + data.outcome}>{tx(OUTCOME[data.outcome])}</p>
         {data.contractor && <p className="track-job">{tx('Tradesperson: {0}', [data.contractor])}{data.workStage ? ' · ' + tx(data.workStage) : ''}</p>}
         {data.appointment && data.outcome === 'in-progress' && <p className="track-job"><strong>{tx('Appointment: {0}', [new Date(data.appointment).toLocaleString(locale(), {dateStyle: 'full', timeStyle: 'short'})])}</strong></p>}
+        {data.contact && <div className="track-contact">
+          <p><b>{tx('Your tradesperson')}</b>{data.contact.name ? ': ' + data.contact.name : ''}</p>
+          <div className="notify-btns">
+            {data.contact.phone && <a className="nt-btn call" href={'tel:' + data.contact.phone.replace(/[^\d+]/g, '')}><Phone size={18}/>{data.contact.phone}</a>}
+            {data.contact.phone && <a className="nt-btn wa" href={'https://wa.me/' + intlDigits(data.contact.phone)} target="_blank" rel="noopener noreferrer"><MessageCircle size={18}/>WhatsApp</a>}
+            {data.contact.phone && <a className="nt-btn viber" href={'viber://chat?number=%2B' + intlDigits(data.contact.phone)}><MessageCircle size={18}/>Viber</a>}
+            {data.contact.email && <a className="nt-btn sms" href={'mailto:' + data.contact.email}><Mail size={18}/>{tx('Email')}</a>}
+          </div>
+        </div>}
         <ol className="track-steps">
           {data.steps.map((s, i) => <li key={s.label} className={s.state}>
             <span className="dot">{s.state === 'done' ? <Check size={14}/> : i + 1}</span>

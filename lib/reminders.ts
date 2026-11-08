@@ -2,6 +2,7 @@
 // to the contractor's people in the app and by email, to the case manager in the app, and to the tenant by email
 // when they left one. Each reminder is sent once per appointment; a new appointment resets them.
 import {isActive, type State, type Ticket, type Member} from './domain.ts';
+import {contractorContact} from './public-report.ts';
 
 const TZ = 'Europe/Belgrade';
 const OPEN = ['Acknowledged', 'Repair in progress'];
@@ -50,8 +51,24 @@ export function reminderEmails(list: Reminder[], appUrl: string): {to: string; s
       subject: `Podsetnik: majstor dolazi ${day} u ${timeOf(t.appointment!)}`,
       text: ['Poštovani,', '', `Majstor firme ${t.contractor} dolazi ${day} radi prijave „${t.title}“.`, '', `Termin: ${at}`, `Adresa: ${where}`, '',
         'Molimo da neko bude kod kuće ili da ključ ostavite na recepciji, odnosno kod domara, kako je dogovoreno.',
-        'Ako termin ne odgovara, javite se upravniku objekta.', '', ...(t.publicCode ? [`Status prijave: ${appUrl}/track (kod za praćenje: ${t.publicCode})`] : []), '', 'MajstorMile'].join('\n'),
+        'Ako termin ne odgovara, javite se upravniku objekta.', '', ...(t.publicCode ? [`Pratite prijavu i kontakt majstora: ${appUrl}/track/${t.publicCode}`] : []), '', 'MajstorMile'].join('\n'),
     });
   }
   return mails;
+}
+
+/** Email to the tenant when a contractor accepts their report: who is coming, when, how to reach them, and the tracking link. */
+export function acceptedEmail(s: State, t: Ticket, appUrl: string): {to: string; subject: string; text: string} | null {
+  if (!realEmail(t.reporterEmail) || !t.contractor) return null;
+  const c = contractorContact(s, t);
+  return {
+    to: t.reporterEmail!,
+    subject: `Vaša prijava je preuzeta: ${t.title}`,
+    text: ['Poštovani,', '', `Firma ${t.contractor} je preuzela vašu prijavu „${t.title}“.`, '',
+      ...(t.appointment ? [`Dolazak: ${dateOf(t.appointment)} u ${timeOf(t.appointment)}`] : ['Majstor će vas kontaktirati da dogovori termin.']),
+      `Adresa: ${[t.address || t.road, t.unit].filter(Boolean).join(', ')}`, '',
+      ...(c ? ['Kontakt majstora:', ...(c.name ? [`  ${c.name}`] : []), ...(c.phone ? [`  Telefon: ${c.phone}`] : []), ...(c.email ? [`  E-pošta: ${c.email}`] : []), ''] : []),
+      'Majstor je dobio vaš broj telefona da bi mogao da vas kontaktira.',
+      ...(t.publicCode ? ['', `Pratite prijavu: ${appUrl}/track/${t.publicCode}`] : []), '', 'MajstorMile'].join('\n'),
+  };
 }

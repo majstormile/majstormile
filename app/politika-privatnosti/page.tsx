@@ -19,7 +19,7 @@ export default function PrivacyPolicy() {
     {h: '2. Prijava kvara od strane stanara', p: [
       'Kada prijavite kvar preko stranice za prijave, obrađuju se: adresa, stan odnosno sprat, podaci o pristupu, struka, opis, opciono fotografija, vaše ime, broj telefona i opciono e-pošta.',
       'Svrha je da upravnik vašeg objekta organizuje popravku. Pravni osnov je izvršenje ugovora odnosno obaveza održavanja objekta (član 12 stav 1 tačka 2 ZZPL) i legitimni interes za brzo otklanjanje kvarova (tačka 6).',
-      'Ime, broj telefona i podatke o pristupu dobija samo izvođač koji preuzme posao, da bi dogovorio termin. Druge firme ih ne vide.',
+      'Ime, broj telefona i podatke o pristupu dobija samo izvođač koji preuzme posao, da bi dogovorio termin. Druge firme ih ne vide. Vi tada, na stranici za praćenje i e-poštom ako ste je ostavili, dobijate ime, telefon i e-poštu majstora za posao, kao i termin dolaska i podsetnike.',
       'Fotografije: GPS pozicija, podaci o uređaju i vreme snimanja koje telefoni upisuju u fotografije automatski se uklanjaju pri otpremanju. Molimo vas da ne fotografišete osobe niti lična dokumenta.',
       'Napredak možete proveriti pomoću koda za praćenje. Stranica sa statusom ne prikazuje imena, beleške ni fotografije.',
       'Prijavu bez naloga treba da podnese lice koje je navršilo 15 godina (član 16 ZZPL); mlađa lica prijavu podnose preko roditelja ili staratelja.',

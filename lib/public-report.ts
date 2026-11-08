@@ -85,7 +85,19 @@ export type PublicStatus = {
   reports: number;
   /** Once a contractor has taken the job: the firm, the agreed visit and its last progress report. */
   contractor?: string; appointment?: string; workStage?: string;
+  /** The tradesperson's work contact, while the job is open: whoever accepted it, else the firm's contract contact. */
+  contact?: {name?: string; phone?: string; email?: string};
 };
+
+const realEmail = (e?: string) => !!e && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e) && !e.endsWith('.invalid');
+/** Work contact of the firm that took the job, given to the tenant once the job is accepted. */
+export function contractorContact(s: State, t: Ticket): PublicStatus['contact'] {
+  if (!t.contractor) return undefined;
+  const who = s.members.find(m => m.id === t.acceptedBy && m.contractor === t.contractor);
+  const c = s.contracts.find(x => x.id === t.contractId) || s.contracts.find(x => x.contractor === t.contractor);
+  const out = {name: who?.name || c?.poc || undefined, phone: who?.phone || c?.phone || undefined, email: [who?.email, c?.email].find(realEmail)};
+  return out.phone || out.email ? out : undefined;
+}
 
 /** What the public tracking page may show: progress, dates and the firm doing the work; never notes, staff names or photos. */
 export function publicStatus(s: State, code: string): PublicStatus | null {
@@ -102,6 +114,6 @@ export function publicStatus(s: State, code: string): PublicStatus | null {
     outcome: merged ? 'merged' : t.status === 'Verified closed' ? 'repaired' : t.status === 'Rejected' ? 'not-a-defect' : t.status === 'On hold' ? 'on-hold' : 'in-progress',
     reports: t.residentReports || 1,
     ...(t.acceptedAt || ['Acknowledged', 'Repair in progress', 'Awaiting verification', 'Verified closed'].includes(t.status)
-      ? {contractor: t.contractor || undefined, appointment: t.appointment, workStage: t.workStage} : {}),
+      ? {contractor: t.contractor || undefined, appointment: t.appointment, workStage: t.workStage, ...(['Acknowledged', 'Repair in progress', 'Awaiting verification'].includes(t.status) ? {contact: contractorContact(s, t)} : {})} : {}),
   };
 }

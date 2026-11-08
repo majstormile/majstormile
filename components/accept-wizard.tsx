@@ -20,7 +20,8 @@ export const intlDigits = (p: string) => { const d = p.replace(/\D/g, ''); retur
 
 export function tenantMessage(t: Ticket, firm: string) {
   const at = t.appointment ? fmt(t.appointment, {weekday: 'long', day: 'numeric', month: 'long'}) + ' ' + tx('at') + ' ' + fmt(t.appointment, {hour: '2-digit', minute: '2-digit'}) : '';
-  return tx('Hello, this is the tradesperson from {0}. I am coming on {1} to {2} about: {3}. Please make sure someone is at home or the key is at reception. Thank you!', [firm, at, [t.address || t.road, t.unit].filter(Boolean).join(', '), t.title]);
+  const msg = tx('Hello, this is the tradesperson from {0}. I am coming on {1} to {2} about: {3}. Please make sure someone is at home or the key is at reception. Thank you!', [firm, at, [t.address || t.road, t.unit].filter(Boolean).join(', '), t.title]);
+  return t.publicCode && typeof window !== 'undefined' ? msg + ' ' + tx('Track the job: {0}', [window.location.origin + '/track/' + t.publicCode]) : msg;
 }
 
 /** Buttons that open SMS, Viber or WhatsApp with the appointment message ready to send. */

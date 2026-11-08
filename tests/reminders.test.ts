@@ -38,3 +38,17 @@ test('reminders go out once the day before and once on the day, and again after 
   t.appointment = '2026-11-05T12:00:00.000Z'; delete t.reminders;
   assert.equal(appointmentReminders(s, now).length, 1, 'a new time is reminded again');
 });
+
+test('after acceptance the tenant gets the tradesperson contact on the tracking page and by email', async () => {
+  const {s, builder} = world();
+  const {publicStatus} = await import('../lib/public-report.ts');
+  const {acceptedEmail} = await import('../lib/reminders.ts');
+  const t = s.tickets.find(x => x.id === 'UZ-DEMO-017')!;
+  t.publicCode = 'ABCDE-23456'; t.reporterEmail = 'tenant@example.com'; builder.phone = '064 111 2222';
+  assert.equal(publicStatus(s, 'ABCDE-23456')!.contact, undefined, 'no contact before acceptance');
+  applyAction(s, builder, builder, {action: 'job', id: t.id, job: 'accept', appointment: '2026-11-05T08:00:00.000Z'}, now, 'owner');
+  assert.equal(publicStatus(s, 'ABCDE-23456')!.contact!.phone, '064 111 2222');
+  const m = acceptedEmail(s, t, 'https://www.majstormile.com')!;
+  assert.equal(m.to, 'tenant@example.com');
+  assert.match(m.text, /064 111 2222/); assert.match(m.text, /track\/ABCDE-23456/);
+});

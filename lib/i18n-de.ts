@@ -1852,4 +1852,6 @@ export const de: Record<string, string> = {
   "Confirm": "Bestätigen",
   "By agreement": "Nach Vereinbarung",
   "Price by agreement, depending on the number of apartments and contractors. All roles, the tenant reporting page and the full job workflow are included in every plan.": "Preis nach Vereinbarung, abhängig von der Zahl der Wohnungen und Handwerker. Alle Rollen, die Meldeseite für Mieter und der komplette Auftragsablauf sind in jedem Paket enthalten.",
+  "Your tradesperson": "Ihr Handwerker",
+  "Track the job: {0}": "Auftrag verfolgen: {0}",
 };
