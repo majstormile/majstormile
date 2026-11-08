@@ -298,6 +298,13 @@ const teams=data.teams||[];
 const bk=buildingKey(address);
 const nearby=bk.length>=5?(data.tickets as Ticket[]).filter(x=>!['Verified closed','Rejected','Duplicate'].includes(x.status)&&!x.archived&&sameTrade(x,trade)&&buildingKey(x.address||x.road)===bk&&sameUnit(x.unit,unit)).slice(0,4):[];
 const [mergeInto,setMergeInto]=useState<string>('');
+const [step,setStep]=useState(0),[review,setReview]=useState<Record<string,string>>({});
+const formRef=useRef<HTMLFormElement>(null),topRef=useRef<HTMLDivElement>(null);
+const STEPS=['Where','What','Photos','Contact','Review'];
+const sec=(i:number)=>'settings-card wiz-step'+(step===i?' on':'');
+function goTo(i:number){if(i>step){const cur=formRef.current?.querySelectorAll<HTMLElement>('.wiz-step.on input, .wiz-step.on select, .wiz-step.on textarea');for(const el of Array.from(cur||[])){const f=el as HTMLInputElement;if(!f.checkValidity()){f.reportValidity();return}}
+if(i===4&&formRef.current){const fd=new FormData(formRef.current);const r:Record<string,string>={};fd.forEach((v,k)=>{if(typeof v==='string')r[k]=v});setReview(r)}}
+setStep(i);topRef.current?.scrollIntoView({behavior:'smooth',block:'start'})}
 const nearKey=nearby.map(x=>x.id).join(',')+'|'+trade;
 useEffect(()=>{setMergeInto('')},[nearKey]);
 useEffect(()=>{const u=files.map(f=>URL.createObjectURL(f));setUrls(u);return()=>u.forEach(x=>URL.revokeObjectURL(x))},[files]);
@@ -310,41 +317,53 @@ if(f.size>3_000_000){toast.error(tx(f.name+': larger than 3 MB'));continue}
 if(next.length>=10){toast.error(tx('You can attach up to 10 photos'));break}
 next.push(f)}
 setFiles(next)}
-return <form className="settings-page wide" onSubmit={async e=>{e.preventDefault();const fd=new FormData(e.currentTarget);
+return <form ref={formRef} noValidate className="settings-page wide wizard" onSubmit={async e=>{e.preventDefault();if(step<4){goTo(step+1);return}const fd=new FormData(e.currentTarget);
 if(files.length&&!fd.has('authorized')){toast.error(tx('Confirm the photos are authorised and redacted'));return}
 const obs=String(fd.get('observedAt')||'');
 const str=(k:string)=>String(fd.get(k)||'').trim();
 const fields={road:road.trim(),title:str('title'),address:address.trim(),unit:unit.trim(),access:str('access'),contactName:str('contactName'),contactPhone:str('contactPhone'),severity:String(fd.get('severity')||'Standard'),source:String(fd.get('source')||'Manual report'),team:String(fd.get('team')||''),trade:String(fd.get('trade')||'Other'),observedAt:obs?new Date(obs).toISOString():new Date().toISOString(),note:String(fd.get('note')||'').trim()};
 await onCreate(fields,files,{authorized:fd.has('authorized'),quality:String(fd.get('quality')||'clear'),mergeInto:mergeInto||undefined})}}>
-<section className="settings-card"><div className="section-head"><div><h2>{tx("Where is the job?")}</h2><p>{tx("The building, the apartment or floor, and how the tradesperson gets in.")}</p></div></div>
+<div ref={topRef} className="wiz-steps" role="list">{STEPS.map((x,i)=><button type="button" role="listitem" key={x} className={"wiz-dot"+(i===step?" on":"")+(i<step?" done":"")} aria-current={i===step?"step":undefined} disabled={i>step} onClick={()=>i<step&&goTo(i)}><b>{i<step?"✓":i+1}</b><span>{tx(x)}</span></button>)}</div>
+<p className="wiz-count muted">{tx("Step {0} of {1}",[String(step+1),String(STEPS.length)])}</p>
+<section className={sec(0)}><div className="section-head"><div><h2>{tx("Where is the job?")}</h2><p>{tx("The building and the apartment or floor.")}</p></div></div>
 <div className="form cols">
 <label className="span2">{tx("Full address")}<AddressSuggest value={address} onChange={v=>{setAddress(v);setRoad('')}} placeholder={instance.examples.address} near={instance.mapCenter} inputProps={{maxLength:300,required:true,minLength:5}} onPick={sg=>{setAddress(sg.label);if(sg.street)setRoad(sg.street)}}/><small className="muted">{tx("Street, house number, postcode and town. Start typing and pick it from the list.")}</small></label>
 <label>{tx("Apartment / floor")}<input value={unit} onChange={e=>setUnit(e.target.value)} maxLength={120} placeholder={tx("e.g. 2nd floor left, apartment 5")}/></label>
-<label>{tx("Access")}<input name="access" maxLength={500} placeholder={tx("e.g. key at the caretaker, tenant at home after 4 pm")}/></label>
-<label>{tx("On-site contact")}<input name="contactName" maxLength={120} placeholder={tx("Tenant or caretaker")}/></label>
-<label>{tx("Contact phone")}<input name="contactPhone" type="tel" maxLength={40} pattern="[0-9 +()\/\-]*"/></label>
 </div>
 {nearby.length>0&&<div className="nearby" role="group" aria-label={tx("Already reported at this address")}><strong>{tx("Already reported at this address")}</strong><p>{tx("Adding your report to an open job avoids sending two tradespeople. It counts as another report and can raise the priority.")}</p>
 {nearby.map(x=><label key={x.id} className={'nearby-row'+(mergeInto===x.id?' on':'')}><input type="radio" name="mergeInto" checked={mergeInto===x.id} onChange={()=>setMergeInto(x.id)}/><span><b>{tx("Add to {0}", [x.id])}</b> · {tx(x.title)}{x.unit?' · '+x.unit:''}<small>{tx(x.status)} · {tx(x.severity)} · {tx("{0} observations", [String(x.observations)])}</small></span></label>)}
 <label className={'nearby-row'+(mergeInto===''?' on':'')}><input type="radio" name="mergeInto" checked={mergeInto===''} onChange={()=>setMergeInto('')}/><span><b>{tx("Create a new ticket")}</b><small>{tx("Choose this if it is a different problem.")}</small></span></label></div>}
 </section>
-<section className="settings-card"><div className="section-head"><div><h2>{tx("Details")}</h2><p>{tx("What was seen, how urgent it is, and who it belongs to.")}</p></div></div>
+<section className={sec(1)}><div className="section-head"><div><h2>{tx("What is wrong?")}</h2><p>{tx("Pick the trade, name the problem and say how urgent it is.")}</p></div></div>
 <div className="form cols">
 <label>{tx("Trade")}<select name="trade" value={trade} onChange={e=>setTrade(e.target.value)}>{TRADES.map(x=><option key={x} value={x}>{tx(x)}</option>)}</select></label>
 <label>{tx("Issue")}<input name="title" required list="issuePresets" maxLength={150} placeholder={tx("Dripping tap in the kitchen")}/><datalist id="issuePresets">{(ISSUE_PRESETS[trade]||[]).map(p=><option key={p} value={tx(p)}/>)}</datalist></label>
 <label>{tx("Priority")}<select name="severity" defaultValue="Standard"><option value="Urgent">{tx("Urgent")}</option><option value="Standard">{tx("Standard")}</option><option value="Low">{tx("Low")}</option></select></label>
-<label>{tx("Reported on")}<input type="datetime-local" name="observedAt" defaultValue={nowLocal()} max={nowLocal()} required/></label>
-<label>{tx("Source")}<select name="source" defaultValue="Manual report">{TICKET_SOURCES.map(s=><option key={s}>{tx(s)}</option>)}</select></label>
-<label>{tx("Team")}<select name="team" defaultValue={(v.teams||[]).find(x=>teams.includes(x))||teams[0]||''}>{teams.map(x=><option key={x}>{tx(x)}</option>)}</select></label>
 <label className="span2">{tx("Description")}<textarea name="note" required minLength={10} maxLength={2000} placeholder={tx("What is wrong: where exactly in the apartment, since when, and what damage it caused. The contractor who takes the job sees this.")}/></label>
 </div></section>
-<section className="settings-card"><div className="section-head"><div><h2>{tx("Photos")}</h2><p>{tx("Attach up to 10 JPEG, PNG or WebP photos, 3 MB each. They are stored as evidence on the new ticket.")}</p></div></div>
-<div className="form"><label>{tx("Add photos")}<input type="file" accept="image/jpeg,image/png,image/webp" multiple onChange={e=>{addFiles(e.target.files);e.target.value=''}}/></label>
+<section className={sec(2)}><div className="section-head"><div><h2>{tx("Photos")}</h2><p>{tx("Attach up to 10 JPEG, PNG or WebP photos, 3 MB each. They are stored as evidence on the new ticket.")}</p></div></div>
+<div className="form"><div className="wiz-photo-btns"><label className="wiz-photo-btn primary-look">{tx("Take a photo")}<input type="file" accept="image/*" capture="environment" onChange={e=>{addFiles(e.target.files);e.target.value=''}}/></label><label className="wiz-photo-btn">{tx("Choose from gallery")}<input type="file" accept="image/jpeg,image/png,image/webp" multiple onChange={e=>{addFiles(e.target.files);e.target.value=''}}/></label></div><small className="muted">{tx("Photos are optional, but they help the tradesperson bring the right parts.")}</small>
 {files.length>0&&<div className="photo-grid">{files.map((f,i)=><figure key={f.name+i}><img src={urls[i]} alt={tx(f.name)}/><button type="button" aria-label={tx("Remove {0}", [tx(f.name)])} onClick={()=>setFiles(files.filter((_,k)=>k!==i))}>×</button></figure>)}</div>}
 {files.length>0&&<><label>{tx("Photo clarity")}<select name="quality" defaultValue="clear"><option value="clear">{tx("Clear")}</option><option value="unclear">{tx("Unclear or partly obscured")}</option></select></label>
 <label className="check"><input type="checkbox" name="authorized"/>{tx("I confirm these photos are authorised for this case and that faces and licence plates are redacted.")}</label></>}
 </div></section>
-<div className="button-row"><button className="primary" disabled={busy}>{tx(busy?'Saving...':mergeInto?'Add to {0}':'Create ticket', mergeInto?[mergeInto]:[])}</button><button type="button" className="secondary" disabled={busy} onClick={onCancel}>{tx("Cancel")}</button></div>
+<section className={sec(3)}><div className="section-head"><div><h2>{tx("Access and contact")}</h2><p>{tx("How the tradesperson gets in and whom to call.")}</p></div></div>
+<div className="form cols">
+<label>{tx("Access")}<input name="access" maxLength={500} placeholder={tx("e.g. key at the caretaker, tenant at home after 4 pm")}/></label>
+<label>{tx("On-site contact")}<input name="contactName" maxLength={120} placeholder={tx("Tenant or caretaker")}/></label>
+<label>{tx("Contact phone")}<input name="contactPhone" type="tel" maxLength={40} pattern="[0-9 +()\/\-]*"/></label>
+<label>{tx("Reported on")}<input type="datetime-local" name="observedAt" defaultValue={nowLocal()} max={nowLocal()} required/></label>
+<label>{tx("Source")}<select name="source" defaultValue="Manual report">{TICKET_SOURCES.map(s=><option key={s}>{tx(s)}</option>)}</select></label>
+<label>{tx("Team")}<select name="team" defaultValue={(v.teams||[]).find(x=>teams.includes(x))||teams[0]||''}>{teams.map(x=><option key={x}>{tx(x)}</option>)}</select></label>
+</div></section>
+<section className={sec(4)}><div className="section-head"><div><h2>{tx("Check and create")}</h2><p>{tx("Check the details. Tap a section to change it.")}</p></div></div>
+<dl className="wiz-review">
+<button type="button" onClick={()=>goTo(0)}><dt>{tx("Where")}</dt><dd>{address||'—'}{unit?' · '+unit:''}{mergeInto?<><br/><b>{tx("Add to {0}",[mergeInto])}</b></>:null}</dd></button>
+<button type="button" onClick={()=>goTo(1)}><dt>{tx("What")}</dt><dd><b>{review.title||'—'}</b><br/>{tx(trade)} · {tx(review.severity||'Standard')}<br/><span className="muted">{review.note}</span></dd></button>
+<button type="button" onClick={()=>goTo(2)}><dt>{tx("Photos")}</dt><dd>{files.length?tx("{0} photos",[String(files.length)]):tx("No photos")}</dd></button>
+<button type="button" onClick={()=>goTo(3)}><dt>{tx("Contact")}</dt><dd>{[review.contactName,review.contactPhone,review.access].filter(Boolean).join(' · ')||'—'}<br/><span className="muted">{tx(review.team||'')}</span></dd></button>
+</dl></section>
+<div className="button-row wiz-nav">{step>0?<button type="button" className="secondary" disabled={busy} onClick={()=>goTo(step-1)}>{tx("Back")}</button>:<button type="button" className="secondary" disabled={busy} onClick={onCancel}>{tx("Cancel")}</button>}{step<4?<button type="submit" className="primary">{tx("Next")}</button>:<button className="primary" disabled={busy}>{tx(busy?'Saving...':mergeInto?'Add to {0}':'Create ticket', mergeInto?[mergeInto]:[])}</button>}</div>
 </form>}
 // Images up to 2 MB are accepted and resized in the browser so that what is stored stays small.
 async function shrinkImage(file:File,maxSide:number,maxChars=200_000):Promise<string>{
