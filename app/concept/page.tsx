@@ -63,11 +63,11 @@ export default function Concept() {
     <section className="marketing-section" id="plans" style={{background: '#f6f8fb'}}>
       <p className="eyebrow">{tx('SUBSCRIPTIONS')}</p>
       <h2>{tx('Scale by the apartments you manage.')}</h2>
-      <p>{tx('Prices in euros per month, before VAT, billed annually. All roles, the tenant reporting page and the full job workflow are included in every plan.')}</p>
+      <p>{tx('Price by agreement, depending on the number of apartments and contractors. All roles, the tenant reporting page and the full job workflow are included in every plan.')}</p>
       <div className="pricing-grid">
         {PLANS.map(x => <article className={'pricing-card tier-' + x.name.toLowerCase() + (x.recommended ? ' recommended' : '')} key={x.name}>
           <span className="tier-badge">{tx(x.name)}</span>
-          <div className="price">{eur(x.monthly)}<small>{tx(' / month')}</small></div>
+          <div className="price">{tx('By agreement')}</div>
           <ul>
             <li><b>{tx(x.units)}</b></li>
             <li><b>{tx(x.contractors)}</b></li>
@@ -77,7 +77,6 @@ export default function Concept() {
             <li>{tx('Android and iPhone app')}</li>
             <li>{tx(x.extra)}</li>
           </ul>
-          <p className="footnote">{tx('One-time setup: {0}', [eur(x.setup)])}</p>
           <a className="secondary" href="#pilot">{tx('Start with a pilot')}</a>
         </article>)}
       </div>

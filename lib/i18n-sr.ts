@@ -1851,4 +1851,6 @@ export const sr: Record<string, string> = {
   "{0} new job offers": "Novih ponuda posla: {0}",
   "Appointment": "Termin",
   "Confirm": "Potvrda",
+  "By agreement": "Po dogovoru",
+  "Price by agreement, depending on the number of apartments and contractors. All roles, the tenant reporting page and the full job workflow are included in every plan.": "Cena po dogovoru, u zavisnosti od broja stanova i izvođača. Sve uloge, stranica za prijave stanara i ceo tok posla uključeni su u svaki paket.",
 };
