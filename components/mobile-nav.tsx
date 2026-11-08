@@ -21,7 +21,7 @@ export default function MobileNav({view, go, nav, canCreate, ticketCount, notifC
   const has = (n: string) => nav.some(x => x.name === n);
   const tabs = [
     has('Overview') && {name: 'Overview', label: 'Overview', icon: LayoutDashboard},
-    has('Tickets') && {name: 'Tickets', label: role === 'Contractor' ? 'My jobs' : 'Tickets', icon: ListChecks, count: ticketCount},
+    has('Tickets') && {name: 'Tickets', label: role === 'Contractor' ? 'My jobs' : role === 'Resident' ? 'My reports' : 'Tickets', icon: ListChecks, count: ticketCount},
     canCreate && {name: 'New ticket', label: 'New', icon: Plus, fab: true},
     has('Notifications') && {name: 'Notifications', label: 'Notifications', icon: Bell, count: notifCount},
   ].filter(Boolean) as {name: string; label: string; icon: Item['icon']; fab?: boolean; count?: number}[];
@@ -41,7 +41,7 @@ export default function MobileNav({view, go, nav, canCreate, ticketCount, notifC
         <div className="mnav-tiles">
           {[...nav.filter(n => n.name === 'Overview' || n.name === 'Tickets'), ...(canCreate ? [{name: 'New ticket', icon: Plus}] : []), ...nav.filter(n => n.name !== 'Overview' && n.name !== 'Tickets')].map(n =>
             <button key={n.name} className={'mnav-tile' + (view === n.name ? ' on' : '')} onClick={() => pick(n.name)}>
-              <n.icon size={24}/><span>{tx(n.name === 'Tickets' && role === 'Contractor' ? 'My jobs' : n.name)}</span>
+              <n.icon size={24}/><span>{tx(n.name === 'Tickets' && role === 'Contractor' ? 'My jobs' : n.name === 'Tickets' && role === 'Resident' ? 'My reports' : n.name)}</span>
             </button>)}
         </div>
         <div className="mnav-lang"><LangButtons/></div>

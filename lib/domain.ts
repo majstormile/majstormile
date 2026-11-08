@@ -5,7 +5,7 @@ export type Status = typeof statuses[number];
 export const TRADES=['Painting','Plumbing','Electrical','Locksmith','Heating','Masonry','Drywall','Carpentry','Flooring','Roofing','Cleaning','Other'] as const;
 export type Trade=typeof TRADES[number];
 export const isTrade=(v:unknown):v is Trade=>typeof v==='string'&&(TRADES as readonly string[]).includes(v);
-export type Role = 'Admin'|'Analyst'|'Head Analyst'|'Contractor'|'Auditor'|'Vehicle'|'Director';
+export type Role = 'Admin'|'Analyst'|'Head Analyst'|'Contractor'|'Auditor'|'Vehicle'|'Director'|'Resident';
 export const colors:Record<string,string> = {'Detected':'#54667e','Team assigned':'#365cbf','Analyst assigned':'#584bc2','Investigating':'#8055bd','Confirmed':'#a8640b','Notice prepared':'#a14805','Acknowledged':'#086e99','Repair in progress':'#006d83','Awaiting verification':'#267764','Verified closed':'#167342','Reopened':'#c32643','On hold':'#68656f','Rejected':'#57606b','Duplicate':'#57606b'};
 export type Member={id:string,name:string,email:string,role:Role,teams:string[],contractor:string;vehicleTag?:string;customRole?:string;visibility?:'own'|'team'|'all';notifyPrefs?:Record<string,boolean>;phone?:string;status?:string;profileImage?:string;active?:boolean;authUserId?:string;demo?:boolean;/** Signs in with SSO (Microsoft, Google or SAML); bound to an account at first sign-in. */sso?:boolean};
 /** A job. Located by its postal address (road = street, address = full address) plus apartment/floor; no GPS. lat/lng/accuracy/lane are legacy fields from PaveLedger and are not used. */
@@ -24,10 +24,10 @@ return {teams:['Central roads','East roads'],members:[{id:owner,name:'Workspace 
 export const transitions:Record<string,string[]>={'Detected':['Team assigned','Rejected','Duplicate'],'Team assigned':['Analyst assigned','On hold'],'Analyst assigned':['Investigating','On hold'],'Investigating':['Confirmed','Rejected','Duplicate','On hold'],'Confirmed':['Notice prepared','Repair in progress','On hold'],'Notice prepared':['Acknowledged','On hold'],'Acknowledged':['Repair in progress','On hold'],'Repair in progress':['Awaiting verification','On hold'],'Awaiting verification':['Verified closed','Reopened','On hold'],'Verified closed':['Reopened'],'Reopened':['Investigating','Repair in progress','On hold'],'On hold':['Investigating'],'Rejected':[],'Duplicate':[]};
 
 export type Evidence={id:string,name:string,mime:string,bytes:number,sha256:string,purpose:'detection'|'repair'|'verification',capturedAt:string,uploadedAt:string,uploadedBy:string,lat?:number,lng?:number,accuracy?:number,lane?:string,quality:'clear'|'unclear';visibility?:'internal'|'shared';/** Illustrative image bundled with a demo pack (public path); real evidence lives in private storage. */demoUrl?:string};
-export const roles:Role[]=['Admin','Analyst','Head Analyst','Contractor','Auditor','Vehicle','Director'];
+export const roles:Role[]=['Admin','Analyst','Head Analyst','Contractor','Auditor','Vehicle','Director','Resident'];
 export const isActive=(m:Member)=>m.active!==false;
 export const closed=(t:Ticket)=>['Verified closed','Rejected','Duplicate'].includes(t.status);
-export function canSee(t:Ticket,m:Member){if(!isActive(m))return false;if(m.visibility&&m.role!=='Admin'&&m.role!=='Contractor')return m.visibility==='all'||(m.visibility==='team'&&m.teams.includes(t.team))||(m.visibility==='own'&&(t.analyst===m.id||t.reportedBy===m.id));return m.role==='Admin'||m.role==='Auditor'||m.role==='Director'||(m.role==='Head Analyst'&&m.teams.includes(t.team))||(m.role==='Analyst'&&t.analyst===m.id)||(m.role==='Contractor'&&!!m.contractor&&t.status==='Notice prepared'&&!t.contractor&&!t.acceptedAt&&(t.offeredTo||[]).includes(m.contractor))||(m.role==='Contractor'&&!!m.contractor&&t.contractor===m.contractor&&['Notice prepared','Acknowledged','Repair in progress','Awaiting verification','Verified closed','Reopened','On hold'].includes(t.status));}
+export function canSee(t:Ticket,m:Member){if(!isActive(m))return false;if(m.visibility&&m.role!=='Admin'&&m.role!=='Contractor')return m.visibility==='all'||(m.visibility==='team'&&m.teams.includes(t.team))||(m.visibility==='own'&&(t.analyst===m.id||t.reportedBy===m.id));return (m.role==='Resident'&&t.reportedBy===m.id)||m.role==='Admin'||m.role==='Auditor'||m.role==='Director'||(m.role==='Head Analyst'&&m.teams.includes(t.team))||(m.role==='Analyst'&&t.analyst===m.id)||(m.role==='Contractor'&&!!m.contractor&&t.status==='Notice prepared'&&!t.contractor&&!t.acceptedAt&&(t.offeredTo||[]).includes(m.contractor))||(m.role==='Contractor'&&!!m.contractor&&t.contractor===m.contractor&&['Notice prepared','Acknowledged','Repair in progress','Awaiting verification','Verified closed','Reopened','On hold'].includes(t.status));}
 export function nextStages(t:Ticket):string[]{return t.status==='On hold'?[t.holdFrom||'Investigating']:(transitions[t.status]||[]);}
 export function permitted(m:Member,t:Ticket,next:string){if(!canSee(t,m)||m.role==='Director'||!nextStages(t).includes(next))return false;if(m.role==='Contractor')return false;if(next==='Verified closed')return ['Admin','Auditor'].includes(m.role);if(m.role==='Auditor')return ['Verified closed','Reopened','On hold'].includes(next)||(t.status==='On hold'&&next===t.holdFrom);return true;}
 /** A sign-off photo: clear, marked as verification, and taken after the work was reported finished. */
@@ -60,7 +60,7 @@ export function autoCloseDue(s:State,now:string):number{let n=0;for(const t of s
 export const CAPABILITIES=['create','comment','assign','escalate','archive','contracts'] as const;
 export type Capability=typeof CAPABILITIES[number];
 export const DEFAULT_ROLE_CAPS:Record<Capability,Role[]>={
- create:['Admin','Head Analyst','Analyst'],
+ create:['Admin','Head Analyst','Analyst','Resident'],
  comment:['Admin','Analyst','Head Analyst','Auditor'],
  assign:['Admin','Head Analyst'],
  escalate:['Head Analyst'],

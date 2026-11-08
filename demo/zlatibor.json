@@ -82,6 +82,33 @@
    "role": "Contractor",
    "teams": [],
    "contractor": "Gradnja Mačkat (Demo)"
+  },
+  {
+   "id": "demo-resident",
+   "name": "Marija Ilić",
+   "role": "Resident",
+   "teams": [
+    "Zlatibor – Centar"
+   ],
+   "phone": "031 555 0102"
+  },
+  {
+   "id": "demo-resident-2",
+   "name": "Nada Radosavljević",
+   "role": "Resident",
+   "teams": [
+    "Zlatibor – Centar"
+   ],
+   "phone": "031 555 0108"
+  },
+  {
+   "id": "demo-resident-3",
+   "name": "Petar Jeremić",
+   "role": "Resident",
+   "teams": [
+    "Zlatibor – Centar"
+   ],
+   "phone": "031 555 0117"
   }
  ],
  "contracts": [
@@ -265,8 +292,9 @@
    ],
    "unit": "Prizemlje desno",
    "access": "Ključ kod domara, g. Kovača",
-   "contactName": "Mirza Hadžić",
-   "contactPhone": "031 555 0102"
+   "contactName": "Marija Ilić",
+   "contactPhone": "031 555 0102",
+   "reporter": "demo-resident"
   },
   {
    "id": "ZL-DEMO-003",
@@ -410,9 +438,10 @@
    ],
    "unit": "Prizemlje, stan 1",
    "access": "Stanarka je dostupna prepodne",
-   "contactName": "Sanja Kovačević",
+   "contactName": "Nada Radosavljević",
    "contactPhone": "031 555 0108",
-   "workStage": "Waiting for parts"
+   "workStage": "Waiting for parts",
+   "reporter": "demo-resident-2"
   },
   {
    "id": "ZL-DEMO-009",
@@ -625,7 +654,7 @@
    "address": "Miladina Pećinara 12, 31315 Zlatibor",
    "unit": "1. sprat desno",
    "access": "Stanar je kod kuće od 15 časova",
-   "contactName": "Erik Vuković",
+   "contactName": "Petar Jeremić",
    "contactPhone": "031 555 0117",
    "offer": "open",
    "severity": "Standard",
@@ -640,7 +669,8 @@
     "Investigating",
     "Confirmed",
     "Notice prepared"
-   ]
+   ],
+   "reporter": "demo-resident-3"
   },
   {
    "id": "ZL-DEMO-018",

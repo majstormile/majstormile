@@ -24,7 +24,7 @@ export function appointmentReminders(s: State, now: string): Reminder[] {
     if (!kind || t.reminders?.[kind] === t.appointment) continue;
     t.reminders = {...t.reminders, [kind]: t.appointment};
     const crew = s.members.filter(m => isActive(m) && m.role === 'Contractor' && !!m.contractor && m.contractor === t.contractor);
-    const staff = s.members.filter(m => isActive(m) && m.id === t.analyst);
+    const staff = s.members.filter(m => isActive(m) && (m.id === t.analyst || (m.role === 'Resident' && m.id === t.reportedBy)));
     const when = `${kind === 'today' ? 'Danas' : 'Sutra'} u ${timeOf(t.appointment)}`;
     for (const r of [...crew, ...staff]) s.notifications.unshift({id: crypto.randomUUID(), recipient: r.id, ticket: t.id, text: `Podsetnik: ${when} · ${t.title} – ${t.address || t.road}`, at: now});
     out.push({ticket: t, kind, crew});

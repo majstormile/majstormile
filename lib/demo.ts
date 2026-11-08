@@ -5,7 +5,7 @@ import beograd from '../demo/beograd.json' with {type: 'json'};
 import zlatibor from '../demo/zlatibor.json' with {type: 'json'};
 import {isTrade, transitions, type State, type Member, type Ticket, type Status, type Role, type Evidence} from './domain.ts';
 
-export type PackTicket = {id: string; title: string; trade?: string; road: string; address: string; unit?: string; access?: string; contactName?: string; contactPhone?: string;
+export type PackTicket = {id: string; title: string; /** Demo apartment owner (role Resident) who reported it in the app. */ reporter?: string; trade?: string; road: string; address: string; unit?: string; access?: string; contactName?: string; contactPhone?: string;
   /** Released to every firm for the trade instead of the contract's firm. */ offer?: 'open'; workStage?: string; severity: string; team: string; analyst?: string; source: string; confidence?: number; observations: number; daysAgo: number; contractId?: string; reopened?: number; holdFrom?: string; duplicateOf?: string; path: string[]};
 export type DemoPack = {name: string; description: string; /** Currency conversion for the illustrative job costs (base amounts are in euros). */ costUnit?: {rate: number; step: number}; teams: string[]; people: {id: string; name: string; role: string; teams: string[]; contractor?: string; vehicleTag?: string; phone?: string}[]; contracts: (State['contracts'][number])[]; notes: Record<string, string>; tickets: PackTicket[]};
 
@@ -27,6 +27,7 @@ export function checkPack(p: DemoPack): string[] {
     if (ids.has(t.id)) problems.push(`${t.id}: duplicate id`); ids.add(t.id);
     if (!teams.has(t.team)) problems.push(`${t.id}: unknown team ${t.team}`);
     if (t.analyst && !people.has(t.analyst)) problems.push(`${t.id}: unknown analyst ${t.analyst}`);
+    if (t.reporter && !people.has(t.reporter)) problems.push(`${t.id}: unknown reporter ${t.reporter}`);
     if (t.contractId && !contracts.has(t.contractId)) problems.push(`${t.id}: unknown contract ${t.contractId}`);
     if (t.trade && !isTrade(t.trade)) problems.push(`${t.id}: unknown trade ${t.trade}`);
     const c = p.contracts.find(x => x.id === t.contractId);
@@ -128,7 +129,7 @@ export function loadDemoPack(s: State, packId: PackId, keep: Member[], nowISO: s
       created: iso(created), observedAt: iso(created - 3600_000), updated, due: iso(created + (DUE_DAYS[pt.severity] || 14) * DAY),
       reopened: pt.reopened || 0, observations: pt.observations, note: p.notes[status] || '', history, evidence,
       cost: cost && {...cost, actual: completedAt ? cost.actual ?? round(base) : undefined, recovered: completedAt && pt.contractId && status !== 'Reopened' ? (cost.actual ?? round(base)) : undefined},
-      reportedBy: fromDashcam ? vehicle?.id : lead?.id, holdFrom: status === 'On hold' ? (pt.holdFrom as Status) : undefined, duplicateOf: pt.duplicateOf,
+      reportedBy: pt.reporter || (fromDashcam ? vehicle?.id : lead?.id), holdFrom: status === 'On hold' ? (pt.holdFrom as Status) : undefined, duplicateOf: pt.duplicateOf,
       completedAt, completedBy: completedAt ? contractorPerson?.id || lead?.id : undefined, closedAt, closedBy: closedAt ? auditor?.id : undefined,
     } as Ticket;
   });

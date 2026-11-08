@@ -1,668 +1,698 @@
 {
-  "name": "Užice – Centar, Turica i Krčagovo",
-  "description": "Stambeni objekti u Užicu (Zlatiborski okrug), dva tima, referenti, kontrola primopredaje, direktor i pet izvođača (molerski radovi, vodoinstalacije i grejanje, elektro, ključar, suva gradnja i zidarski radovi). Sva imena, firme i brojevi telefona su izmišljeni.",
-  "costUnit": {
-    "rate": 117,
-    "step": 500
-  },
-  "teams": [
+ "name": "Užice – Centar, Turica i Krčagovo",
+ "description": "Stambeni objekti u Užicu (Zlatiborski okrug), dva tima, referenti, kontrola primopredaje, direktor i pet izvođača (molerski radovi, vodoinstalacije i grejanje, elektro, ključar, suva gradnja i zidarski radovi). Sva imena, firme i brojevi telefona su izmišljeni.",
+ "costUnit": {
+  "rate": 117,
+  "step": 500
+ },
+ "teams": [
+  "Užice – Centar",
+  "Užice – Turica i Krčagovo"
+ ],
+ "people": [
+  {
+   "id": "demo-lead",
+   "name": "Jelena Petrović",
+   "role": "Head Analyst",
+   "teams": [
     "Užice – Centar",
     "Užice – Turica i Krčagovo"
-  ],
-  "people": [
-    {
-      "id": "demo-lead",
-      "name": "Jelena Petrović",
-      "role": "Head Analyst",
-      "teams": [
-        "Užice – Centar",
-        "Užice – Turica i Krčagovo"
-      ],
-      "phone": "+381 31 555 0100"
-    },
-    {
-      "id": "demo-analyst",
-      "name": "Nikola Jovanović",
-      "role": "Analyst",
-      "teams": [
-        "Užice – Centar"
-      ]
-    },
-    {
-      "id": "demo-analyst-2",
-      "name": "Marija Ilić",
-      "role": "Analyst",
-      "teams": [
-        "Užice – Turica i Krčagovo"
-      ]
-    },
-    {
-      "id": "demo-auditor",
-      "name": "Dragan Stojanović",
-      "role": "Auditor",
-      "teams": []
-    },
-    {
-      "id": "demo-director",
-      "name": "Snežana Marković",
-      "role": "Director",
-      "teams": []
-    },
-    {
-      "id": "demo-contractor",
-      "name": "Milan Radović",
-      "role": "Contractor",
-      "teams": [],
-      "contractor": "Moleraj Đetinja (Demo)"
-    },
-    {
-      "id": "demo-contractor-2",
-      "name": "Vesna Lukić",
-      "role": "Contractor",
-      "teams": [],
-      "contractor": "Instalacije i grejanje Kadinjača (Demo)"
-    },
-    {
-      "id": "demo-contractor-3",
-      "name": "Stefan Filipović",
-      "role": "Contractor",
-      "teams": [],
-      "contractor": "Elektro Zlatibor (Demo)"
-    },
-    {
-      "id": "demo-contractor-4",
-      "name": "Emir Kurtović",
-      "role": "Contractor",
-      "teams": [],
-      "contractor": "Ključar Trg (Demo)"
-    },
-    {
-      "id": "demo-contractor-5",
-      "name": "Marko Todorović",
-      "role": "Contractor",
-      "teams": [],
-      "contractor": "Zidar i gipsar Užice (Demo)"
-    }
-  ],
-  "contracts": [
-    {
-      "id": "CT-UZ-101",
-      "contractor": "Moleraj Đetinja (Demo)",
-      "trade": "Painting",
-      "road": "Dimitrija Tucovića",
-      "additionalRoads": [
-        "Trg Svetog Save",
-        "Vojvode Mišića",
-        "Svetozara Markovića",
-        "Nikole Pašića"
-      ],
-      "start": "2025-03-01",
-      "end": "2028-02-29",
-      "poc": "Milan Radović",
-      "email": "milan.radovic@example.invalid",
-      "phone": "+381 31 555 0210",
-      "scope": "Krečenje i molerski radovi u stanovima i na stepeništima, centar i Turica",
-      "addressCountry": "SRB",
-      "notes": "Okvirni ugovor 2025-M-03 (demo)"
-    },
-    {
-      "id": "CT-UZ-102",
-      "contractor": "Instalacije i grejanje Kadinjača (Demo)",
-      "trade": "Plumbing",
-      "road": "Petra Ćelovića",
-      "additionalRoads": [
-        "Cara Dušana",
-        "Vuka Karadžića",
-        "Kneza Miloša",
-        "Miloša Obilića"
-      ],
-      "start": "2025-03-01",
-      "end": "2028-02-29",
-      "poc": "Vesna Lukić",
-      "email": "vesna.lukic@example.invalid",
-      "phone": "+381 31 555 0220",
-      "scope": "Vodoinstalaterski radovi i radovi na cevovodu, hitna intervencija u roku od 24 sata",
-      "addressCountry": "SRB",
-      "notes": "Okvirni ugovor 2025-S-07 (demo)"
-    },
-    {
-      "id": "CT-UZ-103",
-      "contractor": "Instalacije i grejanje Kadinjača (Demo)",
-      "trade": "Heating",
-      "road": "Nikole Pašića",
-      "additionalRoads": [
-        "Trg Partizana",
-        "Sinđelićeva",
-        "Jovana Cvijića"
-      ],
-      "start": "2025-03-01",
-      "end": "2028-02-29",
-      "poc": "Vesna Lukić",
-      "email": "vesna.lukic@example.invalid",
-      "phone": "+381 31 555 0220",
-      "scope": "Servisiranje i otklanjanje kvarova na sistemima grejanja i kotlovima",
-      "addressCountry": "SRB",
-      "notes": "Ugovor o održavanju 2025-H-02 (demo)"
-    },
-    {
-      "id": "CT-UZ-104",
-      "contractor": "Elektro Zlatibor (Demo)",
-      "trade": "Electrical",
-      "road": "Vuka Karadžića",
-      "additionalRoads": [
-        "Dragiše Mišovića",
-        "Ljubomira Nenadovića",
-        "Branka Radičevića",
-        "Dimitrija Tucovića"
-      ],
-      "start": "2025-03-01",
-      "end": "2028-02-29",
-      "poc": "Stefan Filipović",
-      "email": "stefan.filipovic@example.invalid",
-      "phone": "+381 31 555 0230",
-      "scope": "Elektroinstalacije, otklanjanje kvarova i ispitivanje električnih instalacija",
-      "addressCountry": "SRB",
-      "notes": "Okvirni ugovor 2025-E-04 (demo)"
-    },
-    {
-      "id": "CT-UZ-105",
-      "contractor": "Ključar Trg (Demo)",
-      "trade": "Locksmith",
-      "road": "Trg Svetog Save",
-      "additionalRoads": [
-        "Žarka Zrenjanina",
-        "Vojvode Mišića",
-        "Dimitrija Tucovića",
-        "Trg Partizana"
-      ],
-      "start": "2025-03-01",
-      "end": "2028-02-29",
-      "poc": "Emir Kurtović",
-      "email": "emir.kurtovic@example.invalid",
-      "phone": "+381 31 555 0240",
-      "scope": "Otvaranje vrata, zamena cilindara i sistemi ključeva, dežurstvo 0–24",
-      "addressCountry": "SRB",
-      "notes": "Okvirni ugovor 2025-K-01 (demo)"
-    },
-    {
-      "id": "CT-UZ-106",
-      "contractor": "Zidar i gipsar Užice (Demo)",
-      "trade": "Drywall",
-      "road": "Dimitrija Tucovića",
-      "additionalRoads": [],
-      "start": "2025-03-01",
-      "end": "2028-02-29",
-      "poc": "Marko Todorović",
-      "email": "marko.todorovic@example.invalid",
-      "phone": "+381 31 555 0260",
-      "scope": "Suva gradnja, malterisanje i zidarski radovi u upravljanim stanovima; fiksne cene prema predmeru radova",
-      "addressCountry": "SRB",
-      "notes": "Okvirni ugovor 2025-B-06 (demo)"
-    },
-    {
-      "id": "CT-UZ-107",
-      "contractor": "Zidar i gipsar Užice (Demo)",
-      "trade": "Masonry",
-      "road": "Trg Svetog Save",
-      "additionalRoads": [],
-      "start": "2025-03-01",
-      "end": "2028-02-29",
-      "poc": "Marko Todorović",
-      "email": "marko.todorovic@example.invalid",
-      "phone": "+381 31 555 0260",
-      "scope": "Suva gradnja, malterisanje i zidarski radovi u upravljanim stanovima; fiksne cene prema predmeru radova",
-      "addressCountry": "SRB",
-      "notes": "Okvirni ugovor 2025-B-07 (demo)"
-    }
-  ],
-  "notes": {
-    "Detected": "Prijava primljena.",
-    "Team assigned": "Prosleđeno nadležnom timu za objekte.",
-    "Analyst assigned": "Dodeljen referent.",
-    "Investigating": "Dogovoren izlazak na lice mesta; proveravaju se kvar i pristup.",
-    "Confirmed": "Kvar potvrđen na licu mesta.",
-    "Notice prepared": "Narudžbina po okvirnom ugovoru je pripremljena.",
-    "Acknowledged": "Izvođač je potvrdio nalog.",
-    "Repair in progress": "Majstor je na licu mesta.",
-    "Awaiting verification": "Radovi su završeni; čeka se primopredaja.",
-    "Verified closed": "Fotografija „posle“ potvrđuje izvedene radove; primopredaja obavljena.",
-    "Reopened": "Kvar se ponovo pojavio.",
-    "On hold": "Čeka se saglasnost skupštine stanara.",
-    "Rejected": "Kvar nije utvrđen.",
-    "Duplicate": "Ista prijava kao u glavnom nalogu."
+   ],
+   "phone": "+381 31 555 0100"
   },
-  "tickets": [
-    {
-      "id": "UZ-DEMO-001",
-      "title": "Vodena šteta: curi sa plafona u kupatilu",
-      "trade": "Plumbing",
-      "road": "Petra Ćelovića",
-      "address": "Petra Ćelovića 10, 31000 Užice",
-      "severity": "Urgent",
-      "team": "Užice – Centar",
-      "source": "Resident report",
-      "observations": 2,
-      "daysAgo": 1,
-      "path": [],
-      "unit": "2. sprat levo",
-      "access": "Stanarka je kod kuće; domar ima rezervni ključ",
-      "contactName": "Ana Nikolić",
-      "contactPhone": "031 555 0101"
-    },
-    {
-      "id": "UZ-DEMO-002",
-      "title": "Utičnice u kuhinji bez struje",
-      "trade": "Electrical",
-      "road": "Vuka Karadžića",
-      "address": "Vuka Karadžića 10, 31000 Užice",
-      "severity": "Standard",
-      "team": "Užice – Centar",
-      "source": "Resident report",
-      "observations": 1,
-      "daysAgo": 2,
-      "path": [
-        "Team assigned"
-      ],
-      "unit": "Prizemlje desno",
-      "access": "Ključ kod domara, g. Lazića",
-      "contactName": "Mirza Hadžić",
-      "contactPhone": "031 555 0102"
-    },
-    {
-      "id": "UZ-DEMO-003",
-      "title": "Zaključan van stana: ključ se slomio u bravi",
-      "trade": "Locksmith",
-      "road": "Žarka Zrenjanina",
-      "address": "Žarka Zrenjanina 1, 31000 Užice",
-      "severity": "Urgent",
-      "team": "Užice – Centar",
-      "analyst": "demo-analyst",
-      "source": "Resident report",
-      "observations": 1,
-      "daysAgo": 1,
-      "path": [
-        "Team assigned",
-        "Analyst assigned"
-      ],
-      "unit": "Stan 4, 1. sprat",
-      "access": "Stanar čeka ispred vrata",
-      "contactName": "Luka Savić",
-      "contactPhone": "031 555 0103"
-    },
-    {
-      "id": "UZ-DEMO-004",
-      "title": "Buđ na spoljnom zidu u spavaćoj sobi",
-      "trade": "Painting",
-      "road": "Trg Svetog Save",
-      "address": "Trg Svetog Save 15, 31000 Užice",
-      "severity": "Standard",
-      "team": "Užice – Centar",
-      "analyst": "demo-analyst",
-      "source": "Resident report",
-      "observations": 3,
-      "daysAgo": 6,
-      "path": [
-        "Team assigned",
-        "Analyst assigned",
-        "Investigating"
-      ],
-      "unit": "3. sprat, stan 9",
-      "access": "Radnim danom posle 16 časova",
-      "contactName": "Petra Simić",
-      "contactPhone": "031 555 0104"
-    },
-    {
-      "id": "UZ-DEMO-005",
-      "title": "Radijator u dnevnoj sobi ostaje hladan",
-      "trade": "Heating",
-      "road": "Nikole Pašića",
-      "address": "Nikole Pašića 12, 31000 Užice",
-      "severity": "Standard",
-      "team": "Užice – Turica i Krčagovo",
-      "analyst": "demo-analyst-2",
-      "source": "Resident report",
-      "observations": 2,
-      "daysAgo": 7,
-      "contractId": "CT-UZ-103",
-      "path": [
-        "Team assigned",
-        "Analyst assigned",
-        "Investigating",
-        "Confirmed"
-      ],
-      "unit": "1. sprat levo",
-      "access": "Stanar je preko dana kod kuće",
-      "contactName": "Olga Vasić",
-      "contactPhone": "031 555 0105"
-    },
-    {
-      "id": "UZ-DEMO-006",
-      "title": "Osigurač ispada kada radi veš-mašina",
-      "trade": "Electrical",
-      "road": "Dragiše Mišovića",
-      "address": "Dragiše Mišovića 1, 31000 Užice",
-      "severity": "Urgent",
-      "team": "Užice – Turica i Krčagovo",
-      "analyst": "demo-analyst-2",
-      "source": "Field inspection",
-      "observations": 2,
-      "daysAgo": 9,
-      "contractId": "CT-UZ-104",
-      "path": [
-        "Team assigned",
-        "Analyst assigned",
-        "Investigating",
-        "Confirmed",
-        "Notice prepared"
-      ],
-      "unit": "Suteren",
-      "access": "Praonica se otvara iz dvorišta, ključ kod domara",
-      "contactName": "Jovan Rakić",
-      "contactPhone": "031 555 0106"
-    },
-    {
-      "id": "UZ-DEMO-007",
-      "title": "Krečenje nakon iseljenja (dvosoban stan)",
-      "trade": "Painting",
-      "road": "Dimitrija Tucovića",
-      "address": "Dimitrija Tucovića 30, 31000 Užice",
-      "severity": "Standard",
-      "team": "Užice – Centar",
-      "analyst": "demo-analyst",
-      "source": "Staff report",
-      "observations": 1,
-      "daysAgo": 12,
-      "contractId": "CT-UZ-101",
-      "path": [
-        "Team assigned",
-        "Analyst assigned",
-        "Investigating",
-        "Confirmed",
-        "Notice prepared",
-        "Acknowledged"
-      ],
-      "unit": "2. sprat desno (prazan stan)",
-      "access": "Ključ preuzeti u kancelariji upravnika",
-      "contactName": "Upravnik zgrade Užice",
-      "contactPhone": "031 555 0100"
-    },
-    {
-      "id": "UZ-DEMO-008",
-      "title": "Curi sifon ispod lavaboa",
-      "trade": "Plumbing",
-      "road": "Cara Dušana",
-      "address": "Cara Dušana 14, 31000 Užice",
-      "severity": "Urgent",
-      "team": "Užice – Centar",
-      "analyst": "demo-analyst",
-      "source": "Resident report",
-      "observations": 2,
-      "daysAgo": 10,
-      "contractId": "CT-UZ-102",
-      "path": [
-        "Team assigned",
-        "Analyst assigned",
-        "Investigating",
-        "Confirmed",
-        "Notice prepared",
-        "Acknowledged",
-        "Repair in progress"
-      ],
-      "unit": "Prizemlje, stan 1",
-      "access": "Stanarka je dostupna prepodne",
-      "contactName": "Sanja Kovačević",
-      "contactPhone": "031 555 0108",
-      "workStage": "Waiting for parts"
-    },
-    {
-      "id": "UZ-DEMO-009",
-      "title": "Ulazna brava zgrade: zamenjen cilindar",
-      "trade": "Locksmith",
-      "road": "Vojvode Mišića",
-      "address": "Vojvode Mišića 3, 31000 Užice",
-      "severity": "Standard",
-      "team": "Užice – Centar",
-      "analyst": "demo-analyst",
-      "source": "Staff report",
-      "observations": 1,
-      "daysAgo": 18,
-      "contractId": "CT-UZ-105",
-      "path": [
-        "Team assigned",
-        "Analyst assigned",
-        "Investigating",
-        "Confirmed",
-        "Notice prepared",
-        "Acknowledged",
-        "Repair in progress",
-        "Awaiting verification"
-      ],
-      "unit": "Ulaz u zgradu",
-      "access": "Nove ključeve podeliti svim stanarima",
-      "contactName": "Domar Lazić",
-      "contactPhone": "031 555 0109"
-    },
-    {
-      "id": "UZ-DEMO-010",
-      "title": "Krečenje stepeništa",
-      "trade": "Painting",
-      "road": "Svetozara Markovića",
-      "address": "Svetozara Markovića 5, 31000 Užice",
-      "severity": "Low",
-      "team": "Užice – Centar",
-      "analyst": "demo-analyst",
-      "source": "Manual report",
-      "observations": 1,
-      "daysAgo": 33,
-      "contractId": "CT-UZ-101",
-      "path": [
-        "Team assigned",
-        "Analyst assigned",
-        "Investigating",
-        "Confirmed",
-        "Repair in progress",
-        "Awaiting verification",
-        "Verified closed"
-      ],
-      "unit": "Stepenište",
-      "access": "Ulazna vrata se otvaraju ključem iz sistema ključeva",
-      "contactName": "Domar Lazić",
-      "contactPhone": "031 555 0109"
-    },
-    {
-      "id": "UZ-DEMO-011",
-      "title": "Vodokotlić stalno curi",
-      "trade": "Plumbing",
-      "road": "Kneza Miloša",
-      "address": "Kneza Miloša 20, 31000 Užice",
-      "severity": "Urgent",
-      "team": "Užice – Turica i Krčagovo",
-      "analyst": "demo-analyst-2",
-      "source": "Resident report",
-      "observations": 3,
-      "daysAgo": 38,
-      "contractId": "CT-UZ-102",
-      "reopened": 1,
-      "path": [
-        "Team assigned",
-        "Analyst assigned",
-        "Investigating",
-        "Confirmed",
-        "Notice prepared",
-        "Acknowledged",
-        "Repair in progress",
-        "Awaiting verification",
-        "Verified closed",
-        "Reopened"
-      ],
-      "unit": "1. sprat desno",
-      "access": "Stanar po dogovoru",
-      "contactName": "Tomislav Novaković",
-      "contactPhone": "031 555 0111"
-    },
-    {
-      "id": "UZ-DEMO-012",
-      "title": "Krečenje fasade sa dvorišne strane",
-      "trade": "Painting",
-      "road": "Ljubomira Nenadovića",
-      "address": "Ljubomira Nenadovića 5, 31000 Užice",
-      "severity": "Low",
-      "team": "Užice – Centar",
-      "analyst": "demo-analyst",
-      "source": "Staff report",
-      "observations": 1,
-      "daysAgo": 15,
-      "holdFrom": "Investigating",
-      "path": [
-        "Team assigned",
-        "Analyst assigned",
-        "Investigating",
-        "On hold"
-      ],
-      "unit": "Dvorišna strana",
-      "access": "Pristup kroz dvorišnu kapiju, potrebna skela",
-      "contactName": "Upravnik zgrade Užice",
-      "contactPhone": "031 555 0100"
-    },
-    {
-      "id": "UZ-DEMO-013",
-      "title": "Treperi svetlo u podrumu",
-      "trade": "Electrical",
-      "road": "Branka Radičevića",
-      "address": "Branka Radičevića 8, 31000 Užice",
-      "severity": "Low",
-      "team": "Užice – Centar",
-      "analyst": "demo-analyst",
-      "source": "Resident report",
-      "observations": 1,
-      "daysAgo": 5,
-      "path": [
-        "Team assigned",
-        "Analyst assigned",
-        "Investigating",
-        "Rejected"
-      ],
-      "unit": "Podrum",
-      "access": "Ključ od podruma kod domara",
-      "contactName": "Domar Lazić",
-      "contactPhone": "031 555 0109"
-    },
-    {
-      "id": "UZ-DEMO-014",
-      "title": "Voda curi sa plafona (duplirana prijava)",
-      "trade": "Plumbing",
-      "road": "Petra Ćelovića",
-      "address": "Petra Ćelovića 10, 31000 Užice",
-      "severity": "Urgent",
-      "team": "Užice – Centar",
-      "analyst": "demo-analyst",
-      "source": "Resident report",
-      "observations": 1,
-      "daysAgo": 1,
-      "duplicateOf": "UZ-DEMO-001",
-      "path": [
-        "Team assigned",
-        "Analyst assigned",
-        "Investigating",
-        "Duplicate"
-      ],
-      "unit": "2. sprat levo",
-      "access": "Stanarka je kod kuće",
-      "contactName": "Ana Nikolić",
-      "contactPhone": "031 555 0101"
-    },
-    {
-      "id": "UZ-DEMO-015",
-      "title": "Kotao javlja grešku, nema tople vode",
-      "trade": "Heating",
-      "road": "Trg Partizana",
-      "address": "Trg Partizana 2, 31000 Užice",
-      "severity": "Urgent",
-      "team": "Užice – Turica i Krčagovo",
-      "analyst": "demo-analyst-2",
-      "source": "Resident report",
-      "observations": 2,
-      "daysAgo": 3,
-      "contractId": "CT-UZ-103",
-      "path": [
-        "Team assigned",
-        "Analyst assigned",
-        "Investigating",
-        "Confirmed"
-      ],
-      "unit": "Potkrovlje, stan 12",
-      "access": "Stanar dostupan posle 17 časova",
-      "contactName": "Kemal Hasanović",
-      "contactPhone": "031 555 0115"
-    },
-    {
-      "id": "UZ-DEMO-016",
-      "title": "Prozor se ne zatvara kako treba",
-      "trade": "Carpentry",
-      "road": "Miloša Obilića",
-      "address": "Miloša Obilića 6, 31000 Užice",
-      "severity": "Standard",
-      "team": "Užice – Turica i Krčagovo",
-      "analyst": "demo-analyst-2",
-      "source": "Resident report",
-      "observations": 1,
-      "daysAgo": 4,
-      "path": [
-        "Team assigned",
-        "Analyst assigned",
-        "Investigating"
-      ],
-      "unit": "1. sprat, stan 3",
-      "access": "Radnim danom 8–12 časova",
-      "contactName": "Monika Branković",
-      "contactPhone": "031 555 0116"
-    },
-    {
-      "id": "UZ-DEMO-017",
-      "title": "Pukotina na zidu dnevne sobe, malter otpada",
-      "trade": "Drywall",
-      "road": "Dimitrija Tucovića",
-      "address": "Dimitrija Tucovića 12, 31000 Užice",
-      "unit": "1. sprat desno",
-      "access": "Stanar je kod kuće od 15 časova",
-      "contactName": "Erik Vuković",
-      "contactPhone": "031 555 0117",
-      "offer": "open",
-      "severity": "Standard",
-      "team": "Užice – Centar",
-      "analyst": "demo-analyst",
-      "source": "Resident report",
-      "observations": 1,
-      "daysAgo": 3,
-      "path": [
-        "Team assigned",
-        "Analyst assigned",
-        "Investigating",
-        "Confirmed",
-        "Notice prepared"
-      ]
-    },
-    {
-      "id": "UZ-DEMO-018",
-      "title": "Vlažan zid u podrumu, fuge isprane",
-      "trade": "Masonry",
-      "road": "Trg Svetog Save",
-      "address": "Trg Svetog Save 3, 31000 Užice",
-      "unit": "Podrum",
-      "access": "Ključ od podruma kod domara",
-      "contactName": "Domar Lazić",
-      "contactPhone": "031 555 0109",
-      "severity": "Low",
-      "team": "Užice – Centar",
-      "analyst": "demo-analyst",
-      "source": "Staff report",
-      "observations": 1,
-      "daysAgo": 6,
-      "path": [
-        "Team assigned",
-        "Analyst assigned",
-        "Investigating"
-      ]
-    }
-  ]
+  {
+   "id": "demo-analyst",
+   "name": "Nikola Jovanović",
+   "role": "Analyst",
+   "teams": [
+    "Užice – Centar"
+   ]
+  },
+  {
+   "id": "demo-analyst-2",
+   "name": "Nemanja Ristić",
+   "role": "Analyst",
+   "teams": [
+    "Užice – Turica i Krčagovo"
+   ]
+  },
+  {
+   "id": "demo-auditor",
+   "name": "Dragan Stojanović",
+   "role": "Auditor",
+   "teams": []
+  },
+  {
+   "id": "demo-director",
+   "name": "Snežana Marković",
+   "role": "Director",
+   "teams": []
+  },
+  {
+   "id": "demo-contractor",
+   "name": "Milan Radović",
+   "role": "Contractor",
+   "teams": [],
+   "contractor": "Moleraj Đetinja (Demo)"
+  },
+  {
+   "id": "demo-contractor-2",
+   "name": "Vesna Lukić",
+   "role": "Contractor",
+   "teams": [],
+   "contractor": "Instalacije i grejanje Kadinjača (Demo)"
+  },
+  {
+   "id": "demo-contractor-3",
+   "name": "Stefan Filipović",
+   "role": "Contractor",
+   "teams": [],
+   "contractor": "Elektro Zlatibor (Demo)"
+  },
+  {
+   "id": "demo-contractor-4",
+   "name": "Emir Kurtović",
+   "role": "Contractor",
+   "teams": [],
+   "contractor": "Ključar Trg (Demo)"
+  },
+  {
+   "id": "demo-contractor-5",
+   "name": "Marko Todorović",
+   "role": "Contractor",
+   "teams": [],
+   "contractor": "Zidar i gipsar Užice (Demo)"
+  },
+  {
+   "id": "demo-resident",
+   "name": "Marija Ilić",
+   "role": "Resident",
+   "teams": [
+    "Užice – Centar"
+   ],
+   "phone": "031 555 0102"
+  },
+  {
+   "id": "demo-resident-2",
+   "name": "Ana Stevanović",
+   "role": "Resident",
+   "teams": [
+    "Užice – Centar"
+   ],
+   "phone": "031 555 0108"
+  },
+  {
+   "id": "demo-resident-3",
+   "name": "Zoran Đukić",
+   "role": "Resident",
+   "teams": [
+    "Užice – Centar"
+   ],
+   "phone": "031 555 0117"
+  }
+ ],
+ "contracts": [
+  {
+   "id": "CT-UZ-101",
+   "contractor": "Moleraj Đetinja (Demo)",
+   "trade": "Painting",
+   "road": "Dimitrija Tucovića",
+   "additionalRoads": [
+    "Trg Svetog Save",
+    "Vojvode Mišića",
+    "Svetozara Markovića",
+    "Nikole Pašića"
+   ],
+   "start": "2025-03-01",
+   "end": "2028-02-29",
+   "poc": "Milan Radović",
+   "email": "milan.radovic@example.invalid",
+   "phone": "+381 31 555 0210",
+   "scope": "Krečenje i molerski radovi u stanovima i na stepeništima, centar i Turica",
+   "addressCountry": "SRB",
+   "notes": "Okvirni ugovor 2025-M-03 (demo)"
+  },
+  {
+   "id": "CT-UZ-102",
+   "contractor": "Instalacije i grejanje Kadinjača (Demo)",
+   "trade": "Plumbing",
+   "road": "Petra Ćelovića",
+   "additionalRoads": [
+    "Cara Dušana",
+    "Vuka Karadžića",
+    "Kneza Miloša",
+    "Miloša Obilića"
+   ],
+   "start": "2025-03-01",
+   "end": "2028-02-29",
+   "poc": "Vesna Lukić",
+   "email": "vesna.lukic@example.invalid",
+   "phone": "+381 31 555 0220",
+   "scope": "Vodoinstalaterski radovi i radovi na cevovodu, hitna intervencija u roku od 24 sata",
+   "addressCountry": "SRB",
+   "notes": "Okvirni ugovor 2025-S-07 (demo)"
+  },
+  {
+   "id": "CT-UZ-103",
+   "contractor": "Instalacije i grejanje Kadinjača (Demo)",
+   "trade": "Heating",
+   "road": "Nikole Pašića",
+   "additionalRoads": [
+    "Trg Partizana",
+    "Sinđelićeva",
+    "Jovana Cvijića"
+   ],
+   "start": "2025-03-01",
+   "end": "2028-02-29",
+   "poc": "Vesna Lukić",
+   "email": "vesna.lukic@example.invalid",
+   "phone": "+381 31 555 0220",
+   "scope": "Servisiranje i otklanjanje kvarova na sistemima grejanja i kotlovima",
+   "addressCountry": "SRB",
+   "notes": "Ugovor o održavanju 2025-H-02 (demo)"
+  },
+  {
+   "id": "CT-UZ-104",
+   "contractor": "Elektro Zlatibor (Demo)",
+   "trade": "Electrical",
+   "road": "Vuka Karadžića",
+   "additionalRoads": [
+    "Dragiše Mišovića",
+    "Ljubomira Nenadovića",
+    "Branka Radičevića",
+    "Dimitrija Tucovića"
+   ],
+   "start": "2025-03-01",
+   "end": "2028-02-29",
+   "poc": "Stefan Filipović",
+   "email": "stefan.filipovic@example.invalid",
+   "phone": "+381 31 555 0230",
+   "scope": "Elektroinstalacije, otklanjanje kvarova i ispitivanje električnih instalacija",
+   "addressCountry": "SRB",
+   "notes": "Okvirni ugovor 2025-E-04 (demo)"
+  },
+  {
+   "id": "CT-UZ-105",
+   "contractor": "Ključar Trg (Demo)",
+   "trade": "Locksmith",
+   "road": "Trg Svetog Save",
+   "additionalRoads": [
+    "Žarka Zrenjanina",
+    "Vojvode Mišića",
+    "Dimitrija Tucovića",
+    "Trg Partizana"
+   ],
+   "start": "2025-03-01",
+   "end": "2028-02-29",
+   "poc": "Emir Kurtović",
+   "email": "emir.kurtovic@example.invalid",
+   "phone": "+381 31 555 0240",
+   "scope": "Otvaranje vrata, zamena cilindara i sistemi ključeva, dežurstvo 0–24",
+   "addressCountry": "SRB",
+   "notes": "Okvirni ugovor 2025-K-01 (demo)"
+  },
+  {
+   "id": "CT-UZ-106",
+   "contractor": "Zidar i gipsar Užice (Demo)",
+   "trade": "Drywall",
+   "road": "Dimitrija Tucovića",
+   "additionalRoads": [],
+   "start": "2025-03-01",
+   "end": "2028-02-29",
+   "poc": "Marko Todorović",
+   "email": "marko.todorovic@example.invalid",
+   "phone": "+381 31 555 0260",
+   "scope": "Suva gradnja, malterisanje i zidarski radovi u upravljanim stanovima; fiksne cene prema predmeru radova",
+   "addressCountry": "SRB",
+   "notes": "Okvirni ugovor 2025-B-06 (demo)"
+  },
+  {
+   "id": "CT-UZ-107",
+   "contractor": "Zidar i gipsar Užice (Demo)",
+   "trade": "Masonry",
+   "road": "Trg Svetog Save",
+   "additionalRoads": [],
+   "start": "2025-03-01",
+   "end": "2028-02-29",
+   "poc": "Marko Todorović",
+   "email": "marko.todorovic@example.invalid",
+   "phone": "+381 31 555 0260",
+   "scope": "Suva gradnja, malterisanje i zidarski radovi u upravljanim stanovima; fiksne cene prema predmeru radova",
+   "addressCountry": "SRB",
+   "notes": "Okvirni ugovor 2025-B-07 (demo)"
+  }
+ ],
+ "notes": {
+  "Detected": "Prijava primljena.",
+  "Team assigned": "Prosleđeno nadležnom timu za objekte.",
+  "Analyst assigned": "Dodeljen referent.",
+  "Investigating": "Dogovoren izlazak na lice mesta; proveravaju se kvar i pristup.",
+  "Confirmed": "Kvar potvrđen na licu mesta.",
+  "Notice prepared": "Narudžbina po okvirnom ugovoru je pripremljena.",
+  "Acknowledged": "Izvođač je potvrdio nalog.",
+  "Repair in progress": "Majstor je na licu mesta.",
+  "Awaiting verification": "Radovi su završeni; čeka se primopredaja.",
+  "Verified closed": "Fotografija „posle“ potvrđuje izvedene radove; primopredaja obavljena.",
+  "Reopened": "Kvar se ponovo pojavio.",
+  "On hold": "Čeka se saglasnost skupštine stanara.",
+  "Rejected": "Kvar nije utvrđen.",
+  "Duplicate": "Ista prijava kao u glavnom nalogu."
+ },
+ "tickets": [
+  {
+   "id": "UZ-DEMO-001",
+   "title": "Vodena šteta: curi sa plafona u kupatilu",
+   "trade": "Plumbing",
+   "road": "Petra Ćelovića",
+   "address": "Petra Ćelovića 10, 31000 Užice",
+   "severity": "Urgent",
+   "team": "Užice – Centar",
+   "source": "Resident report",
+   "observations": 2,
+   "daysAgo": 1,
+   "path": [],
+   "unit": "2. sprat levo",
+   "access": "Stanarka je kod kuće; domar ima rezervni ključ",
+   "contactName": "Ana Nikolić",
+   "contactPhone": "031 555 0101"
+  },
+  {
+   "id": "UZ-DEMO-002",
+   "title": "Utičnice u kuhinji bez struje",
+   "trade": "Electrical",
+   "road": "Vuka Karadžića",
+   "address": "Vuka Karadžića 10, 31000 Užice",
+   "severity": "Standard",
+   "team": "Užice – Centar",
+   "source": "Resident report",
+   "observations": 1,
+   "daysAgo": 2,
+   "path": [
+    "Team assigned"
+   ],
+   "unit": "Prizemlje desno",
+   "access": "Ključ kod domara, g. Lazića",
+   "contactName": "Marija Ilić",
+   "contactPhone": "031 555 0102",
+   "reporter": "demo-resident"
+  },
+  {
+   "id": "UZ-DEMO-003",
+   "title": "Zaključan van stana: ključ se slomio u bravi",
+   "trade": "Locksmith",
+   "road": "Žarka Zrenjanina",
+   "address": "Žarka Zrenjanina 1, 31000 Užice",
+   "severity": "Urgent",
+   "team": "Užice – Centar",
+   "analyst": "demo-analyst",
+   "source": "Resident report",
+   "observations": 1,
+   "daysAgo": 1,
+   "path": [
+    "Team assigned",
+    "Analyst assigned"
+   ],
+   "unit": "Stan 4, 1. sprat",
+   "access": "Stanar čeka ispred vrata",
+   "contactName": "Luka Savić",
+   "contactPhone": "031 555 0103"
+  },
+  {
+   "id": "UZ-DEMO-004",
+   "title": "Buđ na spoljnom zidu u spavaćoj sobi",
+   "trade": "Painting",
+   "road": "Trg Svetog Save",
+   "address": "Trg Svetog Save 15, 31000 Užice",
+   "severity": "Standard",
+   "team": "Užice – Centar",
+   "analyst": "demo-analyst",
+   "source": "Resident report",
+   "observations": 3,
+   "daysAgo": 6,
+   "path": [
+    "Team assigned",
+    "Analyst assigned",
+    "Investigating"
+   ],
+   "unit": "3. sprat, stan 9",
+   "access": "Radnim danom posle 16 časova",
+   "contactName": "Petra Simić",
+   "contactPhone": "031 555 0104"
+  },
+  {
+   "id": "UZ-DEMO-005",
+   "title": "Radijator u dnevnoj sobi ostaje hladan",
+   "trade": "Heating",
+   "road": "Nikole Pašića",
+   "address": "Nikole Pašića 12, 31000 Užice",
+   "severity": "Standard",
+   "team": "Užice – Turica i Krčagovo",
+   "analyst": "demo-analyst-2",
+   "source": "Resident report",
+   "observations": 2,
+   "daysAgo": 7,
+   "contractId": "CT-UZ-103",
+   "path": [
+    "Team assigned",
+    "Analyst assigned",
+    "Investigating",
+    "Confirmed"
+   ],
+   "unit": "1. sprat levo",
+   "access": "Stanar je preko dana kod kuće",
+   "contactName": "Olga Vasić",
+   "contactPhone": "031 555 0105"
+  },
+  {
+   "id": "UZ-DEMO-006",
+   "title": "Osigurač ispada kada radi veš-mašina",
+   "trade": "Electrical",
+   "road": "Dragiše Mišovića",
+   "address": "Dragiše Mišovića 1, 31000 Užice",
+   "severity": "Urgent",
+   "team": "Užice – Turica i Krčagovo",
+   "analyst": "demo-analyst-2",
+   "source": "Field inspection",
+   "observations": 2,
+   "daysAgo": 9,
+   "contractId": "CT-UZ-104",
+   "path": [
+    "Team assigned",
+    "Analyst assigned",
+    "Investigating",
+    "Confirmed",
+    "Notice prepared"
+   ],
+   "unit": "Suteren",
+   "access": "Praonica se otvara iz dvorišta, ključ kod domara",
+   "contactName": "Jovan Rakić",
+   "contactPhone": "031 555 0106"
+  },
+  {
+   "id": "UZ-DEMO-007",
+   "title": "Krečenje nakon iseljenja (dvosoban stan)",
+   "trade": "Painting",
+   "road": "Dimitrija Tucovića",
+   "address": "Dimitrija Tucovića 30, 31000 Užice",
+   "severity": "Standard",
+   "team": "Užice – Centar",
+   "analyst": "demo-analyst",
+   "source": "Staff report",
+   "observations": 1,
+   "daysAgo": 12,
+   "contractId": "CT-UZ-101",
+   "path": [
+    "Team assigned",
+    "Analyst assigned",
+    "Investigating",
+    "Confirmed",
+    "Notice prepared",
+    "Acknowledged"
+   ],
+   "unit": "2. sprat desno (prazan stan)",
+   "access": "Ključ preuzeti u kancelariji upravnika",
+   "contactName": "Upravnik zgrade Užice",
+   "contactPhone": "031 555 0100"
+  },
+  {
+   "id": "UZ-DEMO-008",
+   "title": "Curi sifon ispod lavaboa",
+   "trade": "Plumbing",
+   "road": "Cara Dušana",
+   "address": "Cara Dušana 14, 31000 Užice",
+   "severity": "Urgent",
+   "team": "Užice – Centar",
+   "analyst": "demo-analyst",
+   "source": "Resident report",
+   "observations": 2,
+   "daysAgo": 10,
+   "contractId": "CT-UZ-102",
+   "path": [
+    "Team assigned",
+    "Analyst assigned",
+    "Investigating",
+    "Confirmed",
+    "Notice prepared",
+    "Acknowledged",
+    "Repair in progress"
+   ],
+   "unit": "Prizemlje, stan 1",
+   "access": "Stanarka je dostupna prepodne",
+   "contactName": "Ana Stevanović",
+   "contactPhone": "031 555 0108",
+   "workStage": "Waiting for parts",
+   "reporter": "demo-resident-2"
+  },
+  {
+   "id": "UZ-DEMO-009",
+   "title": "Ulazna brava zgrade: zamenjen cilindar",
+   "trade": "Locksmith",
+   "road": "Vojvode Mišića",
+   "address": "Vojvode Mišića 3, 31000 Užice",
+   "severity": "Standard",
+   "team": "Užice – Centar",
+   "analyst": "demo-analyst",
+   "source": "Staff report",
+   "observations": 1,
+   "daysAgo": 18,
+   "contractId": "CT-UZ-105",
+   "path": [
+    "Team assigned",
+    "Analyst assigned",
+    "Investigating",
+    "Confirmed",
+    "Notice prepared",
+    "Acknowledged",
+    "Repair in progress",
+    "Awaiting verification"
+   ],
+   "unit": "Ulaz u zgradu",
+   "access": "Nove ključeve podeliti svim stanarima",
+   "contactName": "Domar Lazić",
+   "contactPhone": "031 555 0109"
+  },
+  {
+   "id": "UZ-DEMO-010",
+   "title": "Krečenje stepeništa",
+   "trade": "Painting",
+   "road": "Svetozara Markovića",
+   "address": "Svetozara Markovića 5, 31000 Užice",
+   "severity": "Low",
+   "team": "Užice – Centar",
+   "analyst": "demo-analyst",
+   "source": "Manual report",
+   "observations": 1,
+   "daysAgo": 33,
+   "contractId": "CT-UZ-101",
+   "path": [
+    "Team assigned",
+    "Analyst assigned",
+    "Investigating",
+    "Confirmed",
+    "Repair in progress",
+    "Awaiting verification",
+    "Verified closed"
+   ],
+   "unit": "Stepenište",
+   "access": "Ulazna vrata se otvaraju ključem iz sistema ključeva",
+   "contactName": "Domar Lazić",
+   "contactPhone": "031 555 0109"
+  },
+  {
+   "id": "UZ-DEMO-011",
+   "title": "Vodokotlić stalno curi",
+   "trade": "Plumbing",
+   "road": "Kneza Miloša",
+   "address": "Kneza Miloša 20, 31000 Užice",
+   "severity": "Urgent",
+   "team": "Užice – Turica i Krčagovo",
+   "analyst": "demo-analyst-2",
+   "source": "Resident report",
+   "observations": 3,
+   "daysAgo": 38,
+   "contractId": "CT-UZ-102",
+   "reopened": 1,
+   "path": [
+    "Team assigned",
+    "Analyst assigned",
+    "Investigating",
+    "Confirmed",
+    "Notice prepared",
+    "Acknowledged",
+    "Repair in progress",
+    "Awaiting verification",
+    "Verified closed",
+    "Reopened"
+   ],
+   "unit": "1. sprat desno",
+   "access": "Stanar po dogovoru",
+   "contactName": "Tomislav Novaković",
+   "contactPhone": "031 555 0111"
+  },
+  {
+   "id": "UZ-DEMO-012",
+   "title": "Krečenje fasade sa dvorišne strane",
+   "trade": "Painting",
+   "road": "Ljubomira Nenadovića",
+   "address": "Ljubomira Nenadovića 5, 31000 Užice",
+   "severity": "Low",
+   "team": "Užice – Centar",
+   "analyst": "demo-analyst",
+   "source": "Staff report",
+   "observations": 1,
+   "daysAgo": 15,
+   "holdFrom": "Investigating",
+   "path": [
+    "Team assigned",
+    "Analyst assigned",
+    "Investigating",
+    "On hold"
+   ],
+   "unit": "Dvorišna strana",
+   "access": "Pristup kroz dvorišnu kapiju, potrebna skela",
+   "contactName": "Upravnik zgrade Užice",
+   "contactPhone": "031 555 0100"
+  },
+  {
+   "id": "UZ-DEMO-013",
+   "title": "Treperi svetlo u podrumu",
+   "trade": "Electrical",
+   "road": "Branka Radičevića",
+   "address": "Branka Radičevića 8, 31000 Užice",
+   "severity": "Low",
+   "team": "Užice – Centar",
+   "analyst": "demo-analyst",
+   "source": "Resident report",
+   "observations": 1,
+   "daysAgo": 5,
+   "path": [
+    "Team assigned",
+    "Analyst assigned",
+    "Investigating",
+    "Rejected"
+   ],
+   "unit": "Podrum",
+   "access": "Ključ od podruma kod domara",
+   "contactName": "Domar Lazić",
+   "contactPhone": "031 555 0109"
+  },
+  {
+   "id": "UZ-DEMO-014",
+   "title": "Voda curi sa plafona (duplirana prijava)",
+   "trade": "Plumbing",
+   "road": "Petra Ćelovića",
+   "address": "Petra Ćelovića 10, 31000 Užice",
+   "severity": "Urgent",
+   "team": "Užice – Centar",
+   "analyst": "demo-analyst",
+   "source": "Resident report",
+   "observations": 1,
+   "daysAgo": 1,
+   "duplicateOf": "UZ-DEMO-001",
+   "path": [
+    "Team assigned",
+    "Analyst assigned",
+    "Investigating",
+    "Duplicate"
+   ],
+   "unit": "2. sprat levo",
+   "access": "Stanarka je kod kuće",
+   "contactName": "Ana Nikolić",
+   "contactPhone": "031 555 0101"
+  },
+  {
+   "id": "UZ-DEMO-015",
+   "title": "Kotao javlja grešku, nema tople vode",
+   "trade": "Heating",
+   "road": "Trg Partizana",
+   "address": "Trg Partizana 2, 31000 Užice",
+   "severity": "Urgent",
+   "team": "Užice – Turica i Krčagovo",
+   "analyst": "demo-analyst-2",
+   "source": "Resident report",
+   "observations": 2,
+   "daysAgo": 3,
+   "contractId": "CT-UZ-103",
+   "path": [
+    "Team assigned",
+    "Analyst assigned",
+    "Investigating",
+    "Confirmed"
+   ],
+   "unit": "Potkrovlje, stan 12",
+   "access": "Stanar dostupan posle 17 časova",
+   "contactName": "Kemal Hasanović",
+   "contactPhone": "031 555 0115"
+  },
+  {
+   "id": "UZ-DEMO-016",
+   "title": "Prozor se ne zatvara kako treba",
+   "trade": "Carpentry",
+   "road": "Miloša Obilića",
+   "address": "Miloša Obilića 6, 31000 Užice",
+   "severity": "Standard",
+   "team": "Užice – Turica i Krčagovo",
+   "analyst": "demo-analyst-2",
+   "source": "Resident report",
+   "observations": 1,
+   "daysAgo": 4,
+   "path": [
+    "Team assigned",
+    "Analyst assigned",
+    "Investigating"
+   ],
+   "unit": "1. sprat, stan 3",
+   "access": "Radnim danom 8–12 časova",
+   "contactName": "Monika Branković",
+   "contactPhone": "031 555 0116"
+  },
+  {
+   "id": "UZ-DEMO-017",
+   "title": "Pukotina na zidu dnevne sobe, malter otpada",
+   "trade": "Drywall",
+   "road": "Dimitrija Tucovića",
+   "address": "Dimitrija Tucovića 12, 31000 Užice",
+   "unit": "1. sprat desno",
+   "access": "Stanar je kod kuće od 15 časova",
+   "contactName": "Zoran Đukić",
+   "contactPhone": "031 555 0117",
+   "offer": "open",
+   "severity": "Standard",
+   "team": "Užice – Centar",
+   "analyst": "demo-analyst",
+   "source": "Resident report",
+   "observations": 1,
+   "daysAgo": 3,
+   "path": [
+    "Team assigned",
+    "Analyst assigned",
+    "Investigating",
+    "Confirmed",
+    "Notice prepared"
+   ],
+   "reporter": "demo-resident-3"
+  },
+  {
+   "id": "UZ-DEMO-018",
+   "title": "Vlažan zid u podrumu, fuge isprane",
+   "trade": "Masonry",
+   "road": "Trg Svetog Save",
+   "address": "Trg Svetog Save 3, 31000 Užice",
+   "unit": "Podrum",
+   "access": "Ključ od podruma kod domara",
+   "contactName": "Domar Lazić",
+   "contactPhone": "031 555 0109",
+   "severity": "Low",
+   "team": "Užice – Centar",
+   "analyst": "demo-analyst",
+   "source": "Staff report",
+   "observations": 1,
+   "daysAgo": 6,
+   "path": [
+    "Team assigned",
+    "Analyst assigned",
+    "Investigating"
+   ]
+  }
+ ]
 }

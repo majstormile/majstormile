@@ -1855,4 +1855,8 @@ export const sr: Record<string, string> = {
   "Price by agreement, depending on the number of apartments and contractors. All roles, the tenant reporting page and the full job workflow are included in every plan.": "Cena po dogovoru, u zavisnosti od broja stanova i izvođača. Sve uloge, stranica za prijave stanara i ceo tok posla uključeni su u svaki paket.",
   "Your tradesperson": "Vaš majstor",
   "Track the job: {0}": "Pratite posao: {0}",
+  "Public tracking page": "Javna stranica za praćenje",
+  "Resident": "Vlasnik stana",
+  "My reports": "Moje prijave",
+  "Apartment owner or tenant: reports problems and follows their own reports": "Vlasnik stana ili stanar: prijavljuje kvarove i prati svoje prijave",
 };

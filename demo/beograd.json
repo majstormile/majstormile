@@ -82,6 +82,33 @@
    "role": "Contractor",
    "teams": [],
    "contractor": "Gips i zid Beograd (Demo)"
+  },
+  {
+   "id": "demo-resident",
+   "name": "Marija Ilić",
+   "role": "Resident",
+   "teams": [
+    "Beograd – Vračar"
+   ],
+   "phone": "011 555 0102"
+  },
+  {
+   "id": "demo-resident-2",
+   "name": "Jelena Marković",
+   "role": "Resident",
+   "teams": [
+    "Beograd – Vračar"
+   ],
+   "phone": "011 555 0108"
+  },
+  {
+   "id": "demo-resident-3",
+   "name": "Stefan Nikolić",
+   "role": "Resident",
+   "teams": [
+    "Beograd – Vračar"
+   ],
+   "phone": "011 555 0117"
   }
  ],
  "contracts": [
@@ -265,8 +292,9 @@
    ],
    "unit": "Prizemlje desno",
    "access": "Ključ kod domara, g. Perića",
-   "contactName": "Mirza Hadžić",
-   "contactPhone": "011 555 0102"
+   "contactName": "Marija Ilić",
+   "contactPhone": "011 555 0102",
+   "reporter": "demo-resident"
   },
   {
    "id": "BG-DEMO-003",
@@ -410,9 +438,10 @@
    ],
    "unit": "Prizemlje, stan 1",
    "access": "Stanarka je dostupna prepodne",
-   "contactName": "Sanja Kovačević",
+   "contactName": "Jelena Marković",
    "contactPhone": "011 555 0108",
-   "workStage": "Waiting for parts"
+   "workStage": "Waiting for parts",
+   "reporter": "demo-resident-2"
   },
   {
    "id": "BG-DEMO-009",
@@ -625,7 +654,7 @@
    "address": "Njegoševa 12, 11000 Beograd",
    "unit": "1. sprat desno",
    "access": "Stanar je kod kuće od 15 časova",
-   "contactName": "Erik Vuković",
+   "contactName": "Stefan Nikolić",
    "contactPhone": "011 555 0117",
    "offer": "open",
    "severity": "Standard",
@@ -640,7 +669,8 @@
     "Investigating",
     "Confirmed",
     "Notice prepared"
-   ]
+   ],
+   "reporter": "demo-resident-3"
   },
   {
    "id": "BG-DEMO-018",

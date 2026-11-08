@@ -52,3 +52,24 @@ test('after acceptance the tenant gets the tradesperson contact on the tracking 
   assert.equal(m.to, 'tenant@example.com');
   assert.match(m.text, /064 111 2222/); assert.match(m.text, /track\/ABCDE-23456/);
 });
+
+test('an apartment owner (Resident) sees only their own reports, can create one and is told when a firm accepts', async () => {
+  const {s, builder} = world();
+  const {canSee} = await import('../lib/domain.ts');
+  const {residentView} = await import('../lib/jobs.ts');
+  const marija = s.members.find(m => m.id === 'demo-resident')!;
+  assert.equal(marija.role, 'Resident'); assert.equal(marija.name, 'Marija Ilić');
+  const mine = s.tickets.filter(t => canSee(t, marija));
+  assert.deepEqual(mine.map(t => t.reportedBy), mine.map(() => 'demo-resident'));
+  assert.ok(mine.length >= 1);
+  applyAction(s, marija, marija, {action: 'create', title: 'Curi slavina', note: 'Kaplje slavina u kupatilu', address: 'Petra Ćelovića 10, 31000 Užice', team: marija.teams[0], source: 'Field inspection'}, now, 'owner');
+  const created = s.tickets[0];
+  assert.equal(created.reportedBy, marija.id); assert.equal(created.source, 'Resident report');
+  assert.ok(canSee(created, marija));
+  const v = residentView({...created, cost: {estimate: 100}} as never, marija);
+  assert.equal(v.cost, undefined);
+  const zoran = s.members.find(m => m.id === 'demo-resident-3')!;
+  applyAction(s, builder, builder, {action: 'job', id: 'UZ-DEMO-017', job: 'accept', appointment: '2026-11-05T08:00:00.000Z'}, now, 'owner');
+  assert.ok(s.notifications.some(n => n.recipient === zoran.id && n.ticket === 'UZ-DEMO-017' && /preuzela/.test(n.text)));
+  assert.throws(() => applyAction(s, marija, marija, {action: 'assign', id: created.id, analyst: 'demo-analyst'}, now, 'owner'));
+});

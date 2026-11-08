@@ -53,6 +53,10 @@ export function canReport(t: Ticket, m: Member): boolean {
 function staffFor(s: State, t: Ticket): Member[] {
   return s.members.filter(x => isActive(x) && (x.id === t.analyst || (x.role === 'Head Analyst' && (x.teams || []).includes(t.team))));
 }
+/** The apartment owner or tenant who reported the job in the app, if any. */
+function residentOf(s: State, t: Ticket): Member[] {
+  return s.members.filter(x => isActive(x) && x.role === 'Resident' && x.id === t.reportedBy);
+}
 function notify(s: State, to: Member[], t: Ticket, text: string, now: string) {
   for (const r of to) s.notifications.unshift({id: crypto.randomUUID(), recipient: r.id, ticket: t.id, text, at: now});
 }
@@ -101,6 +105,7 @@ export function jobAction(s: State, t: Ticket, m: Member, actual: Member, body: 
       t.appointment = new Date(appt).toISOString(); t.workStage = 'Appointment scheduled'; delete t.reminders;
     }
     notify(s, staffFor(s, t), t, `Job accepted by ${m.contractor}: ${label(t)}`, now);
+    notify(s, residentOf(s, t), t, `Vaš kvar je preuzela firma ${m.contractor}${t.appointment && !Number.isNaN(appt) ? ', dolazak ' + new Date(t.appointment).toLocaleString('sr-RS', {timeZone: 'Europe/Belgrade', weekday: 'long', day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit'}) : ''}: ${t.title}`, now);
     return {event: 'Job accepted', detail: `Accepted by ${by} under ${contract.id}.` + (t.appointment && !Number.isNaN(appt) ? ` Visit on ${t.appointment}.` : '')};
   }
 
@@ -136,6 +141,7 @@ export function jobAction(s: State, t: Ticket, m: Member, actual: Member, body: 
   }
   t.workStage = p.stage;
   notify(s, staffFor(s, t), t, `${p.stage}: ${label(t)}`, now);
+  notify(s, residentOf(s, t), t, `${p.stage}: ${t.title}`, now);
   return {event: p.stage, detail: p.stage === 'Appointment scheduled' ? `Visit on ${t.appointment}.` : undefined};
 }
 
@@ -150,4 +156,11 @@ export function contractorView(t: Ticket, m: Member): Ticket {
   return {...t, analyst: '', cost: undefined, reporterEmail: undefined, offeredTo, verification: undefined,
     history: t.history.filter(h => h.visibility === 'shared'), evidence: (t.evidence || []).filter(e => e.visibility === 'shared'),
     ...(mine ? {} : {contactName: undefined, contactPhone: undefined, access: undefined})};
+}
+
+/** What an apartment owner or tenant (role Resident) sees of their own report: no costs, internal notes or
+ *  internal photos, plus the work contact of the tradesperson once a firm has accepted the job. */
+export function residentView(t: Ticket, m: Member, contact?: {name?: string; phone?: string; email?: string}): Ticket & {residentContact?: typeof contact} {
+  return {...t, analyst: '', cost: undefined, offeredTo: undefined, verification: undefined, history: t.history.filter(h => h.visibility === 'shared'),
+    evidence: (t.evidence || []).filter(e => e.visibility === 'shared' || e.uploadedBy === m.id || e.uploadedBy === m.name), residentContact: contact};
 }
