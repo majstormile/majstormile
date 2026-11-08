@@ -8,6 +8,7 @@ import {tx, useLang, locale} from '@/lib/i18n';
 import {authorizedFetch} from '@/lib/supabase-browser';
 import {canAccept, canReport, JOB_STAGES, type JobStage} from '@/lib/jobs';
 import type {Member, Ticket} from '@/lib/domain';
+import {NotifyTenant} from '@/components/accept-wizard';
 
 const STAGE_ICON: Record<JobStage, typeof Play> = {
   'Appointment scheduled': CalendarClock, 'Work started': Play, 'Waiting for parts': PackageSearch, 'Progress update': MessageSquare, 'Work finished': CheckCircle2,
@@ -92,12 +93,13 @@ export default function JobPanel({ticket: t, viewer, revision, persona, busy, on
       </div>
     </div>
     {t.appointment && <p className="job-appointment"><CalendarClock size={16}/>{tx('Appointment: {0}', [new Date(t.appointment).toLocaleString(locale(), {dateStyle: 'full', timeStyle: 'short'})])}</p>}
+    {reporting && viewer.role === 'Contractor' && <NotifyTenant ticket={t} firm={t.contractor}/>}
     {t.workStage && <p className="job-stage">{tx('Last report: {0}', [tx(t.workStage)])}</p>}
 
     {offered && <div className="job-offer">
       <p><b>{tx('This job is offered to your firm.')}</b> {tx('Prices are fixed by your contract. Once you accept, you see the tenant contact and access details and can agree an appointment.')}</p>
       {!declining ? <div className="button-row">
-        <button className="primary" disabled={off} onClick={() => send({job: 'accept'})}><CheckCircle2 size={16}/>{tx('Accept job')}</button>
+        <button className="primary" disabled={off} onClick={() => window.dispatchEvent(new CustomEvent('mm-accept', {detail: t.id}))}><CheckCircle2 size={16}/>{tx('Accept job')}</button>
         <button className="secondary" disabled={off} onClick={() => setDeclining(true)}><XCircle size={16}/>{tx('Decline')}</button>
       </div> : <div className="form">
         <label>{tx('Reason for declining')}<input value={reason} onChange={e => setReason(e.target.value)} maxLength={300} placeholder={tx('e.g. no capacity this week')}/></label>
@@ -129,7 +131,7 @@ export default function JobPanel({ticket: t, viewer, revision, persona, busy, on
     </form>}
 
     {updates.length > 0 && <ol className="job-timeline">
-      {[...updates].reverse().map((h, i) => <li key={h.at + i}><b>{tx(h.action)}</b><small>{when(h.at)} · {h.actor}</small>{h.note && <p>{h.note.replace(/^Visit on (\S+)\./, (_, d) => tx('Visit on {0}.', [when(d)]))}</p>}</li>)}
+      {[...updates].reverse().map((h, i) => <li key={h.at + i}><b>{tx(h.action)}</b><small>{when(h.at)} · {h.actor}</small>{h.note && <p>{h.note.replace(/Visit on (\S+)\./g, (_, d) => tx('Visit on {0}.', [when(d)]))}</p>}</li>)}
     </ol>}
   </section>;
 }

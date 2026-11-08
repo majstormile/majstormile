@@ -94,8 +94,14 @@ export function jobAction(s: State, t: Ticket, m: Member, actual: Member, body: 
     t.contractor = m.contractor; t.contractId = contract.id; t.warranty = 'Scope reviewed';
     t.acceptedAt = now; t.acceptedBy = actual.id; delete t.offeredTo;
     t.status = 'Acknowledged';
+    // The accept wizard sends the agreed visit with the acceptance.
+    const appt = typeof body.appointment === 'string' && body.appointment ? Date.parse(body.appointment) : NaN;
+    if (!Number.isNaN(appt)) {
+      if (appt < Date.parse(now) - 3_600_000 || appt > Date.parse(now) + 365 * 86_400_000) throw new AppError('The appointment must be within the next 12 months.');
+      t.appointment = new Date(appt).toISOString(); t.workStage = 'Appointment scheduled'; delete t.reminders;
+    }
     notify(s, staffFor(s, t), t, `Job accepted by ${m.contractor}: ${label(t)}`, now);
-    return {event: 'Job accepted', detail: `Accepted by ${by} under ${contract.id}.`};
+    return {event: 'Job accepted', detail: `Accepted by ${by} under ${contract.id}.` + (t.appointment && !Number.isNaN(appt) ? ` Visit on ${t.appointment}.` : '')};
   }
 
   if (kind === 'decline') {
@@ -119,7 +125,7 @@ export function jobAction(s: State, t: Ticket, m: Member, actual: Member, body: 
     if (!p.appointment) throw new AppError('Choose the date and time of the appointment.');
     const at = Date.parse(p.appointment);
     if (at < Date.parse(now) - 86_400_000 || at > Date.parse(now) + 365 * 86_400_000) throw new AppError('The appointment must be within the next 12 months.');
-    t.appointment = new Date(at).toISOString();
+    t.appointment = new Date(at).toISOString(); delete t.reminders;
   }
   if ((p.stage === 'Waiting for parts' || p.stage === 'Progress update') && note.length < 3) throw new AppError('Describe the progress in a few words.');
   if (p.stage === 'Work started' && t.status === 'Acknowledged') { t.status = 'Repair in progress'; t.startedAt = now; }

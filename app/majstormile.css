@@ -244,3 +244,55 @@
 }
 [data-theme=dark] .wiz-review>button,[data-theme=dark] .wiz-photo-btn:not(.primary-look){background:#1d2026;border-color:#2c3038}
 [data-theme=dark] .wiz-dot b{background:#2c3038;color:#c3cbd6}
+
+/* Contractor: job offer popup and accept wizard (components/accept-wizard.tsx) */
+.aw-wrap{position:fixed;inset:0;z-index:60;background:rgba(15,25,35,.5);display:flex;align-items:center;justify-content:center;padding:16px}
+.aw{width:min(560px,100%);max-height:calc(100vh - 32px);display:flex;flex-direction:column;background:#fff;border-radius:22px;box-shadow:0 24px 60px rgba(0,0,0,.25);overflow:hidden;color:#182437}
+.aw-top{display:flex;align-items:center;justify-content:space-between;padding:14px 12px 6px 20px;font-size:17px}
+.aw-steps{padding:0 12px}
+.aw-body{flex:1;overflow:auto;padding:8px 20px 16px}
+.aw-card h2{margin:6px 0 10px;font-size:22px;display:flex;align-items:center;gap:8px}
+.aw-line{display:flex;align-items:center;gap:8px;margin:6px 0;font-size:16px}
+.aw-note{background:#f5f7fa;border-radius:12px;padding:12px;white-space:pre-wrap;line-height:1.45}
+.aw-urgent{display:inline-block;background:#fde3e6;color:#9b1c2e;font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:999px}
+.aw-urgent-note{background:#fff4e5;color:#7a4a00;border-radius:10px;padding:10px 12px;font-weight:600}
+.aw-decline{margin-top:10px;color:#9b1c2e}
+.aw-dl{display:grid;grid-template-columns:110px 1fr;gap:10px 14px;margin:0}
+.aw-dl dt{color:#5f6b7c;font-size:13px;font-weight:600}.aw-dl dd{margin:0;overflow-wrap:anywhere}
+.aw-label{margin:14px 0 6px;font-weight:700;font-size:14px}
+.aw-chips{display:flex;flex-wrap:wrap;gap:8px}
+.aw-chips .chip{min-height:44px;padding:0 14px;border:1px solid #d5dde6;border-radius:12px;background:#fff;color:#182437;font:inherit;font-size:15px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;position:relative}
+.aw-chips .chip.on{background:#1f3a2e;border-color:#1f3a2e;color:#fff;font-weight:700}
+.chip-date input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%}
+.aw-pick{margin:14px 0 0;padding:12px;border-radius:12px;background:#eef4f0;color:#1f3a2e;font-weight:700;text-transform:capitalize}
+.aw-pick.bad{background:#fde3e6;color:#9b1c2e;text-transform:none}
+.aw-agree{margin-top:16px;padding:12px;border:1px solid #d5dde6;border-radius:12px;align-items:flex-start;line-height:1.4}
+.aw-nav{display:flex;gap:10px;padding:12px 20px calc(16px + env(safe-area-inset-bottom));border-top:1px solid #eef1f5}
+.aw-nav button{flex:1;min-height:50px;display:inline-flex;align-items:center;justify-content:center;gap:8px;font-size:16px}
+.aw-done{text-align:center;padding:10px 0}
+.aw-ok{color:#1f8f4e}
+.aw-when{display:inline-flex;gap:8px;align-items:center;font-weight:700;font-size:17px;background:#eef4f0;color:#1f3a2e;padding:10px 14px;border-radius:12px;text-transform:capitalize}
+.offer-card{padding:22px 0 0;text-align:center}
+.offer-bell{width:64px;height:64px;margin:0 auto 8px;border-radius:50%;background:#fff4e0;color:#b7791f;display:flex;align-items:center;justify-content:center;animation:offer-ring 1.4s ease-in-out 2}
+@keyframes offer-ring{0%,100%{transform:rotate(0)}20%{transform:rotate(-14deg)}40%{transform:rotate(12deg)}60%{transform:rotate(-8deg)}80%{transform:rotate(5deg)}}
+.offer-card h2{margin:0 0 12px;font-size:22px}
+.offer-job{display:flex;flex-direction:column;align-items:center;gap:6px;margin:0 20px 18px;padding:14px;border-radius:14px;background:#f5f7fa}
+.offer-job b{font-size:18px}.offer-job span{display:inline-flex;align-items:center;gap:6px;color:#4a5566}
+.notify-tenant{text-align:left;margin:16px 0 0;padding:14px;border:1px solid #e0e6ed;border-radius:14px;background:#fafcfb}
+.notify-tenant p{margin:0 0 10px}
+.notify-btns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.nt-btn{min-height:48px;display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:12px;color:#fff!important;font-weight:700;text-decoration:none}
+.nt-btn.sms{background:#2d5bd7}.nt-btn.viber{background:#665cac}.nt-btn.wa{background:#1f8f4e}.nt-btn.call{background:#1f3a2e}
+@media (max-width:767px){
+ .aw-wrap{padding:0;align-items:flex-end}
+ .aw{width:100%;max-height:100vh;height:100%;border-radius:0}
+ .aw-wrap.offer{align-items:center;padding:16px}.aw-wrap.offer .aw{height:auto;border-radius:22px}
+ .aw-dl{grid-template-columns:1fr;gap:2px}.aw-dl dd{margin-bottom:10px}
+}
+[data-theme=dark] .aw{background:#1d2026;color:#e6e9ee}
+[data-theme=dark] .aw-note,[data-theme=dark] .offer-job{background:#23272e}
+[data-theme=dark] .aw-chips .chip{background:#23272e;border-color:#2c3038;color:#e6e9ee}
+[data-theme=dark] .notify-tenant{background:#23272e;border-color:#2c3038}
+.aw-ok{display:block;margin:6px auto 4px}
+.aw-pick,.aw-when{text-transform:none!important}
+.aw-pick::first-letter{text-transform:uppercase}
